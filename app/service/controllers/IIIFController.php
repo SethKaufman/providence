@@ -48,7 +48,6 @@ class IIIFController extends BaseServiceController {
 		}
 
 		$this->getView()->setVar('content', $va_content);
-		//$this->render('json.php');
 	}
 	# -------------------------------------------------------
 }
