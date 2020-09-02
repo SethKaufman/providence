@@ -1690,7 +1690,7 @@
 						);
 
 						if (!$va_date['sortable']) { continue; }
-						if (sizeof($va_location_types) && !in_array($vn_rel_type_id = $qr_locations->get("{$linking_table}.type_id"), $va_location_types)) { continue; }
+						if (sizeof($va_location_types) && sizeof($va_location_types) && !in_array($vn_rel_type_id = $qr_locations->get("{$linking_table}.type_id"), $va_location_types)) { continue; }
 						
 						if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date))) { continue; }
 						
@@ -1863,6 +1863,7 @@
 		 * @param string $policy 
 		 * @param array $options Array of options. Options include:
 		 *		row_id = 
+		 *		returnHistoryTrackingData = Return arrray with internal history tracking data. [Default is false]
 		 *
 		 * @return SearchResult 
 		 */
@@ -1871,7 +1872,8 @@
 			if (!$policy) { if (!($policy = $this->getDefaultHistoryTrackingCurrentValuePolicy())) { return null; } }
 		
 			$values = ca_history_tracking_current_values::find(['policy' => $policy, 'current_table_num' => $this->tableNum(), 'current_row_id' => $row_id], ['returnAs' => 'arrays', 'transaction' => $this->getTransaction()]);
-		
+			if(caGetOption('returnHistoryTrackingData', $options, false)) { return $values; }
+			
 			$ids = array_map(function($v) { return $v['row_id']; }, $values);
 			$row = array_shift($values);
 	
