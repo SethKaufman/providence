@@ -119,7 +119,6 @@ require_once(__CA_APP_DIR__."/helpers/gisHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/printHelpers.php");
 require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
 require_once(__CA_LIB_DIR__."/MediaContentLocationIndexer.php");
-require_once(__CA_LIB_DIR__.'/Media/Remote/Base.php');
 
 /**
  * Base class for all database table classes. Implements database insert/update/delete
@@ -4237,22 +4236,38 @@ if (!isset($pa_options['dontSetHierarchicalIndexing']) || !$pa_options['dontSetH
 				$vb_allow_fetching_of_urls = (bool)$this->_CONFIG->get('allow_fetching_of_media_from_remote_urls');
 				$vb_is_fetched_file = false;
 
-				if($vb_allow_fetching_of_urls && ($o_remote = CA\Media\Remote\Base::getPluginInstance($this->_SET_FILES[$ps_field]['tmp_name']))) {
-					$vs_url = $this->_SET_FILES[$ps_field]['tmp_name'];
-					$vs_tmp_file = tempnam(__CA_APP_DIR__.'/tmp', 'caUrlCopy');
+				$vs_url = $this->_SET_FILES[$ps_field]['tmp_name'];
+				$vs_url_fetched_original_url = $vs_url_fetched_from = $vn_url_fetched_on = $vs_url_fetched_by = null;
+				
+				if(
+					$vb_allow_fetching_of_urls && 
+					isUrl($vs_url) &&
+					($media_url = new CA\MediaUrl())
+				) {
+					$vs_tmp_file = null;
 					try {
-						$o_remote->downloadMediaForProcessing($vs_url, $vs_tmp_file);
-						$this->_SET_FILES[$ps_field]['original_filename'] = $o_remote->getOriginalFilename($vs_url);
+						$r = $media_url->fetch($vs_url);
+						if (is_array($r)) {
+							$this->_SET_FILES[$ps_field]['original_filename'] = !empty($r['originalFilename']) ? $r['originalFilename'] : pathinfo($r['file'], PATHINFO_BASENAME);
+							$vs_tmp_file = $r['file'];
+						} else {
+							$this->postError(1600, _t('Could not download media'), "BaseModel->_processMedia()", $this->tableName().'.'.$ps_field);	
+							return false;
+						}
+						
+						$vs_url_fetched_original_url = $r['originalUrl'];
+						$vs_url_fetched_from = $r['url'];
+						$vs_url_fetched_by = $r['plugin'];
+						
+						$vn_url_fetched_on = time();
+						
+						$this->_SET_FILES[$ps_field]['tmp_name'] = $vs_tmp_file;
+						$vb_is_fetched_file = true;
 					} catch(Exception $e) {
 						$this->postError(1600, $e->getMessage(), "BaseModel->_processMedia()", $this->tableName().'.'.$ps_field);
 						set_time_limit($vn_max_execution_time);
 						return false;
 					}
-
-					$vs_url_fetched_from = $vs_url;
-					$vn_url_fetched_on = time();
-					$this->_SET_FILES[$ps_field]['tmp_name'] = $vs_tmp_file;
-					$vb_is_fetched_file = true;
 				}
 			
 				// is it server-side stored user media?
@@ -4341,25 +4356,27 @@ if (!isset($pa_options['dontSetHierarchicalIndexing']) || !$pa_options['dontSetH
 				
 					// preserve center setting from any existing media
 					$va_center = null;
-					if (is_array($va_tmp = $this->getMediaInfo($ps_field))) { $va_center = caGetOption('_CENTER', $va_tmp, array()); }
-					$media_desc = array(
+					if (is_array($va_tmp = $this->getMediaInfo($ps_field))) { $va_center = caGetOption('_CENTER', $va_tmp, []); }
+					$media_desc = [
 						"ORIGINAL_FILENAME" => $this->_SET_FILES[$ps_field]['original_filename'],
 						"_CENTER" => $va_center,
-						"_SCALE" => caGetOption('_SCALE', $va_tmp, array()),
-						"_SCALE_UNITS" => caGetOption('_SCALE_UNITS', $va_tmp, array()),
+						"_SCALE" => caGetOption('_SCALE', $va_tmp, []),
+						"_SCALE_UNITS" => caGetOption('_SCALE_UNITS', $va_tmp, []),
 						"_START_AT_TIME" => caGetOption('startAtTime', $pa_options, null),
 						"_START_AT_PAGE" => caGetOption('startAtPage', $pa_options, null),
-						"INPUT" => array(
+						"INPUT" => [
 							"MIMETYPE" => $m->get("mimetype"),
 							"WIDTH" => $m->get("width"),
 							"HEIGHT" => $m->get("height"),
 							"MD5" => md5_file($this->_SET_FILES[$ps_field]['tmp_name']),
 							"FILESIZE" => filesize($this->_SET_FILES[$ps_field]['tmp_name']),
+							"FETCHED_BY" => $vs_url_fetched_by,
+							"FETCHED_ORIGINAL_URL" => $vs_url_fetched_original_url,
 							"FETCHED_FROM" => $vs_url_fetched_from,
 							"FETCHED_ON" => $vn_url_fetched_on,
 							"FILE_LAST_MODIFIED" => filemtime($this->_SET_FILES[$ps_field]['tmp_name'])
-						 )
-					);
+						 ]
+					];
 				
 					if (isset($this->_SET_FILES[$ps_field]['options']['TRANSFORMATION_HISTORY']) && is_array($this->_SET_FILES[$ps_field]['options']['TRANSFORMATION_HISTORY'])) {
 						$media_desc['TRANSFORMATION_HISTORY'] = $this->_SET_FILES[$ps_field]['options']['TRANSFORMATION_HISTORY'];
@@ -7842,11 +7859,14 @@ if (!isset($pa_options['dontSetHierarchicalIndexing']) || !$pa_options['dontSetH
 		
 		$va_child_row_ids = array();
 		$va_level_row_ids = $pa_row_ids;
+		
+		$delete_sql = ($t_instance->hasField('deleted')) ? 'deleted = 0 AND ' : '';	// filter deleted
 		do {
 			$qr_level = $o_db->query("
 				SELECT {$vs_table_pk}
 				FROM {$vs_table_name}
 				WHERE
+					{$delete_sql}
 					{$vs_parent_id_fld} IN (?)
 			", array($va_level_row_ids));
 			$va_level_row_ids = $qr_level->getAllFieldValues($vs_table_pk);
@@ -8529,7 +8549,7 @@ $pa_options["display_form_field_tips"] = true;
 								// if 'LIST' is set try to stock over choice list with the contents of the list
 								if (isset($va_attr['LIST']) && $va_attr['LIST']) {
 									// NOTE: "raw" field value (value passed into method, before the model default value is applied) is used so as to allow the list default to be used if needed
-									$vs_element = ca_lists::getListAsHTMLFormElement($va_attr['LIST'], $pa_options["name"].$vs_multiple_name_extension, array('class' => $pa_options['classname'], 'id' => $pa_options['id']), array('key' => 'item_value', 'value' => $vm_raw_field_value, 'nullOption' => $pa_options['nullOption'], 'readonly' => $pa_options['readonly'], 'checkAccess' => $pa_options['checkAccess']));
+									$vs_element = ca_lists::getListAsHTMLFormElement($va_attr['LIST'], $pa_options["name"].$vs_multiple_name_extension, array('class' => $pa_options['classname'], 'id' => $pa_options['id']), array('key' => 'item_value', 'value' => $vm_raw_field_value, 'nullOption' => $pa_options['nullOption'], 'readonly' => $pa_options['readonly'], 'checkAccess' => $pa_options['checkAccess'], 'table' => $this->tableName(), 'type' => method_exists($this, 'getTypeCode') ? $this->getTypeCode() : null));
 								}
 								if (!$vs_element && (isset($va_attr["BOUNDS_CHOICE_LIST"]) && is_array($va_attr["BOUNDS_CHOICE_LIST"]))) {
 	
