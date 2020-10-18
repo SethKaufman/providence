@@ -34,25 +34,15 @@
     "phpunit/phpunit": "8.5",
     "scholarslab/bagit": "*",
     "srmklive/flysystem-dropbox-v2": ">=1.0.0",
-<<<<<<< HEAD
     "tedivm/stash": "0.15.*",
     "zendframework/zend-stdlib": "^3.2",
-    "james-heinrich/getid3": "^1.9.20"
-=======
-    "tedivm/stash": "0.14.*"
->>>>>>> develop
-  },
-  "require": {
+    "james-heinrich/getid3": "^1.9.20",
     "ext-iconv": "*",
     "ext-simplexml": "*",
-<<<<<<< HEAD
     "phpseclib/phpseclib": "^2.0",
     "webonyx/graphql-php": "^14.1"
-=======
-    "phpseclib/phpseclib": "^2.0"
   },
   "config": {
   	"discard-changes": true
->>>>>>> develop
   }
 }
