@@ -36,7 +36,6 @@
 require_once(__CA_LIB_DIR__."/Plugins/IWLPlugExternalExportFormat.php");
 require_once(__CA_LIB_DIR__."/Plugins/IWLPlugExternalExportTransport.php");
 require_once(__CA_LIB_DIR__."/Plugins/ExternalExport/BaseExternalExportFormatPlugin.php");
-require_once(__CA_BASE_DIR__.'/vendor/scholarslab/bagit/lib/bagit.php');
 
 class WLPlugBagIt Extends BaseExternalExportFormatPlugin Implements IWLPlugExternalExportFormat {
 	# ------------------------------------------------------

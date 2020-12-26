@@ -25,9 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	require_once(__CA_LIB_DIR__."/Search/LoanSearch.php");
- 	require_once(__CA_LIB_DIR__."/Browse/LoanBrowse.php");
- 	
+ 	 	 	 	
  	class SearchLoansController extends BaseSearchController {
  		# -------------------------------------------------------
  		/**

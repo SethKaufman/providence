@@ -36,8 +36,6 @@ define('__CA_ELASTICSEARCH_SETTING_RUNNING__',5001);
 /* does the index exist? */
 define('__CA_ELASTICSEARCH_SETTING_INDEX_EXISTS__',5002);
 # ------------------------------------------------
-require_once(__CA_LIB_DIR__.'/Search/SearchBase.php');
-require_once(__CA_LIB_DIR__.'/Search/ASearchConfigurationSettings.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch.php');
 
 # ------------------------------------------------

@@ -32,8 +32,7 @@
  
  /**
   *
-  */	
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AuthorityAttributeValue.php');
+  */
  	 
  	global $_ca_attribute_settings;
  	

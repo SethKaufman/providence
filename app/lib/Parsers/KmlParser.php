@@ -45,8 +45,6 @@
  * This module requires the SimpleXML extension.
  *
  */
-
-require_once(__CA_LIB_DIR__."/Parsers/UnZipFile.php");
 require_once(__CA_APP_DIR__."/helpers/utilityHelpers.php");
 
 class KmlParser {

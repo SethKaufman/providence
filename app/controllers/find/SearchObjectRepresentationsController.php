@@ -25,9 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	require_once(__CA_LIB_DIR__."/Search/ObjectRepresentationSearch.php");
- 	require_once(__CA_LIB_DIR__."/Browse/ObjectRepresentationBrowse.php");
- 	
+ 	 	 	 	
  	class SearchObjectRepresentationsController extends BaseSearchController {
  		# -------------------------------------------------------
  		/**

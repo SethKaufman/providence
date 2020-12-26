@@ -25,9 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 
- 	 	require_once(__CA_LIB_DIR__."/Media/MediaProcessingSettings.php");
- 	 	
  	 	 
  	class RepresentationAnnotationEditorController extends BaseEditorController {
  		# -------------------------------------------------------

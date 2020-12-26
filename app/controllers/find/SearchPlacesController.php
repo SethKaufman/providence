@@ -25,9 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	require_once(__CA_LIB_DIR__."/Search/PlaceSearch.php");
- 	require_once(__CA_LIB_DIR__."/Browse/PlaceBrowse.php");
- 	
+ 	 	 	 	
  	class SearchPlacesController extends BaseSearchController {
  		# -------------------------------------------------------
  		/**

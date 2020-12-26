@@ -34,7 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__.'/Attributes/Values/IAttributeValue.php');
 require_once(__CA_APP_DIR__.'/helpers/htmlFormHelpers.php');
 
 abstract class AttributeValue extends BaseObject {

@@ -32,11 +32,7 @@
  
  /**
    *
-   */
-
-require_once(__CA_APP_DIR__.'/models/ca_attribute_values.php');
-require_once(__CA_LIB_DIR__.'/Attributes/Attribute.php');
-		
+   */	
 
 BaseModel::$s_ca_models_definitions['ca_attributes'] = array(
  	'NAME_SINGULAR' 	=> _t('attribute'),
@@ -224,7 +220,6 @@ class ca_attributes extends BaseModel {
 	 */
 	public function addAttribute($pn_table_num, $pn_row_id, $pm_element_code_or_id, $pa_values, $pa_options=null) {
 	    if (!is_array($pa_options)) { $pa_options = []; }
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');	// defer inclusion until runtime to ensure baseclasses are already loaded, otherwise you get circular dependencies
 		
 		global $g_ui_locale_id;
 		
@@ -507,7 +502,6 @@ class ca_attributes extends BaseModel {
 	static public function getElementInstance($pm_element_code_or_id) {
 		if (isset(ca_attributes::$s_ca_attributes_element_instance_cache[$pm_element_code_or_id])) { return ca_attributes::$s_ca_attributes_element_instance_cache[$pm_element_code_or_id]; }
 		
-		//require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');	// defer inclusion until runtime to ensure baseclasses are already loaded, otherwise you get circular dependencies
 		$t_element = new ca_metadata_elements();
 		
 		if (!is_numeric($pm_element_code_or_id)) {

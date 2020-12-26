@@ -34,9 +34,7 @@
   *
   */
   
- 	require_once(__CA_LIB_DIR__.'/Browse/BaseBrowse.php');
- 	require_once(__CA_LIB_DIR__.'/Browse/LoanBrowseResult.php');
- 
+ 	 	 
 	class LoanBrowse extends BaseBrowse {
 		# ------------------------------------------------------
 		/**

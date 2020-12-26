@@ -36,7 +36,6 @@
 
 require_once(__CA_APP_DIR__."/helpers/printHelpers.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
-require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
 require_once(__CA_LIB_DIR__.'/Logging/Downloadlog.php');
 
 class BaseInterstitialController extends BaseEditorController {

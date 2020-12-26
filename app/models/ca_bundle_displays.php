@@ -34,18 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php'); 
-require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_bundle_displays.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_bundle_display_placements.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_bundle_displays_x_user_groups.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_bundle_display_type_restrictions.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php'); 
-
-define('__CA_BUNDLE_DISPLAY_NO_ACCESS__', 0);
-define('__CA_BUNDLE_DISPLAY_READ_ACCESS__', 1);
-define('__CA_BUNDLE_DISPLAY_EDIT_ACCESS__', 2);
-
 BaseModel::$s_ca_models_definitions['ca_bundle_displays'] = array(
  	'NAME_SINGULAR' 	=> _t('display list'),
  	'NAME_PLURAL' 		=> _t('display lists'),

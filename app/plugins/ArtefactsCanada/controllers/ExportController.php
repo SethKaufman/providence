@@ -25,8 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
-require_once(__CA_LIB_DIR__.'/Parsers/ZipFile.php');
-
 
 class ExportController extends ActionController {
 	# -------------------------------------------------------

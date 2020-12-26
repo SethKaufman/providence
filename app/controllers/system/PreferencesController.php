@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
-   require_once(__CA_LIB_DIR__."/Search/QuickSearch.php");
- 
+    
  	class PreferencesController extends ActionController {
  		# -------------------------------------------------------
  		/**

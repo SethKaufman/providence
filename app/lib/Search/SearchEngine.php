@@ -29,11 +29,7 @@
 # ----------------------------------------------------------------------
 # --- Import classes
 # ----------------------------------------------------------------------
-require_once(__CA_LIB_DIR__."/Search/SearchBase.php");
 require_once(__CA_LIB_DIR__."/Plugins/SearchEngine/CachedResult.php");
-require_once(__CA_LIB_DIR__."/Search/SearchIndexer.php");
-require_once(__CA_LIB_DIR__."/Search/SearchResult.php");
-require_once(__CA_LIB_DIR__."/Search/SearchCache.php");
 require_once(__CA_LIB_DIR__."/Logging/Searchlog.php");
 require_once(__CA_LIB_DIR__."/Utils/Timer.php");
 require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');

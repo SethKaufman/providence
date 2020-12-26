@@ -25,9 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	require_once(__CA_LIB_DIR__."/Search/StorageLocationSearch.php");
- 	require_once(__CA_LIB_DIR__."/Browse/StorageLocationBrowse.php");
- 	
+ 	 	 	 	
  	class SearchStorageLocationsController extends BaseSearchController {
  		# -------------------------------------------------------
  		/**

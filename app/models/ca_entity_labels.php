@@ -34,9 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
-
-
 BaseModel::$s_ca_models_definitions['ca_entity_labels'] = array(
  	'NAME_SINGULAR' 	=> _t('entity name'),
  	'NAME_PLURAL' 		=> _t('entity names'),

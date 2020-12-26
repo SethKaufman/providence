@@ -33,8 +33,6 @@
  /**
   *
   */
-	require_once(__CA_LIB_DIR__."/Media/MediaInfoCoder.php");
- 	
  
  	global $_ca_attribute_settings;
  	

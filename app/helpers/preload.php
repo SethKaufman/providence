@@ -43,6 +43,30 @@ require_once(__CA_LIB_DIR__."/Cache/ExternalCache.php"); // is used in utilityHe
 require_once(__CA_LIB_DIR__."/Cache/CompositeCache.php"); // is used in utilityHelpers
 require_once(__CA_LIB_DIR__."/Cache/PersistentCache.php"); // is used in utilityHelpers
 
+spl_autoload_register(function ($class) {
+    // Anything prefixed with "ca_" is a model
+    if (substr($class, 0, 3) === 'ca_') {
+        if(require(__CA_MODELS_DIR__."/{$class}.php")) { return true; }
+    }
+    
+    // strip namespaces if present
+    if(strpos($class, '\\') !== false) {
+    	$class = array_pop(explode('\\', $class));
+    }
+    
+    // search common locations for class
+    $paths = [__CA_LIB_DIR__, __CA_LIB_DIR__.'/Utils', __CA_LIB_DIR__.'/Parsers', __CA_LIB_DIR__.'/Media', __CA_LIB_DIR__.'/Exceptions', __CA_LIB_DIR__.'/Attributes', __CA_LIB_DIR__.'/Attributes/Values', __CA_LIB_DIR__.'/Search', __CA_LIB_DIR__.'/Browse', __CA_LIB_DIR__.'/Controller'];
+    foreach($paths as $path) {
+        if(file_exists("{$path}/{$class}.php")) {
+            if(require("{$path}/{$class}.php")) { return true; }   
+        }
+    }
+    
+    //
+    return false;
+});
+
+
 require_once(__CA_LIB_DIR__."/Utils/Debug.php");
 require_once(__CA_APP_DIR__."/helpers/utilityHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/logHelpers.php");
@@ -70,10 +94,9 @@ require_once(__CA_LIB_DIR__.'/FooterManager.php');
 
 require_once(__CA_LIB_DIR__.'/AppNavigation.php');
 
-require_once(__CA_LIB_DIR__.'/Controller/ActionController.php');
 
 
-require_once(__CA_APP_DIR__.'/lib/GarbageCollection.php');
+require_once(__CA_LIB_DIR__.'/GarbageCollection.php');
 require_once(__CA_APP_DIR__.'/helpers/guidHelpers.php');
 
 
@@ -84,25 +107,3 @@ Datamodel::load();
 TooltipManager::init();
 
 
-spl_autoload_register(function ($class) {
-    // Anything prefixed with "ca_" is a model
-    if (substr($class, 0, 3) === 'ca_') {
-        if(require(__CA_MODELS_DIR__."/{$class}.php")) { return true; }
-    }
-    
-    // strip namespaces if present
-    if(strpos($class, '\\') !== false) {
-    	$class = array_pop(explode('\\', $class));
-    }
-    
-    // search common locations for class
-    $paths = [__CA_LIB_DIR__, __CA_LIB_DIR__.'/Utils', __CA_LIB_DIR__.'/Parsers', __CA_LIB_DIR__.'/Media', __CA_LIB_DIR__.'/Exceptions', __CA_LIB_DIR__.'/Attributes', __CA_LIB_DIR__.'/Attributes/Values'];
-    foreach($paths as $path) {
-        if(file_exists("{$path}/{$class}.php")) {
-            if(require("{$path}/{$class}.php")) { return true; }   
-        }
-    }
-    
-    //
-    return false;
-});

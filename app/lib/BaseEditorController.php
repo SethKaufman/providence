@@ -37,7 +37,6 @@
 require_once(__CA_APP_DIR__."/helpers/printHelpers.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
 require_once(__CA_LIB_DIR__.'/Print/PDFRenderer.php');
-require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
 require_once(__CA_LIB_DIR__.'/Logging/Downloadlog.php');
 
 define('__CA_SAVE_AND_RETURN_STACK_SIZE__', 30);

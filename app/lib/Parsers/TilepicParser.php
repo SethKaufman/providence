@@ -33,9 +33,6 @@
  /**
   *
   */
-
-require_once(__CA_LIB_DIR__."/Utils/Timer.php");
-include_once(__CA_LIB_DIR__."/Configuration.php");
 include_once(__CA_APP_DIR__."/helpers/mediaPluginHelpers.php");
 
 define("LIBRARY_GD", 0);

@@ -24,10 +24,7 @@
  * http://www.CollectiveAccess.org
  *
  * ----------------------------------------------------------------------
- */
- 
- 	 	require_once(__CA_LIB_DIR__."/Media/MediaProcessingSettings.php");
- 	 	
+ */ 	
  	 	 
  	class ObjectRepresentationEditorController extends BaseEditorController {
  		# -------------------------------------------------------

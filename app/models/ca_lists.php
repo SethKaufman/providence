@@ -33,16 +33,8 @@
  /**
    *
    */
-
-require_once(__CA_APP_DIR__.'/models/ca_list_items.php');
 require_once(__CA_APP_DIR__.'/helpers/htmlFormHelpers.php');
 require_once(__CA_APP_DIR__.'/helpers/listHelpers.php');
-
-define('__CA_LISTS_SORT_BY_LABEL__', 0);
-define('__CA_LISTS_SORT_BY_RANK__', 1);
-define('__CA_LISTS_SORT_BY_VALUE__', 2);
-define('__CA_LISTS_SORT_BY_IDENTIFIER__', 3);
-
 
 BaseModel::$s_ca_models_definitions['ca_lists'] = array(
  	'NAME_SINGULAR' 	=> _t('list'),

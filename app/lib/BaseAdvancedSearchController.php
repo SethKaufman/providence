@@ -31,7 +31,6 @@
  */
 
 require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
-require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
 
 class BaseAdvancedSearchController extends BaseRefineableSearchController {
 	# -------------------------------------------------------

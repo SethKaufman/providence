@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/Controller/ActionController.php");
- 		 	
+ 	 		 	
  	class SetController extends ActionController {
  		# -------------------------------------------------------
  		protected $opn_list_set_type_id;

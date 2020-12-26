@@ -110,66 +110,51 @@
 		
 		if (!($t_instance = Datamodel::getInstanceByTableName($vs_table, true))) { return null; }
 		if ($t_instance->isRelationship()) { 
-			require_once(__CA_LIB_DIR__.'/Browse/InterstitialBrowse.php');
-			return new InterstitialBrowse(null, null, $vs_table);
+						return new InterstitialBrowse(null, null, $vs_table);
 		}
 		
 		switch($vs_table) {
 			case 'ca_objects':
-				require_once(__CA_LIB_DIR__.'/Browse/ObjectBrowse.php');
-				return new ObjectBrowse();
+								return new ObjectBrowse();
 				break;
 			case 'ca_entities':
-				require_once(__CA_LIB_DIR__.'/Browse/EntityBrowse.php');
-				return new EntityBrowse();
+								return new EntityBrowse();
 				break;
 			case 'ca_places':
-				require_once(__CA_LIB_DIR__.'/Browse/PlaceBrowse.php');
-				return new PlaceBrowse();
+								return new PlaceBrowse();
 				break;
 			case 'ca_occurrences':
-				require_once(__CA_LIB_DIR__.'/Browse/OccurrenceBrowse.php');
-				return new OccurrenceBrowse();
+								return new OccurrenceBrowse();
 				break;
 			case 'ca_collections':
-				require_once(__CA_LIB_DIR__.'/Browse/CollectionBrowse.php');
-				return new CollectionBrowse();
+								return new CollectionBrowse();
 				break;
 			case 'ca_loans':
-				require_once(__CA_LIB_DIR__.'/Browse/LoanBrowse.php');
-				return new LoanBrowse();
+								return new LoanBrowse();
 				break;
 			case 'ca_movements':
-				require_once(__CA_LIB_DIR__.'/Browse/MovementBrowse.php');
-				return new MovementBrowse();
+								return new MovementBrowse();
 				break;
 			case 'ca_lists':
-				require_once(__CA_LIB_DIR__.'/Browse/ListBrowse.php');
-				return new ListBrowse();
+								return new ListBrowse();
 				break;
 			case 'ca_list_items':
-				require_once(__CA_LIB_DIR__.'/Browse/ListItemBrowse.php');
-				return new ListItemBrowse();
+								return new ListItemBrowse();
 				break;
 			case 'ca_object_lots':
-				require_once(__CA_LIB_DIR__.'/Browse/ObjectLotBrowse.php');
-				return new ObjectLotBrowse();
+								return new ObjectLotBrowse();
 				break;
 			case 'ca_object_representations':
-				require_once(__CA_LIB_DIR__.'/Browse/ObjectRepresentationBrowse.php');
-				return new ObjectRepresentationBrowse();
+								return new ObjectRepresentationBrowse();
 				break;
 			case 'ca_tours':
-				require_once(__CA_LIB_DIR__.'/Browse/TourBrowse.php');
-				return new TourBrowse();
+								return new TourBrowse();
 				break;
 			case 'ca_tour_stops':
-				require_once(__CA_LIB_DIR__.'/Browse/TourStopBrowse.php');
-				return new TourStopBrowse();
+								return new TourStopBrowse();
 				break;
 			case 'ca_storage_locations':
-				require_once(__CA_LIB_DIR__.'/Browse/StorageLocationBrowse.php');
-				return new StorageLocationBrowse();
+								return new StorageLocationBrowse();
 				break;
 			default:
 				return null;

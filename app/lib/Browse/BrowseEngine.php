@@ -33,21 +33,6 @@
  /**
   *
   */
- 	 	 	 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AuthorityAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/CollectionsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/EntitiesAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/LoansAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/MovementsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectLotsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectRepresentationsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/OccurrencesAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/PlacesAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/StorageLocationsAttributeValue.php');
-	require_once(__CA_LIB_DIR__.'/Attributes/Values/ListAttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Browse/BrowseResult.php');
- 	require_once(__CA_LIB_DIR__.'/Browse/BrowseCache.php');
- 	require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
  	require_once(__CA_APP_DIR__.'/helpers/searchHelpers.php');
 	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
 

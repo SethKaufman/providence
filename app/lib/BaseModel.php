@@ -39,7 +39,6 @@
 # --- Import classes
 # ----------------------------------------------------------------------
 require_once(__CA_LIB_DIR__."/File/FileVolumes.php");
-require_once(__CA_LIB_DIR__."/Search/SearchIndexer.php");
 require_once(__CA_LIB_DIR__."/Db/Transaction.php");
 require_once(__CA_APP_DIR__."/helpers/utilityHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/gisHelpers.php");

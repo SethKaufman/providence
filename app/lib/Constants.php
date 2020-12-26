@@ -123,3 +123,56 @@ define("__CA_HIER_TYPE_MULTI_POLY__", 4);
 # --- Media icon constants
 # ------------------------------------------------------------------------------------
 define("__CA_MEDIA_QUEUED_ICON__", 'queued');
+
+
+define('__CA_BUNDLE_DISPLAY_NO_ACCESS__', 0);
+define('__CA_BUNDLE_DISPLAY_READ_ACCESS__', 1);
+define('__CA_BUNDLE_DISPLAY_EDIT_ACCESS__', 2);
+
+define('__CA_BUNDLE_ACCESS_NONE__', 0);
+define('__CA_BUNDLE_ACCESS_READONLY__', 1);
+define('__CA_BUNDLE_ACCESS_EDIT__', 2);
+
+/**
+ * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will not be changed
+ */
+define('__CA_PARENT_UNCHANGED__', 0);
+
+/**
+ * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will be changed
+ */
+define('__CA_PARENT_CHANGED__', 1);
+
+/**
+ * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will be changed to a related collection in a object-collection hierarchy
+ */
+define('__CA_PARENT_COLLECTION_CHANGED__', 2);
+
+ define('__CA_LABEL_TYPE_PREFERRED__', 0);
+ define('__CA_LABEL_TYPE_NONPREFERRED__', 1);
+ define('__CA_LABEL_TYPE_ANY__', 2);
+ 
+ 
+
+define("__CA_MEDIA_VIDEO_DEFAULT_ICON__", 'video');
+define("__CA_MEDIA_AUDIO_DEFAULT_ICON__", 'audio');
+define("__CA_MEDIA_DOCUMENT_DEFAULT_ICON__", 'document');
+define("__CA_MEDIA_3D_DEFAULT_ICON__", '3d');
+define("__CA_MEDIA_SPIN_DEFAULT_ICON__", '3d');
+define("__CA_MEDIA_BINARY_FILE_DEFAULT_ICON__", 'document');
+
+
+define('__CA_LISTS_SORT_BY_LABEL__', 0);
+define('__CA_LISTS_SORT_BY_RANK__', 1);
+define('__CA_LISTS_SORT_BY_VALUE__', 2);
+define('__CA_LISTS_SORT_BY_IDENTIFIER__', 3);
+
+
+define('__CA_NOTIFICATION_TYPE_GENERIC__', 0);
+define('__CA_NOTIFICATION_TYPE_METADATA_ALERT__', 1);
+define('__CA_NOTIFICATION_TYPE_URL_REFERENCE_CHECK__', 2);
+
+
+define('__CA_SET_NO_ACCESS__', 0);
+define('__CA_SET_READ_ACCESS__', 1);
+define('__CA_SET_EDIT_ACCESS__', 2);

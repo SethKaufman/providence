@@ -34,8 +34,7 @@
   *
   */
   
- require_once(__CA_LIB_DIR__.'/Search/SearchResult.php');
-   
+    
 	class BaseSearchResult extends SearchResult {
 		# -------------------------------------------------------
 		private $opo_list = null;

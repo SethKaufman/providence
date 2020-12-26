@@ -34,14 +34,6 @@
   *
   */
  
-   require_once(__CA_LIB_DIR__.'/Parsers/ExpressionParser.php');
- require_once(__CA_APP_DIR__.'/models/ca_attributes.php');
- require_once(__CA_APP_DIR__.'/models/ca_attribute_values.php');
- require_once(__CA_APP_DIR__.'/models/ca_metadata_type_restrictions.php');
- require_once(__CA_LIB_DIR__.'/Attributes/Attribute.php');
- require_once(__CA_LIB_DIR__.'/Attributes/Values/AuthorityAttributeValue.php');
-
- 
 	class BaseModelWithAttributes extends BaseModel implements ITakesAttributes {
 		# ------------------------------------------------------------------
 		static $s_applicable_element_code_cache = array();
@@ -101,7 +93,6 @@
 		 * @return bool True on success, false on error or null if attribute was skipped.
 		 */
 		public function addAttribute($pa_values, $pm_element_code_or_id, $ps_error_source=null, $pa_options=null) {
-			require_once(__CA_APP_DIR__.'/models/ca_metadata_elements.php');
 			if(!is_array($pa_options)) { $pa_options = []; }
 			if (!($t_element = ca_metadata_elements::getInstance($pm_element_code_or_id))) { return false; }
 			if ($t_element->get('parent_id') > 0) { return false; }
@@ -2570,9 +2561,6 @@
 		# ------------------------------------------------------------------
 		// add element to type (or general use when type_id=null) for this table
 		public function addMetadataElementToType($pm_element_code_or_id, $pn_type_id) {
-			
- 			require_once(__CA_APP_DIR__.'/models/ca_metadata_elements.php');
- 			require_once(__CA_APP_DIR__.'/models/ca_metadata_type_restrictions.php');
  
 			if (!($t_element = ca_metadata_elements::getInstance($pm_element_code_or_id))) {
 				return false;
@@ -2592,8 +2580,6 @@
 		# ------------------------------------------------------------------
 		// remove element from type (or general use when type_id=null) for this table
 		public function removeMetadataElementFromType($pm_element_code_or_id, $pn_type_id) {
- 			require_once(__CA_APP_DIR__.'/models/ca_metadata_elements.php');
- 			require_once(__CA_APP_DIR__.'/models/ca_metadata_type_restrictions.php');
  
 			if (!($t_element = ca_metadata_elements::getInstance($pm_element_code_or_id))) {
 				return false;
@@ -2660,18 +2646,6 @@
 		 * @return int
 		 */
 		public static function getAuthorityElementDatatypeList() {
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/CollectionsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/EntitiesAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/LoansAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/MovementsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectLotsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectRepresentationsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/ObjectsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/OccurrencesAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/PlacesAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/StorageLocationsAttributeValue.php');
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/ListAttributeValue.php');
-			
 			return array(
 				'ca_objects' => __CA_ATTRIBUTE_VALUE_OBJECTS__, 'ca_object_lots' => __CA_ATTRIBUTE_VALUE_OBJECTLOTS__, 'ca_entities' => __CA_ATTRIBUTE_VALUE_ENTITIES__, 'ca_places' => __CA_ATTRIBUTE_VALUE_PLACES__, 'ca_occurrences' => __CA_ATTRIBUTE_VALUE_OCCURRENCES__, 'ca_collections' => __CA_ATTRIBUTE_VALUE_COLLECTIONS__, 'ca_storage_locations' => __CA_ATTRIBUTE_VALUE_STORAGELOCATIONS__, 'ca_list_items' => __CA_ATTRIBUTE_VALUE_LIST__, 'ca_loans' => __CA_ATTRIBUTE_VALUE_LOANS__, 'ca_movements' => __CA_ATTRIBUTE_VALUE_MOVEMENTS__, 'ca_object_representations' => __CA_ATTRIBUTE_VALUE_OBJECTREPRESENTATIONS__
 			);

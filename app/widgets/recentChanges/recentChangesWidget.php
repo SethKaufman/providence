@@ -25,7 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	 	 	 	require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
  
 	class recentChangesWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------

@@ -33,11 +33,6 @@
 /**
  *
  */
-
-require_once(__CA_LIB_DIR__."/Search/SearchBase.php");
-require_once(__CA_LIB_DIR__.'/Utils/Graph.php');
-require_once(__CA_LIB_DIR__.'/Utils/Timer.php');
-require_once(__CA_LIB_DIR__.'/Utils/CLIProgressBar.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
 
 class SearchIndexer extends SearchBase {

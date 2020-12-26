@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	require_once(__CA_LIB_DIR__.'/Import/BaseRefinery.php');
- 	require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
- 	 	require_once(__CA_APP_DIR__.'/helpers/tourHelpers.php');
+ 	require_once(__CA_APP_DIR__.'/helpers/tourHelpers.php');
  
 	class tourMakerRefinery extends BaseRefinery {
 		# -------------------------------------------------------

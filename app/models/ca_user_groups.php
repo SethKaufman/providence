@@ -34,8 +34,6 @@
    *
    */
 
-require_once(__CA_APP_DIR__.'/models/ca_user_roles.php');
-
 
 BaseModel::$s_ca_models_definitions['ca_user_groups'] = array(
  	'NAME_SINGULAR' 	=> _t('user group'),
@@ -377,8 +375,6 @@ class ca_user_groups extends BaseModel {
 		if (!is_array($pm_roles)) {
 			$pm_roles = array($pm_roles);
 		}
-
-		require_once(__CA_APP_DIR__.'/models/ca_groups_x_roles.php');
 		
 		if ($pn_group_id = $this->getPrimaryKey()) {
 			$t_role = new ca_user_roles();

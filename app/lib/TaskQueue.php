@@ -35,7 +35,6 @@
   */
  
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
-require_once(__CA_LIB_DIR__."/Utils/ProcessStatus.php");
 
 class TaskQueue extends BaseObject {
 

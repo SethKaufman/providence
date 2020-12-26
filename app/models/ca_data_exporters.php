@@ -1429,8 +1429,7 @@ class ca_data_exporters extends BundlableLabelableBaseModelWithAttributes {
 		ca_data_exporters::$s_exporter_cache = array();
 		ca_data_exporters::$s_exporter_item_cache = array();
 
-		require_once(__CA_LIB_DIR__.'/Search/SearchResult.php');
-		if(!($po_result instanceof SearchResult)) { return false; }
+				if(!($po_result instanceof SearchResult)) { return false; }
 		if(!($t_mapping = ca_data_exporters::loadExporterByCode($ps_exporter_code))) { return false; }
 		if(sizeof(ca_data_exporters::checkMapping($ps_exporter_code))>0) { return false; }
 

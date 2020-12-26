@@ -25,7 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
-require_once(__CA_LIB_DIR__ . '/Controller/ActionController.php');
 
 class DisplayTemplateController extends ActionController {
 	# -------------------------------------------------------

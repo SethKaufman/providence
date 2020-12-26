@@ -26,8 +26,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/Cache/CompositeCache.php');
-require_once(__CA_LIB_DIR__.'/Media/MediaVolumes.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch.php');
 

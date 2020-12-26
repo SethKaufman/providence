@@ -32,7 +32,6 @@
 use PHPUnit\Framework\TestCase;
 
 require_once(__CA_LIB_DIR__.'/Service/ItemService.php');
-require_once(__CA_LIB_DIR__.'/Search/SearchIndexer.php');
 
 abstract class BaseTestWithData extends TestCase {
 	/**

@@ -34,9 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
-
-
 BaseModel::$s_ca_models_definitions['ca_item_comments'] = array(
  	'NAME_SINGULAR' 	=> _t('comment'),
  	'NAME_PLURAL' 		=> _t('comments'),

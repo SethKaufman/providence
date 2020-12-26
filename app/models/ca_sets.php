@@ -33,16 +33,7 @@
  /**
    *
    */
-
-require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
-require_once(__CA_APP_DIR__.'/models/ca_set_items.php');
-require_once(__CA_APP_DIR__.'/models/ca_set_item_labels.php');
-require_once(__CA_APP_DIR__.'/models/ca_users.php');
 require_once(__CA_APP_DIR__.'/helpers/htmlFormHelpers.php');
-
-define('__CA_SET_NO_ACCESS__', 0);
-define('__CA_SET_READ_ACCESS__', 1);
-define('__CA_SET_EDIT_ACCESS__', 2);
 
 BaseModel::$s_ca_models_definitions['ca_sets'] = array(
  	'NAME_SINGULAR' 	=> _t('set'),

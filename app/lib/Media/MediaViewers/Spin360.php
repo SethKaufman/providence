@@ -34,9 +34,6 @@
  *
  */
  
-		require_once(__CA_LIB_DIR__.'/Media/IMediaViewer.php');
-	require_once(__CA_LIB_DIR__.'/Media/BaseMediaViewer.php');
- 
 	class Spin360 extends BaseMediaViewer implements IMediaViewer {
 		# -------------------------------------------------------
 		/**

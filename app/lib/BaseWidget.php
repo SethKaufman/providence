@@ -33,9 +33,7 @@
  /**
   *
   */
- 
-	 	require_once(__CA_LIB_DIR__.'/ApplicationVars.php'); 	
- 
+  
 	abstract class BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		protected $title = '';

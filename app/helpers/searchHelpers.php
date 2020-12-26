@@ -48,102 +48,78 @@
 		
 		if (!($t_instance = Datamodel::getInstanceByTableName($vs_table, true))) { return null; }
 		if ($t_instance->isRelationship()) { 
-			require_once(__CA_LIB_DIR__.'/Search/InterstitialSearch.php');
-			return new InterstitialSearch($vs_table);
+						return new InterstitialSearch($vs_table);
 		}
 		
 		switch($vs_table) {
 			case 'ca_objects':
-				require_once(__CA_LIB_DIR__.'/Search/ObjectSearch.php');
-				return new ObjectSearch();
+								return new ObjectSearch();
 				break;
 			case 'ca_entities':
-				require_once(__CA_LIB_DIR__.'/Search/EntitySearch.php');
-				return new EntitySearch();
+								return new EntitySearch();
 				break;
 			case 'ca_places':
-				require_once(__CA_LIB_DIR__.'/Search/PlaceSearch.php');
-				return new PlaceSearch();
+								return new PlaceSearch();
 				break;
 			case 'ca_occurrences':
-				require_once(__CA_LIB_DIR__.'/Search/OccurrenceSearch.php');
-				return new OccurrenceSearch();
+								return new OccurrenceSearch();
 				break;
 			case 'ca_collections':
-				require_once(__CA_LIB_DIR__.'/Search/CollectionSearch.php');
-				return new CollectionSearch();
+								return new CollectionSearch();
 				break;
 			case 'ca_loans':
-				require_once(__CA_LIB_DIR__.'/Search/LoanSearch.php');
-				return new LoanSearch();
+								return new LoanSearch();
 				break;
 			case 'ca_movements':
-				require_once(__CA_LIB_DIR__.'/Search/MovementSearch.php');
-				return new MovementSearch();
+								return new MovementSearch();
 				break;
 			case 'ca_lists':
-				require_once(__CA_LIB_DIR__.'/Search/ListSearch.php');
-				return new ListSearch();
+								return new ListSearch();
 				break;
 			case 'ca_list_items':
-				require_once(__CA_LIB_DIR__.'/Search/ListItemSearch.php');
-				return new ListItemSearch();
+								return new ListItemSearch();
 				break;
 			case 'ca_object_lots':
-				require_once(__CA_LIB_DIR__.'/Search/ObjectLotSearch.php');
-				return new ObjectLotSearch();
+								return new ObjectLotSearch();
 				break;
 			case 'ca_object_representations':
-				require_once(__CA_LIB_DIR__.'/Search/ObjectRepresentationSearch.php');
-				return new ObjectRepresentationSearch();
+								return new ObjectRepresentationSearch();
 				break;
 			case 'ca_representation_annotations':
-				require_once(__CA_LIB_DIR__.'/Search/RepresentationAnnotationSearch.php');
-				return new RepresentationAnnotationSearch();
+								return new RepresentationAnnotationSearch();
 				break;
 			case 'ca_user_representation_annotations':
-				require_once(__CA_LIB_DIR__.'/Search/UserRepresentationAnnotationSearch.php');
-				return new UserRepresentationAnnotationSearch();
+								return new UserRepresentationAnnotationSearch();
 				break;
 			case 'ca_item_comments':
-				require_once(__CA_LIB_DIR__.'/Search/ItemCommentSearch.php');
-				return new ItemCommentSearch();
+								return new ItemCommentSearch();
 				break;
 			case 'ca_item_tags':
-				require_once(__CA_LIB_DIR__.'/Search/ItemTagSearch.php');
-				return new ItemTagSearch();
+								return new ItemTagSearch();
 				break;
 			case 'ca_relationship_types':
-				require_once(__CA_LIB_DIR__.'/Search/RelationshipTypeSearch.php');
-				return new RelationshipTypeSearch();
+								return new RelationshipTypeSearch();
 				break;
 			case 'ca_sets':
-				require_once(__CA_LIB_DIR__.'/Search/SetSearch.php');
-				return new SetSearch();
+								return new SetSearch();
 				break;
 			case 'ca_set_items':
-				require_once(__CA_LIB_DIR__.'/Search/SetItemSearch.php');
-				return new SetItemSearch();
+								return new SetItemSearch();
 				break;
 			case 'ca_tours':
-				require_once(__CA_LIB_DIR__.'/Search/TourSearch.php');
-				return new TourSearch();
+								return new TourSearch();
 				break;
 			case 'ca_tour_stops':
-				require_once(__CA_LIB_DIR__.'/Search/TourStopSearch.php');
-				return new TourStopSearch();
+								return new TourStopSearch();
 				break;
 			case 'ca_storage_locations':
-				require_once(__CA_LIB_DIR__.'/Search/StorageLocationSearch.php');
-				return new StorageLocationSearch();
+								return new StorageLocationSearch();
 				break;
 			case 'ca_users':
-				require_once(__CA_LIB_DIR__.'/Search/UserSearch.php');
-				return new UserSearch();
+								return new UserSearch();
 				break;
 			case 'ca_user_groups':
-				require_once(__CA_LIB_DIR__.'/Search/UserGroupSearch.php');
-				return new UserGroupSearch();
+								return new UserGroupSearch();
 				break;
 			default:
 				return null;

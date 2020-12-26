@@ -30,12 +30,6 @@
  * ----------------------------------------------------------------------
  */
 
-define('__CA_NOTIFICATION_TYPE_GENERIC__', 0);
-define('__CA_NOTIFICATION_TYPE_METADATA_ALERT__', 1);
-define('__CA_NOTIFICATION_TYPE_URL_REFERENCE_CHECK__', 2);
-
-require_once(__CA_APP_DIR__.'/models/ca_notification_subjects.php');
-
 BaseModel::$s_ca_models_definitions['ca_notifications'] = array(
 	'NAME_SINGULAR' 	=> _t('notifications'),
 	'NAME_PLURAL' 		=> _t('notifications'),

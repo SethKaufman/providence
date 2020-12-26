@@ -1842,8 +1842,6 @@
 		 * @return bool
 		 */
 		public static function check_url_reference_integrity($po_opts=null) {
-			require_once(__CA_LIB_DIR__.'/Attributes/Values/UrlAttributeValue.php');
-
 			$o_request = new RequestHTTP(null, [
 				'no_headers' => true,
 				'simulateWith' => [

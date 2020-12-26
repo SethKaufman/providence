@@ -26,20 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	
- 	 	 	require_once(__CA_LIB_DIR__."/Search/ObjectSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/ObjectLotSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/EntitySearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/PlaceSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/OccurrenceSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/CollectionSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/StorageLocationSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/LoanSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/MovementSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/ObjectRepresentationSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/TourSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/TourStopSearch.php");
- 	require_once(__CA_LIB_DIR__."/Search/QuickSearch.php");
- 	
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	
  	 	
  	class QuickSearchController extends BaseFindController {
  		# -------------------------------------------------------

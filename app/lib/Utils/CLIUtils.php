@@ -33,8 +33,6 @@
  /**
   *
   */
-
- 	require_once(__CA_LIB_DIR__.'/Utils/CLIBaseUtils.php');
  	require_once(__CA_LIB_DIR__.'/Utils/CLIUtils/Maintenance.php');
  	require_once(__CA_LIB_DIR__.'/Utils/CLIUtils/Media.php');
  	require_once(__CA_LIB_DIR__.'/Utils/CLIUtils/Search.php');

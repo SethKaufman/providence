@@ -33,7 +33,6 @@
 /**
  *
  */
-require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
 
 BaseModel::$s_ca_models_definitions['ca_metadata_alert_rules'] = array(
 	'NAME_SINGULAR' 	=> _t('metadata alert rule'),

@@ -35,7 +35,6 @@
  */
 
 require_once(__CA_LIB_DIR__."/Service/BaseJSONService.php");
-require_once(__CA_LIB_DIR__."/Browse/BrowseEngine.php");
 
 class BrowseService extends BaseJSONService {
 	# -------------------------------------------------------

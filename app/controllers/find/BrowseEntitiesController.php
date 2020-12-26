@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/Browse/EntityBrowse.php");
- 
+ 	 	 
  	class BrowseEntitiesController extends BaseBrowseController {
  		# -------------------------------------------------------
  		 /** 

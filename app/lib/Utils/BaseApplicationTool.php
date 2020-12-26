@@ -33,9 +33,6 @@
  /**
   *
   */
- 
-require_once(__CA_LIB_DIR__.'/Utils/IApplicationTool.php');
-require_once(__CA_LIB_DIR__.'/Utils/ApplicationToolSettings.php');
 require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');
  
 	abstract class BaseApplicationTool implements IApplicationTool {

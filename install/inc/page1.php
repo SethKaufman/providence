@@ -28,8 +28,6 @@
  */
 	if (!constant('__CollectiveAccess_Installer__')) { die("Cannot run"); }
 	
-	require_once(__CA_APP_DIR__.'/lib/ConfigurationCheck.php');
-	
 	$o_config = Configuration::load();
 ?>
 

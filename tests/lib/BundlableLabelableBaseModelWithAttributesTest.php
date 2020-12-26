@@ -31,7 +31,6 @@
  */
  use PHPUnit\Framework\TestCase;
 
-require_once(__CA_LIB_DIR__.'/Search/ObjectSearch.php');
 
 class BundlableLabelableBaseModelWithAttributesTest extends TestCase {
 

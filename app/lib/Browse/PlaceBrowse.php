@@ -34,9 +34,7 @@
   *
   */
   
- 	require_once(__CA_LIB_DIR__.'/Browse/BaseBrowse.php');
- 	require_once(__CA_LIB_DIR__.'/Browse/PlaceBrowseResult.php');
- 
+ 	 	 
 	class PlaceBrowse extends BaseBrowse {
 		# ------------------------------------------------------
 		/**

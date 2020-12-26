@@ -35,7 +35,6 @@
   */
   
  	require_once(__CA_APP_DIR__.'/helpers/printHelpers.php');
- 	 	 		 		require_once(__CA_LIB_DIR__.'/Parsers/ZipStream.php');
  	require_once(__CA_LIB_DIR__.'/Print/PDFRenderer.php');
 	 	 	
 	class BaseFindController extends ActionController {

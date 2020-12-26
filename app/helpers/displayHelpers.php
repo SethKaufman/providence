@@ -33,11 +33,6 @@
  /**
    *
    */
-   	
-require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
-require_once(__CA_LIB_DIR__.'/Parsers/ExpressionParser.php');
-require_once(__CA_LIB_DIR__.'/Parsers/DisplayTemplateParser.php');
-require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 
 	# ------------------------------------------------------------------------------------------------
 	/**

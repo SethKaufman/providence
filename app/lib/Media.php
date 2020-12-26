@@ -33,16 +33,6 @@
  /**
   *
   */
- 
-require_once (__CA_LIB_DIR__."/Configuration.php");
-require_once (__CA_LIB_DIR__."/BaseObject.php");
-
-define("__CA_MEDIA_VIDEO_DEFAULT_ICON__", 'video');
-define("__CA_MEDIA_AUDIO_DEFAULT_ICON__", 'audio');
-define("__CA_MEDIA_DOCUMENT_DEFAULT_ICON__", 'document');
-define("__CA_MEDIA_3D_DEFAULT_ICON__", '3d');
-define("__CA_MEDIA_SPIN_DEFAULT_ICON__", '3d');
-define("__CA_MEDIA_BINARY_FILE_DEFAULT_ICON__", 'document');
 
 class Media extends BaseObject {
 	# ----------------------------------------------------------

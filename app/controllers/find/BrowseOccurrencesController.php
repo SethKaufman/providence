@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/Browse/OccurrenceBrowse.php");
- 
+ 	 	 
  	class BrowseOccurrencesController extends BaseBrowseController {
  		# -------------------------------------------------------
  		 /** 

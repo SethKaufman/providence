@@ -30,9 +30,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
-
-
 define('__CA_SEARCH_FORM_NO_ACCESS__', 0);
 define('__CA_SEARCH_FORM_READ_ACCESS__', 1);
 define('__CA_SEARCH_FORM_EDIT_ACCESS__', 2);

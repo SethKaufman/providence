@@ -34,7 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__.'/Search/SearchIndexer.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_search_indexing_queue'] = array(

@@ -33,8 +33,6 @@
  /**
   *
   */
-
-require_once(__CA_LIB_DIR__.'/Utils/CLIProgressBar.php');
 require_once(__CA_APP_DIR__.'/helpers/CLIHelpers.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
 require_once(__CA_APP_DIR__.'/helpers/mediaPluginHelpers.php');

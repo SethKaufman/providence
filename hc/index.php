@@ -50,7 +50,6 @@
 		exit; 
 	}
 	
-	require_once(__CA_APP_DIR__.'/lib/ConfigurationCheck.php');
 	ConfigurationCheck::performQuick(['skipPathChecks' => true]);
 	if(ConfigurationCheck::foundErrors()){
 		print "Configuration check failed";

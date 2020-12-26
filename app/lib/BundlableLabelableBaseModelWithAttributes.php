@@ -35,29 +35,10 @@
   */
 
 require_once(__CA_LIB_DIR__."/Plugins/SearchEngine/CachedResult.php");
-require_once(__CA_LIB_DIR__."/Search/SearchResult.php");
 
 require_once(__CA_APP_DIR__."/helpers/accessHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/searchHelpers.php");
 
-define('__CA_BUNDLE_ACCESS_NONE__', 0);
-define('__CA_BUNDLE_ACCESS_READONLY__', 1);
-define('__CA_BUNDLE_ACCESS_EDIT__', 2);
-
-/**
- * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will not be changed
- */
-define('__CA_PARENT_UNCHANGED__', 0);
-
-/**
- * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will be changed
- */
-define('__CA_PARENT_CHANGED__', 1);
-
-/**
- * Returned by BundlableLabelableBaseModelWithAttributes::saveBundlesForScreenWillChangeParent() when parent will be changed to a related collection in a object-collection hierarchy
- */
-define('__CA_PARENT_COLLECTION_CHANGED__', 2);
 
 class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAttributes implements IBundleProvider {
 	# ------------------------------------------------------
@@ -1696,7 +1677,6 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 					# -------------------------------
 					// This bundle is only available for types which support set membership
 					case 'ca_sets_checklist':
-						require_once(__CA_MODELS_DIR__."/ca_sets.php");	// need to include here to avoid dependency errors on parse/compile
 						$t_set = new ca_sets();
 						$vs_element .= $t_set->getItemSetMembershipHTMLFormBundle($pa_options['request'], $pa_options['formName'], $ps_placement_code, $this->tableNum(), $this->getPrimaryKey(), $pa_options['request']->getUserID(), $pa_bundle_settings, $pa_options);
 						break;

@@ -25,9 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 	 	require_once(__CA_LIB_DIR__."/Search/ObjectSearch.php");
- 	require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
- 						require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
  	
  	class SearchObjectsController extends BaseSearchController {
  		# -------------------------------------------------------

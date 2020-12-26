@@ -34,9 +34,7 @@
    *
    */
 require_once(__CA_LIB_DIR__.'/Import/DataReaderManager.php');
-require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
 require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');
-require_once(__CA_LIB_DIR__.'/Parsers/ExpressionParser.php');
 require_once(__CA_LIB_DIR__.'/Db/Transaction.php');
 
 

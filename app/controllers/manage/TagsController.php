@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 			 	require_once(__CA_LIB_DIR__."/Search/ItemTagSearch.php");
- 	
+ 			 	 	
  	class TagsController extends BaseSearchController {
  		# -------------------------------------------------------
  		/**
