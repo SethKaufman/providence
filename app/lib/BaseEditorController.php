@@ -35,17 +35,8 @@
  */
 
 require_once(__CA_APP_DIR__."/helpers/printHelpers.php");
-require_once(__CA_MODELS_DIR__."/ca_editor_uis.php");
-require_once(__CA_MODELS_DIR__."/ca_metadata_elements.php");
-require_once(__CA_MODELS_DIR__."/ca_attributes.php");
-require_once(__CA_MODELS_DIR__."/ca_attribute_values.php");
-require_once(__CA_MODELS_DIR__."/ca_bundle_displays.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
-require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
-require_once(__CA_LIB_DIR__."/ResultContext.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
 require_once(__CA_LIB_DIR__.'/Print/PDFRenderer.php');
-require_once(__CA_LIB_DIR__.'/Parsers/ZipStream.php');
 require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
 require_once(__CA_LIB_DIR__.'/Logging/Downloadlog.php');
 
@@ -53,7 +44,6 @@ define('__CA_SAVE_AND_RETURN_STACK_SIZE__', 30);
 
 class BaseEditorController extends ActionController {
 	# -------------------------------------------------------
-	protected $opo_datamodel;
 	protected $opo_app_plugin_manager;
 	protected $opo_result_context;
 	# -------------------------------------------------------
@@ -1545,8 +1535,7 @@ class BaseEditorController extends ActionController {
 	 */
 	public function toggleWatch() {
 		list($vn_subject_id, $t_subject) = $this->_initView();
-		require_once(__CA_MODELS_DIR__.'/ca_watch_list.php');
-
+		
 		if (!$this->_checkAccess($t_subject)) { throw new ApplicationException(_t('Access denied')); }
 
 
@@ -1999,8 +1988,7 @@ class BaseEditorController extends ActionController {
 			//
 			// View object representation
 			//
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-			$t_instance = new ca_object_representations($pn_representation_id);
+						$t_instance = new ca_object_representations($pn_representation_id);
 			
 			if (!($vs_viewer_name = MediaViewerManager::getViewerForMimetype("media_overlay", $vs_mimetype = $t_instance->getMediaInfo('media', 'INPUT', 'MIMETYPE')))) {
 				throw new ApplicationException(_t('Invalid viewer'));
@@ -2049,8 +2037,7 @@ class BaseEditorController extends ActionController {
 		    //
 			// View site page media
 			//
-			require_once(__CA_MODELS_DIR__."/ca_site_page_media.php");
-			$t_instance = new ca_site_page_media($pn_media_id);
+						$t_instance = new ca_site_page_media($pn_media_id);
 			
 			if (!($vs_viewer_name = MediaViewerManager::getViewerForMimetype("media_overlay", $vs_mimetype = $t_instance->getMediaInfo('media', 'INPUT', 'MIMETYPE')))) {
 				throw new ApplicationException(_t('Invalid viewer'));

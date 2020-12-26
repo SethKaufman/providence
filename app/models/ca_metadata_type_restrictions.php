@@ -261,8 +261,7 @@ class ca_metadata_type_restrictions extends BaseModel {
 		$this->SETTINGS = new ModelSettings($this, 'settings', $_ca_metadata_type_restriction_settings);
 		
 		if (!ca_metadata_type_restrictions::$s_loaded_relationship_tables) {
-			require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-			$t_rel = new ca_relationship_types();
+						$t_rel = new ca_relationship_types();
 			$va_rels = $t_rel->getRelationshipsUsingTypes();
 			
 			foreach($va_rels as $vn_table_num => $va_rel_table_info) {

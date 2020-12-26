@@ -33,11 +33,6 @@
  /**
   *
   */
-  	define("__CA_ATTRIBUTE_VALUE_DATERANGE__", 2);
- 	
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/IAttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
  
  	global $_ca_attribute_settings;
  	

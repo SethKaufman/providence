@@ -32,8 +32,6 @@
 
 
 # ---------------------------------------
-require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
-# ---------------------------------------
 /**
  * DateTime diff calculation with arbitrary number of parameters.
  * Calculates the time between the earliest and the latest date in the argument list

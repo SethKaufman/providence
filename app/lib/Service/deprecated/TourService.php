@@ -38,10 +38,6 @@ require_once(__CA_LIB_DIR__."/Service/BaseService.php");
 require_once(__CA_LIB_DIR__."/LabelableBaseModelWithAttributes.php");
 require_once(__CA_LIB_DIR__."/Datamodel.php");
 require_once(__CA_LIB_DIR__."/Db.php");
-require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-require_once(__CA_MODELS_DIR__."/ca_locales.php");
-require_once(__CA_MODELS_DIR__."/ca_tours.php");
-require_once(__CA_MODELS_DIR__."/ca_tour_stops.php");
 
 class TourService extends BaseService {
 	# -------------------------------------------------------
@@ -340,8 +336,7 @@ class TourService extends BaseService {
 		}
 		$vs_rel_table = $this->getRelTableName($type, $related_type);
 		$t_rel_type = new ca_relationship_types();
-		require_once(__CA_MODELS_DIR__."/{$vs_rel_table}.php");
-		$t_rel_table = new $vs_rel_table();
+				$t_rel_table = new $vs_rel_table();
 
 		if($t_rel_table->getLeftTableName() == $type){
 			$vb_type_is_left = true;
@@ -472,8 +467,7 @@ class TourService extends BaseService {
 		if(!in_array($ps_type, array("ca_tours", "ca_tour_stops"))){
 			throw new SoapFault("Server", "Invalid type or item_id");
 		} else {
-			require_once(__CA_MODELS_DIR__."/{$ps_type}.php");
-			$t_instance = new $ps_type();
+						$t_instance = new $ps_type();
 			if($pn_type_id_to_load){
 				if(!$t_instance->load($pn_type_id_to_load)){
 					if(!$t_instance->load(array("idno" => $pn_type_id_to_load))){

@@ -31,7 +31,6 @@
  */
 
 require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_MODELS_DIR__."/ca_users.php");
 
 /**
  *
@@ -299,8 +298,7 @@ class AccessRestrictions {
 			default:
 				return false;
 		}
-		require_once(__CA_MODELS_DIR__."/{$vs_class}.php");
-		return $vs_class;
+				return $vs_class;
 	}
 	# -------------------------------------------------------
 }

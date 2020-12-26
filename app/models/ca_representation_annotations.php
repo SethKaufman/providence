@@ -36,7 +36,6 @@
 
 require_once(__CA_LIB_DIR__."/IBundleProvider.php");
 require_once(__CA_LIB_DIR__."/BundlableLabelableBaseModelWithAttributes.php");
-require_once(__CA_MODELS_DIR__.'/ca_object_representations.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_representation_annotations'] = array(

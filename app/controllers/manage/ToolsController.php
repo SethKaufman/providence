@@ -42,7 +42,6 @@
  
  	class ToolsController extends ActionController {
  		# -------------------------------------------------------
- 		protected $opo_datamodel;
  		protected $opo_tools_manager;
  		# -------------------------------------------------------
  		#

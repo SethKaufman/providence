@@ -33,11 +33,6 @@
  /**
   *
   */
-  	define("__CA_ATTRIBUTE_VALUE_TIMECODE__", 10);
- 	
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/IAttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Parsers/TimecodeParser.php');
  
  	global $_ca_attribute_settings;
  	$_ca_attribute_settings['TimecodeAttributeValue'] = array(		// global

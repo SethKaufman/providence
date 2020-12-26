@@ -35,10 +35,6 @@
    */
 
 require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-require_once(__CA_MODELS_DIR__.'/ca_editor_uis.php');
-require_once(__CA_MODELS_DIR__.'/ca_editor_ui_bundle_placements.php');
-require_once(__CA_MODELS_DIR__.'/ca_editor_ui_screen_type_restrictions.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_editor_ui_screens'] = array(
@@ -1803,8 +1799,7 @@ class ca_editor_ui_screens extends BundlableLabelableBaseModelWithAttributes {
 								);
 								break;
 							case 'ca_set_items':
-								require_once(__CA_MODELS_DIR__."/ca_sets.php");
-								$t_set = new ca_sets();
+																$t_set = new ca_sets();
 								if ($this->inTransaction()) { $t_set->setTransaction($this->getTransaction()); }
 								
 								$va_additional_settings = array();

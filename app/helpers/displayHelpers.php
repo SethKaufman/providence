@@ -891,9 +891,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 	 * @return string HTML implementing the inspector
 	 */
 	function caEditorInspector($po_view, $pa_options=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_sets.php');
-		require_once(__CA_MODELS_DIR__.'/ca_data_exporters.php');
-
+				
 		$vs_style               = null;
 		$vs_idno                = null;
 
@@ -1172,8 +1170,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 				# --- watch this link
 				$vs_watch = "";
 				if (in_array($vs_table_name, array('ca_objects', 'ca_object_lots', 'ca_entities', 'ca_places', 'ca_occurrences', 'ca_collections', 'ca_storage_locations'))) {
-					require_once(__CA_MODELS_DIR__.'/ca_watch_list.php');
-					$t_watch_list = new ca_watch_list();
+										$t_watch_list = new ca_watch_list();
 					$vs_watch = "<div class='watchThis inspectorActionButton'><div><a href='#' title='"._t('Add/remove item to/from watch list.')."' onclick='caToggleItemWatch(); return false;' id='caWatchItemButton'>".caNavIcon($t_watch_list->isItemWatched($vn_item_id, $t_item->tableNum(), $po_view->request->user->get("user_id")) ? __CA_NAV_ICON_UNWATCH__ : __CA_NAV_ICON_WATCH__, '20px')."</a></div></div>";
 
 					$vs_buf .= "\n<script type='text/javascript'>
@@ -1429,8 +1426,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 			}
 
 			if (($vs_table_name === 'ca_objects') && ($vn_lot_id)) {
-				require_once(__CA_MODELS_DIR__.'/ca_object_lots.php');
-
+				
 				$va_lot_lots = caGetTypeListForUser('ca_object_lots', array('access' => __CA_BUNDLE_ACCESS_READONLY__));
 				$t_lot = new ca_object_lots($vn_lot_id);
 				if (($t_lot->get('deleted') == 0) && (in_array($t_lot->get('type_id'), $va_lot_lots))) {
@@ -1502,8 +1498,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 					$vs_buf .= "</div>\n";
 				}
 
-				require_once(__CA_MODELS_DIR__.'/ca_objects.php');
-				$t_object = new ca_objects();
+								$t_object = new ca_objects();
 
 				if(!(bool)$po_view->request->config->get('disable_add_object_to_lot_inspector_controls')) {
 					$vs_buf .= "<div class='inspectorLotObjectTypeControls'><form action='#' id='caAddObjectToLotForm'>";
@@ -2014,8 +2009,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 	 * @return string HTML implementing the inspector
 	 */
 	function caBatchEditorInspector($po_view, $pa_options=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_sets.php');
-
+		
 		$t_set 					= $po_view->getVar('t_set');
 		$t_item 				= $po_view->getVar('t_item');
 		$vs_table_name = $t_item->tableName();
@@ -2217,8 +2211,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 	  *
 	  */
 	function caFilterTableList($pa_tables, $pa_options=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_occurrences.php');
-		$o_config = Configuration::load();
+				$o_config = Configuration::load();
 
 		// assume table display names (*not actual database table names*) are keys and table_nums are values
 		$va_filtered_tables = array();
@@ -2241,8 +2234,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 	 *
 	 */
 	function caGetTableDisplayName($pm_table_name_or_num, $pb_use_plural=true) {
-		require_once(__CA_MODELS_DIR__.'/ca_occurrences.php');
-
+		
 		$vs_table = Datamodel::getTableName($pm_table_name_or_num);
 
 		switch($vs_table) {
@@ -4837,8 +4829,7 @@ require_once(__CA_LIB_DIR__.'/Media/MediaInfoCoder.php');
 	 *
 	 */
 	function caConvertCurrentLocationCriteriaToBundleSettings() {
-	    require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-
+	    
 	    $o_config = Configuration::load();
 	    $va_bundle_settings = array();
  		$t_rel_type = new ca_relationship_types();

@@ -40,8 +40,6 @@ require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
 
 require_once(__CA_LIB_DIR__."/Search/Common/Parsers/LuceneSyntaxParser.php");
 
-require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-require_once(__CA_MODELS_DIR__.'/ca_acl.php');
 
 # ----------------------------------------------------------------------
 class SearchEngine extends SearchBase {

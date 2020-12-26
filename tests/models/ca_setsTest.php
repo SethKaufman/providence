@@ -31,8 +31,6 @@
  */
 use PHPUnit\Framework\TestCase;
 
-require_once(__CA_MODELS_DIR__.'/ca_sets.php');
-require_once(__CA_MODELS_DIR__.'/ca_lists.php');
 
 class ca_setsTest extends TestCase {
 	protected $opn_object_id;

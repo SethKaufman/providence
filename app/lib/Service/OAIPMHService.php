@@ -45,7 +45,6 @@ require_once(__CA_APP_DIR__."/helpers/searchHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/browseHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/accessHelpers.php");
 
-require_once(__CA_MODELS_DIR__."/ca_data_exporters.php");
 
 
 class OAIPMHService extends BaseService {

@@ -34,9 +34,6 @@
    *
    */
    
-require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-require_once(__CA_MODELS_DIR__.'/ca_list_labels.php');
-require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
 
 	
 	# ---------------------------------------

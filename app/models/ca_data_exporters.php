@@ -39,9 +39,6 @@ require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
 
 require_once(__CA_LIB_DIR__.'/Export/BaseExportFormat.php');
 
-require_once(__CA_MODELS_DIR__."/ca_data_exporter_labels.php");
-require_once(__CA_MODELS_DIR__."/ca_data_exporter_items.php");
-require_once(__CA_MODELS_DIR__."/ca_sets.php");
 
 require_once(__CA_LIB_DIR__.'/ApplicationPluginManager.php');
 require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');

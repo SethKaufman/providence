@@ -36,7 +36,6 @@
   
 require_once(__CA_LIB_DIR__."/Service/BaseService.php");
 require_once(__CA_APP_DIR__."/helpers/utilityHelpers.php");
-require_once(__CA_MODELS_DIR__."/ca_list_items.php");
 
 class SearchService extends BaseService {
 	# -------------------------------------------------------
@@ -68,8 +67,7 @@ class SearchService extends BaseService {
 		}
 
 		require_once(__CA_LIB_DIR__."/Search/{$ps_class}.php");
-		require_once(__CA_MODELS_DIR__."/{$type}.php");
-		$vo_search = new $ps_class();
+				$vo_search = new $ps_class();
 		$t_instance = new $type();
 
 		$vo_result = $vo_search->search($query);
@@ -134,8 +132,7 @@ class SearchService extends BaseService {
 		}
 
 		require_once(__CA_LIB_DIR__."/Search/{$ps_class}.php");
-		require_once(__CA_MODELS_DIR__."/{$type}.php");
-		$vo_search = new $ps_class();
+				$vo_search = new $ps_class();
 		$t_instance = new $type();
 
 		$vo_result = $vo_search->search($query);

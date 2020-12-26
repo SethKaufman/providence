@@ -42,8 +42,6 @@ require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
 require_once(__CA_LIB_DIR__."/ApplicationVars.php");
 require_once(__CA_LIB_DIR__."/Utils/ProcessStatus.php");
 require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
-require_once(__CA_MODELS_DIR__."/ca_task_queue.php");
-require_once(__CA_MODELS_DIR__."/ca_users.php");
 
 class TaskQueue extends BaseObject {
 

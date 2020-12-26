@@ -30,8 +30,7 @@
  	require_once(__CA_LIB_DIR__.'/Db.php');
 	require_once(__CA_LIB_DIR__.'/Datamodel.php');
 	require_once(__CA_LIB_DIR__.'/ResultContext.php');
-	require_once(__CA_MODELS_DIR__.'/ca_search_forms.php');
- 
+	 
 	class advancedSearchFormWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		private $opo_config;

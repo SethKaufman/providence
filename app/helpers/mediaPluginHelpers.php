@@ -764,8 +764,7 @@
 	 * @return string File name of a temporary file with the embedded metadata, false on failure
 	 */
 	function caEmbedMediaMetadataIntoFile($ps_file, $ps_table, $pn_pk, $ps_type_code, $pn_rep_pk, $ps_rep_type_code) {
-		require_once(__CA_MODELS_DIR__.'/ca_data_exporters.php');
-		if(!caExifToolInstalled()) { return false; } // we need exiftool for embedding
+				if(!caExifToolInstalled()) { return false; } // we need exiftool for embedding
 		$vs_path_to_exif_tool = caGetExternalApplicationPath('exiftool');
 
 		if (!@is_readable($ps_file)) { return false; }

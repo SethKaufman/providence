@@ -33,12 +33,6 @@
  /**
   *
   */
- 	
- 	define("__CA_ATTRIBUTE_VALUE_CURRENCY__", 6);
- 	 	
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/IAttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AttributeValue.php');
- 	require_once(__CA_LIB_DIR__.'/BaseModel.php');	// we use the BaseModel field type (FT_*) and display type (DT_*) constants
 
  	global $_ca_attribute_settings;
  	

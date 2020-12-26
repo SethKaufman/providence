@@ -28,9 +28,7 @@
  	require_once(__CA_LIB_DIR__."/BaseAdvancedSearchController.php");
  	require_once(__CA_LIB_DIR__."/Search/StorageLocationSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/StorageLocationBrowse.php");
-	require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");
-	require_once(__CA_MODELS_DIR__."/ca_sets.php");
- 	
+		 	
  	class SearchStorageLocationsAdvancedController extends BaseAdvancedSearchController {
  		# -------------------------------------------------------
  		/**

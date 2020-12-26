@@ -33,11 +33,6 @@
 require_once(__CA_LIB_DIR__.'/ModelSettings.php');
 require_once(__CA_LIB_DIR__."/BundlableLabelableBaseModelWithAttributes.php");
 require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
-require_once(__CA_MODELS_DIR__.'/ca_locales.php');
-require_once(__CA_MODELS_DIR__.'/ca_search_form_placements.php');
-require_once(__CA_MODELS_DIR__.'/ca_search_form_type_restrictions.php');
-require_once(__CA_MODELS_DIR__.'/ca_search_forms_x_user_groups.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
 
 
 define('__CA_SEARCH_FORM_NO_ACCESS__', 0);

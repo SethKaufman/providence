@@ -34,7 +34,6 @@
  *
  */
 require_once(__CA_LIB_DIR__.'/MetadataAlerts/TriggerTypes/Base.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_alert_rules.php');
 
 BaseModel::$s_ca_models_definitions['ca_metadata_alert_triggers'] = array(
 	'NAME_SINGULAR' 	=> _t('metadata alert triggers'),
@@ -441,8 +440,7 @@ class ca_metadata_alert_triggers extends BaseModel {
 					$va_params['restrictToTypes'] = $va_trigger['type_restrictions'];
 				}
 				
-				require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-				$qr_records = call_user_func_array("{$vs_table}::find", [$va_criteria, $va_params]);
+								$qr_records = call_user_func_array("{$vs_table}::find", [$va_criteria, $va_params]);
 				
 				while($qr_records->nextHit()) {
 					self::fireTrigger($o_trigger, $qr_records, $va_trigger['info']);

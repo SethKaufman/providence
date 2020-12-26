@@ -500,8 +500,7 @@ class CataloguingService extends BaseService {
 	 * @throws SoapFault
 	 */
 	public function removeObjectRepresentation($representation_id){
-		require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-		$t_rep = new ca_object_representations();
+				$t_rep = new ca_object_representations();
 		if(!$t_rep->load($representation_id)){
 			throw new SoapFault("Server", "Invalid representation ID");
 		}
@@ -585,8 +584,7 @@ class CataloguingService extends BaseService {
 		if(!in_array($ps_type, array("ca_objects", "ca_entities", "ca_places", "ca_occurrences", "ca_collections", "ca_list_items", "ca_object_representations", "ca_storage_locations", "ca_movements", "ca_loans", "ca_tours", "ca_tour_stops", "ca_sets", "ca_set_items"))){
 			throw new SoapFault("Server", "Invalid type or item_id");
 		} else {
-			require_once(__CA_MODELS_DIR__."/{$ps_type}.php");
-			$t_instance = new $ps_type();
+						$t_instance = new $ps_type();
 			if($pn_type_id_to_load){
 				if(!$t_instance->load($pn_type_id_to_load)){
 					return false;

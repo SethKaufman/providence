@@ -201,8 +201,7 @@
 					break;
 				case 'ca_places':
 					if(!$vn_id) {	// get place hierarchy root
-						require_once(__CA_MODELS_DIR__."/ca_places.php");
-						$t_place = new ca_places();
+												$t_place = new ca_places();
 						if ($o_trans) { $t_place->setTransaction($o_trans); }
 						$vn_hierarchy_id = $pa_options['hierarchyID'];
 						$vn_id = $pa_options['defaultParentID'];
@@ -236,8 +235,7 @@
 						return null;
 					}
 					if(!$vn_id) {	// get place hierarchy root
-						require_once(__CA_MODELS_DIR__."/ca_lists.php");
-						$t_list = new ca_lists();
+												$t_list = new ca_lists();
 						if ($o_trans) { $t_list->setTransaction($o_trans); }
 						$vn_id = $t_list->getRootItemIDForList($vn_list_id);
 						$va_attributes['parent_id'] = $vn_id;
@@ -251,8 +249,7 @@
 					break;
 				case 'ca_storage_locations':
 					if(!$vn_id) {	// get storage location hierarchy root
-						require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");
-						$t_loc = new ca_storage_locations();
+												$t_loc = new ca_storage_locations();
 						if ($o_trans) { $t_loc->setTransaction($o_trans); }
 						$vn_id = $t_loc->getHierarchyRootID();
 						$va_attributes['parent_id'] = $vn_id;

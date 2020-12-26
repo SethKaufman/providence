@@ -39,7 +39,6 @@ require_once(__CA_LIB_DIR__.'/Utils/Graph.php');
 require_once(__CA_LIB_DIR__.'/Utils/Timer.php');
 require_once(__CA_LIB_DIR__.'/Utils/CLIProgressBar.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
-require_once(__CA_MODELS_DIR__.'/ca_search_indexing_queue.php');
 
 class SearchIndexer extends SearchBase {
 	# ------------------------------------------------
@@ -70,8 +69,7 @@ class SearchIndexer extends SearchBase {
 	 * cases where you're reindexing and not in a transaction.
 	 */
 	public function __construct($opo_db=null, $ps_engine=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-		parent::__construct($opo_db, $ps_engine);
+				parent::__construct($opo_db, $ps_engine);
 
 		$this->opo_metadata_element = new ca_metadata_elements();
 		$this->opo_search_indexing_queue = new ca_search_indexing_queue();

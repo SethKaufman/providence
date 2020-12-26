@@ -364,8 +364,7 @@
 		 *
 		 */
 		public static function load_import_mapping($po_opts=null) {
-			require_once(__CA_MODELS_DIR__."/ca_data_importers.php");
-
+			
 			if (!($vs_file_path = $po_opts->getOption('file'))) {
 				CLIUtils::addError(_t("You must specify a file"));
 				return false;
@@ -426,8 +425,7 @@
 		 *
 		 */
 		public static function import_data($po_opts=null) {
-			require_once(__CA_MODELS_DIR__."/ca_data_importers.php");
-
+			
 			if (!($vs_data_source = $po_opts->getOption('source'))) {
 				CLIUtils::addError(_t('You must specify a data source for import'));
 				return false;
@@ -535,8 +533,7 @@
 		 *
 		 */
 		public static function load_export_mapping($po_opts=null) {
-			require_once(__CA_MODELS_DIR__."/ca_data_exporters.php");
-
+			
 			if (!($vs_file_path = $po_opts->getOption('file'))) {
 				print _t("You must specify a file!")."\n";
 				return false;
@@ -598,8 +595,7 @@
 		}
 		# -------------------------------------------------------
 		public static function export_data($po_opts=null) {
-			require_once(__CA_MODELS_DIR__."/ca_data_exporters.php");
-
+			
 			$vs_search = $po_opts->getOption('search');
 			$vs_id = $po_opts->getOption('id');
 			$vb_rdf = (bool)$po_opts->getOption('rdf');
@@ -844,9 +840,7 @@
 		 * Load metadata dictionary
 		 */
 		public static function load_chenhall_nomenclature($po_opts=null) {
-			require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-			require_once(__CA_MODELS_DIR__.'/ca_locales.php');
-
+						
 			$t_list = new ca_lists();
 			$o_db = $t_list->getDb();
 			

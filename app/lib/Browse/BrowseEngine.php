@@ -54,11 +54,7 @@
  	require_once(__CA_APP_DIR__.'/helpers/searchHelpers.php');
 	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
 
- 	require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-	require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-	require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-	require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-
+ 				
 	class BrowseEngine extends BaseFindEngine {
 		# ------------------------------------------------------
 		# Properties
@@ -88,11 +84,6 @@
 		 */
 		private $opb_dont_expand_type_restrictions = false;
 		private $opb_dont_expand_source_restrictions = false;
-
-		/**
-		 * @var Instance of Datamodel class
-		 */
-		protected $opo_datamodel;
 
 		/**
 		 * @var Instance of Db database client

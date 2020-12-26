@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_MODELS_DIR__."/ca_metadata_dictionary_entries.php");
- 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  	
  
  	class DataDictionaryEntryEditorController extends BaseEditorController {

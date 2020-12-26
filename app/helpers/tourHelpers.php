@@ -34,9 +34,6 @@
    *
    */
    
-require_once(__CA_MODELS_DIR__.'/ca_tours.php');
-require_once(__CA_MODELS_DIR__.'/ca_tour_labels.php');
-require_once(__CA_MODELS_DIR__.'/ca_tour_stops.php');
 
 	
 	# ---------------------------------------

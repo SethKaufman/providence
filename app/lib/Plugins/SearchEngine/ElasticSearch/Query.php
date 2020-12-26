@@ -33,7 +33,6 @@
 namespace ElasticSearch;
 
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch/Field.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
 
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch/FieldTypes/Intrinsic.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch/FieldTypes/DateRange.php');

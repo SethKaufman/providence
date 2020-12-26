@@ -29,11 +29,7 @@
  	require_once(__CA_LIB_DIR__."/Search/ObjectSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
  	require_once(__CA_LIB_DIR__."/GeographicMap.php");
-	require_once(__CA_MODELS_DIR__."/ca_objects.php");
-	require_once(__CA_MODELS_DIR__."/ca_sets.php");
-	require_once(__CA_MODELS_DIR__."/ca_set_items.php");
-	require_once(__CA_MODELS_DIR__."/ca_set_item_labels.php");
-	require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
+					require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
  	
  	class SearchObjectsController extends BaseSearchController {
  		# -------------------------------------------------------

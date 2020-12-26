@@ -37,8 +37,7 @@
 		 */
 		public static function reprocess_media($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-
+			
 			$o_db = new Db();
 
 			$t_rep = new ca_object_representations();
@@ -304,8 +303,7 @@
 		 */
 		public static function reindex_pdfs($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-
+			
 			if (!caPDFMinerInstalled()) {
 				CLIUtils::addError(_t("Can't reindex PDFs: PDFMiner is not installed."));
 				return false;
@@ -498,8 +496,7 @@
 		 */
 		public static function regenerate_annotation_previews($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_representation_annotations.php");
-
+			
 			$o_db = new Db();
 
 			$t_rep = new ca_object_representations();

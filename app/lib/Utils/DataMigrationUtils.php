@@ -34,18 +34,7 @@
   *
   */
 
- 	require_once(__CA_MODELS_DIR__.'/ca_objects.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_entities.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_places.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_occurrences.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_collections.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_lists.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_loans.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_movements.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_storage_locations.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_data_import_events.php');
- 	require_once(__CA_APP_DIR__.'/helpers/batchHelpers.php');
+ 	 	 	 	 	 	 	 	 	 	 	 	require_once(__CA_APP_DIR__.'/helpers/batchHelpers.php');
  	
 	define("__CA_DATA_IMPORT_ERROR__", 0);
 	define("__CA_DATA_IMPORT_WARNING__", 1);

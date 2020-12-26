@@ -28,8 +28,7 @@
  	require_once(__CA_LIB_DIR__.'/BaseWidget.php');
  	require_once(__CA_LIB_DIR__.'/IWidget.php');
  	require_once(__CA_LIB_DIR__.'/Db.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_users.php');
- 
+ 	 
 	class lastLoginsWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		private $opo_config;

@@ -27,9 +27,7 @@
  */
  	require_once(__CA_APP_DIR__.'/helpers/mailHelpers.php');
  	require_once(__CA_APP_DIR__.'/helpers/libraryServicesHelpers.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_objects.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_object_checkouts.php');
- 	require_once(__CA_LIB_DIR__.'/Logging/Eventlog.php');
+ 	 	 	require_once(__CA_LIB_DIR__.'/Logging/Eventlog.php');
  	require_once(__CA_LIB_DIR__.'/Db.php');
 	
 	class libraryServicesPlugin extends BaseApplicationPlugin {

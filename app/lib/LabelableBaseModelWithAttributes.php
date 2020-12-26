@@ -1248,16 +1248,14 @@
 						
 						// TODO: this should really be in a model subclass
 						if (($this->tableName() == 'ca_objects') && $this->getAppConfig()->get('ca_objects_x_collections_hierarchy_enabled') && ($vs_coll_rel_type = $this->getAppConfig()->get('ca_objects_x_collections_hierarchy_relationship_type'))) {
-							require_once(__CA_MODELS_DIR__.'/ca_objects.php');
-							if ($this->getPrimaryKey() == $vn_top_id) {
+														if ($this->getPrimaryKey() == $vn_top_id) {
 								$t_object = $this;
 							} else {
 								$t_object = new ca_objects($vn_top_id);
 							}
 							
 							if (is_array($va_collections = $t_object->getRelatedItems('ca_collections', array('restrictToRelationshipTypes' => $vs_coll_rel_type)))) {
-								require_once(__CA_MODELS_DIR__.'/ca_collections.php');
-								$t_collection = new ca_collections();
+																$t_collection = new ca_collections();
 								foreach($va_collections as $vn_i => $va_collection) {
 									if (($va_collections_ancestor_list = $t_collection->getHierarchyAncestors($va_collection['collection_id'], array(
 										'idsOnly' => true, 'includeSelf' => true
@@ -2726,8 +2724,7 @@
 			$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 			
 			
-			require_once(__CA_MODELS_DIR__.'/ca_user_groups.php');
-			$t_group = new ca_user_groups();
+						$t_group = new ca_user_groups();
 			
 			$t_rel = Datamodel::getInstanceByTableName($this->getProperty('USER_GROUPS_RELATIONSHIP_TABLE'));
 			$o_view->setVar('t_rel', $t_rel);
@@ -2957,8 +2954,7 @@
 			$vs_view_path = (isset($pa_options['viewPath']) && $pa_options['viewPath']) ? $pa_options['viewPath'] : $po_request->getViewsDirectoryPath();
 			$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 			
-			require_once(__CA_MODELS_DIR__.'/ca_users.php');
-			$t_user = new ca_users();
+						$t_user = new ca_users();
 			
 			$t_rel = Datamodel::getInstanceByTableName($this->getProperty('USERS_RELATIONSHIP_TABLE'));
 			$o_view->setVar('t_rel', $t_rel);
@@ -3177,8 +3173,7 @@
 			$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 			
 			
-			require_once(__CA_MODELS_DIR__.'/ca_user_roles.php');
-			$t_role = new ca_user_roles();
+						$t_role = new ca_user_roles();
 			
 			$t_rel = Datamodel::getInstanceByTableName($this->getProperty('USER_ROLES_RELATIONSHIP_TABLE'));
 			$o_view->setVar('t_rel', $t_rel);

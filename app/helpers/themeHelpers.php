@@ -1040,8 +1040,7 @@
 	 *
 	 */
 	function caSetAdvancedSearchFormInView($po_view, $ps_function, $ps_view, $pa_options=null) {
-		require_once(__CA_MODELS_DIR__."/ca_metadata_elements.php");
-		
+				
 		if (!($va_search_info = caGetInfoForAdvancedSearchType($ps_function))) { return null; }
 		
  		if (!($pt_subject = Datamodel::getInstanceByTableName($va_search_info['table'], true))) { return null; }

@@ -41,7 +41,6 @@ require_once(__CA_LIB_DIR__."/Db.php");
 	
 	class SearchBase extends BaseFindEngine {
 		# ------------------------------------------------
-		protected $opo_datamodel;
 		protected $opo_db;
 		protected $opo_app_config;
 		protected $opo_search_config;

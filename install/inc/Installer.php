@@ -33,8 +33,6 @@ require_once(__CA_LIB_DIR__.'/Db.php');
 require_once(__CA_LIB_DIR__.'/Media/MediaVolumes.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
 require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
-require_once(__CA_MODELS_DIR__.'/ca_users.php');
-require_once(__CA_MODELS_DIR__.'/ca_user_groups.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch.php');
 
 class Installer {
@@ -487,8 +485,7 @@ class Installer {
 	# PROFILE CONTENT PROCESSING
 	# --------------------------------------------------
 	public function processLocales() {
-		require_once(__CA_MODELS_DIR__."/ca_locales.php");
-
+		
 		$t_locale = new ca_locales();
 		$t_locale->setMode(ACCESS_WRITE);
 		// Find any existing locales
@@ -558,9 +555,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processLists($f_callback=null) {
-		require_once(__CA_MODELS_DIR__."/ca_lists.php");
-		require_once(__CA_MODELS_DIR__."/ca_list_items.php");
-
+				
 		if($this->ops_base_name) { // "merge" profile and its base
 			$va_lists = [];
 			foreach($this->opo_base->lists->children() as $vo_list) {
@@ -725,10 +720,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processMetadataElements() {
-		require_once(__CA_MODELS_DIR__."/ca_lists.php");
-		require_once(__CA_MODELS_DIR__."/ca_list_items.php");
-		require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-
+						
 		$t_rel_types = new ca_relationship_types();
 		$t_list = new ca_lists();
 
@@ -802,9 +794,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	private function processMetadataElement($po_element, $pn_parent_id) {
-		require_once(__CA_MODELS_DIR__."/ca_metadata_elements.php");
-		require_once(__CA_MODELS_DIR__."/ca_lists.php");
-
+				
 		$vs_element_code = self::getAttribute($po_element, "code");
 
 		$this->logStatus(_t('Processing metadata element with code %1', $vs_element_code));
@@ -877,8 +867,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processMetadataDictionary() {
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_entries.php');
-
+		
 		if(!$this->opo_profile->metadataDictionary) { return true; } // no dict specified. it's optional, so don't barf
 
 		// dictionary entries don't have a code or any other attribute that could be used for
@@ -937,13 +926,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processUserInterfaces() {
-		require_once(__CA_MODELS_DIR__."/ca_editor_uis.php");
-		require_once(__CA_MODELS_DIR__."/ca_editor_ui_screens.php");
-		require_once(__CA_MODELS_DIR__."/ca_editor_ui_bundle_placements.php");
-		require_once(__CA_MODELS_DIR__."/ca_lists.php");
-		require_once(__CA_MODELS_DIR__."/ca_list_items.php");
-		require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-
+												
 		$o_annotation_type_conf = Configuration::load(Configuration::load()->get('annotation_type_config'));
 
 		$t_placement = new ca_editor_ui_bundle_placements();
@@ -1362,8 +1345,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processRelationshipTypes() {
-		require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-
+		
 		$va_rel_tables = [];
 		if($this->ops_base_name) { // "merge" profile and its base
 			foreach($this->opo_base->relationshipTypes->children() as $vo_rel_table) {
@@ -1567,8 +1549,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processRoles() {
-		require_once(__CA_MODELS_DIR__."/ca_user_roles.php");
-		$va_roles = [];
+				$va_roles = [];
 		if($this->ops_base_name) { // "merge" profile and its base
 
 			if($this->opo_base->roles) {
@@ -1704,10 +1685,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processDisplays() {
-		require_once(__CA_MODELS_DIR__."/ca_bundle_displays.php");
-		require_once(__CA_MODELS_DIR__."/ca_bundle_display_placements.php");
-		require_once(__CA_MODELS_DIR__."/ca_bundle_display_type_restrictions.php");
-
+						
 		$o_config = Configuration::load();
 
 		$va_displays = [];
@@ -1915,9 +1893,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processSearchForms() {
-		require_once(__CA_MODELS_DIR__."/ca_search_forms.php");
-		require_once(__CA_MODELS_DIR__."/ca_search_form_placements.php");
-
+				
 		$o_config = Configuration::load();
 		$va_forms = [];
 		if($this->ops_base_name) { // "merge" profile and its base
@@ -2282,9 +2258,7 @@ class Installer {
 	
 	# --------------------------------------------------
 	public function processMetadataAlerts() {
-		require_once(__CA_MODELS_DIR__."/ca_metadata_alert_rules.php");
-		require_once(__CA_MODELS_DIR__."/ca_metadata_alert_triggers.php");
-
+				
 		$o_config = Configuration::load();
 		$va_md_alerts = [];
 		if($this->ops_base_name) { // "merge" profile and its base
@@ -2531,8 +2505,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function processMiscHierarchicalSetup() {
-		require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");
-
+		
 		#
 		# Create roots for storage locations hierarchies
 		#
@@ -2549,8 +2522,7 @@ class Installer {
 	}
 	# --------------------------------------------------
 	public function createAdminAccount() {
-		require_once(__CA_MODELS_DIR__."/ca_users.php");
-
+		
 		$ps_password = caGenerateRandomPassword(8);
 		$t_user = new ca_users();
 		$t_user->setMode(ACCESS_WRITE);

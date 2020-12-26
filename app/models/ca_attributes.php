@@ -188,8 +188,7 @@ class ca_attributes extends BaseModel {
 	#
 	# ------------------------------------------------------
 	public function __construct($pn_id=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-		parent::__construct($pn_id);	# call superclass constructor
+				parent::__construct($pn_id);	# call superclass constructor
 	}
 	# ------------------------------------------------------
 	/**

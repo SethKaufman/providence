@@ -91,8 +91,7 @@
 					continue; 
 				}
 				
- 				require_once(__CA_MODELS_DIR__.'/'.$vs_table.'.php');
-				$va_instances[$vs_table] = $t_instance = new $vs_table;
+ 								$va_instances[$vs_table] = $t_instance = new $vs_table;
 				$va_tables[$vs_table] = (int)$t_instance->getCount();
 			}
 			

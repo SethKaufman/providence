@@ -34,12 +34,7 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/Datamodel.php');
-require_once(__CA_LIB_DIR__.'/Configuration.php');
-require_once(__CA_LIB_DIR__.'/Parsers/ZipFile.php');
 require_once(__CA_LIB_DIR__.'/Logging/Eventlog.php');
-require_once(__CA_LIB_DIR__.'/Utils/Encoding.php');
-require_once(__CA_LIB_DIR__.'/Parsers/ganon.php');
 
 /**
  * array_key_first polyfill for PHP < 7.3
@@ -151,18 +146,6 @@ function _p($ps_key) {
 	print $vs_str;
 	return;
 }
-# ----------------------------------------------------------------------
-# Define parameter type constants for getParameter()
-# ----------------------------------------------------------------------
-if(!defined("pInteger")) { define("pInteger", 1); }
-if(!defined("pFloat")) { define("pFloat", 2); }
-if(!defined("pString")) { define("pString", 3); }
-if(!defined("pArray")) { define("pArray", 4); }
-
-# OS family constants
-define('OS_POSIX', 0);
-define('OS_WIN32', 1);
-
 
 # ----------------------------------------
 # --- XML
@@ -3992,8 +3975,7 @@ function caFileIsIncludable($ps_file) {
 		}
 
 		if($pb_include_rel_tables) {
-			require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-			$t_rel = new ca_relationship_types();
+						$t_rel = new ca_relationship_types();
 			$va_rels = $t_rel->getRelationshipsUsingTypes();
 
 			foreach($va_rels as $vn_table_num => $va_rel_table_info) {

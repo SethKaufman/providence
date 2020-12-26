@@ -33,9 +33,6 @@
 namespace CA\Sync\LogEntry;
 
 require_once(__CA_LIB_DIR__.'/Sync/LogEntry/Base.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-require_once(__CA_MODELS_DIR__.'/ca_attributes.php');
-require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
 
 class AttributeValue extends Base {
 

@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_MODELS_DIR__.'/ca_bookmark_folders.php');
 
 BaseModel::$s_ca_models_definitions['ca_bookmarks'] = array(
  	'NAME_SINGULAR' 	=> _t('bookmark'),

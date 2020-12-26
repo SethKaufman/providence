@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_MODELS_DIR__."/ca_entities.php");
- 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  
  	class EntityEditorController extends BaseEditorController {
  		# -------------------------------------------------------
@@ -45,8 +44,7 @@
  		}
  		# -------------------------------------------------------
 		public function checkForDupeLabels() {
-			require_once(__CA_MODELS_DIR__.'/ca_entity_labels.php');
-			$t_entity = new ca_entities();
+						$t_entity = new ca_entities();
 
 			$vs_form_prefix = $this->getRequest()->getParameter('fieldNamePrefix', pString);
 			$vs_label_id = $this->getRequest()->getParameter('label_id', pString);

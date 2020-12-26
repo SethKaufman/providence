@@ -33,9 +33,7 @@
  /**
   * Methods for models than can have a current location
   */
-  	require_once(__CA_MODELS_DIR__."/ca_history_tracking_current_values.php");
-  	require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");
- 
+  	  	 
 	trait HistoryTrackingCurrentValueTrait {
 		# ------------------------------------------------------
 		
@@ -885,8 +883,7 @@
 					$va_lots = [$vn_lot_id];
 				}
 				if(is_array($va_lot_types = caGetOption('ca_object_lots_showTypes', $pa_bundle_settings, null))) {
-					require_once(__CA_MODELS_DIR__."/ca_object_lots.php");
-			
+								
 					if(caGetOption('ca_object_lots_includeFromChildren', $pa_bundle_settings, false)) {
 						$va_child_lots = $qr->get('ca_object_lots.lot_id', ['returnAsArray' => true]);
 						if ($pb_show_child_history) { $va_lots = array_merge($va_lots, $va_child_lots); }
@@ -992,8 +989,7 @@
 				}
 				if(is_array($va_loan_types = caGetOption('ca_loans_showTypes', $pa_bundle_settings, null)) && is_array($va_loans)) {	
 					$qr_loans = caMakeSearchResult($linking_table, $va_loans, ['transaction' => $this->getTransaction(), 'sort' => $pb_date_mode ? 'ca_loans.loan_id' : null, 'sortDirection' => $pb_date_mode ? 'desc' : null]);
-					require_once(__CA_MODELS_DIR__."/ca_loans.php");
-					$t_loan = new ca_loans();
+										$t_loan = new ca_loans();
 					$va_loan_type_info = $t_loan->getTypeList(); 
 			
 					$va_date_elements_by_type = [];
@@ -1099,8 +1095,7 @@
 				}
 				if(is_array($va_movement_types = caGetOption('ca_movements_showTypes', $pa_bundle_settings, null)) && is_array($va_movements)) {	
 					$qr_movements = caMakeSearchResult($linking_table, $va_movements, ['transaction' => $this->getTransaction(), 'sort' => $pb_date_mode ? 'ca_movements.movement_id' : null, 'sortDirection' => $pb_date_mode ? 'desc' : null]);
-					require_once(__CA_MODELS_DIR__."/ca_movements.php");
-					$t_movement = new ca_movements();
+										$t_movement = new ca_movements();
 					$va_movement_type_info = $t_movement->getTypeList(); 
 			
 					$va_date_elements_by_type = [];
@@ -1200,8 +1195,7 @@
 				$va_occurrences = $qr->get("{$linking_table}.relation_id", array('returnAsArray' => true));
 				$va_child_occurrences = [];
 				if(is_array($va_occurrence_types = caGetOption('ca_occurrences_showTypes', $pa_bundle_settings, null)) && is_array($va_occurrences)) {	
-					require_once(__CA_MODELS_DIR__."/ca_occurrences.php");
-					$t_occurrence = new ca_occurrences();
+										$t_occurrence = new ca_occurrences();
 					$va_occurrence_type_info = $t_occurrence->getTypeList(); 
 			
 					foreach($va_occurrence_types as $vn_type_id) {
@@ -1314,8 +1308,7 @@
 				$va_entities = $qr->get("{$linking_table}.relation_id", array('returnAsArray' => true));
 				$va_child_entities = [];
 				if(is_array($va_entity_types = caGetOption('ca_entities_showTypes', $pa_bundle_settings, null)) && is_array($va_entities)) {	
-					require_once(__CA_MODELS_DIR__."/ca_entities.php");
-					$t_entity = new ca_entities();
+										$t_entity = new ca_entities();
 					$va_entity_type_info = $t_entity->getTypeList(); 
 					$entity_table_num = $t_entity->tableNum();
 			
@@ -1434,8 +1427,7 @@
 				}
 				if(is_array($va_collection_types = caGetOption('ca_collections_showTypes', $pa_bundle_settings, null)) && is_array($va_collections)) {	
 					$qr_collections = caMakeSearchResult($linking_table, $va_collections, ['transaction' => $this->getTransaction(), 'sort' => $pb_date_mode ? 'ca_collections.collection_id' : null, 'sortDirection' => $pb_date_mode ? 'desc' : null]);
-					require_once(__CA_MODELS_DIR__."/ca_collections.php");
-					$t_collection = new ca_collections();
+										$t_collection = new ca_collections();
 					$va_collection_type_info = $t_collection->getTypeList(); 
 			
 					$va_date_elements_by_type = [];
@@ -1543,8 +1535,7 @@
 				}
 				if(is_array($va_object_types = caGetOption('ca_objects_showTypes', $pa_bundle_settings, null)) && is_array($va_objects)) {	
 					$qr_objects = caMakeSearchResult($linking_table, $va_objects, ['transaction' => $this->getTransaction(), 'sort' => $pb_date_mode ? 'ca_objects.object_id' : null, 'sortDirection' => $pb_date_mode ? 'desc' : null]);
-					require_once(__CA_MODELS_DIR__."/ca_objects.php");
-					$t_object = new ca_objects();
+										$t_object = new ca_objects();
 					$va_object_type_info = $t_object->getTypeList(); 
 			
 					$va_date_elements_by_type = [];
@@ -1653,8 +1644,7 @@
 				}
 
 				if(is_array($va_location_types = caGetOption('ca_storage_locations_showRelationshipTypes', $pa_bundle_settings, null)) && is_array($va_locations)) {	
-					require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");
-					$t_location = new ca_storage_locations();
+										$t_location = new ca_storage_locations();
 					if ($this->inTransaction()) { $t_location->setTransaction($this->getTransaction()); }
 					$va_location_type_info = $t_location->getTypeList(); 
 			

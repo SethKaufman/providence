@@ -26,7 +26,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_MODELS_DIR__.'/ca_change_log.php');
 
 class GlobalChangeController extends ActionController {
 	# -------------------------------------------------------

@@ -34,7 +34,6 @@
    *
    */
 require_once(__CA_LIB_DIR__.'/BaseRepresentationRelationship.php');
-require_once(__CA_MODELS_DIR__."/ca_objects.php");
 require_once(__CA_LIB_DIR__."/Db/Transaction.php");
 
 

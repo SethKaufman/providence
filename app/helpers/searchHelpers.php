@@ -34,8 +34,7 @@
 	 *
 	 */
 	require_once(__CA_LIB_DIR__.'/Search/Common/Parsers/LuceneSyntaxParser.php');
-	require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-
+	
 
 	# ---------------------------------------
 	/**
@@ -1471,9 +1470,7 @@
 		$o_config = Configuration::load();
 		$pn_display_id = caGetOption('restrictToDisplay', $pa_options, null);
 	
-		require_once(__CA_MODELS_DIR__ . '/ca_user_sorts.php');
-		require_once(__CA_MODELS_DIR__.'/ca_editor_uis.php');
-		global $g_ui_locale_id;
+						global $g_ui_locale_id;
 		if(is_numeric($ps_table)) {
 			$ps_table = Datamodel::getTableName($ps_table);
 		}
@@ -1650,8 +1647,7 @@
 			}
 
 			// Add sortable elements
-			require_once(__CA_MODELS_DIR__ . '/ca_metadata_elements.php');
-			$va_sortable_elements = ca_metadata_elements::getSortableElements($ps_table, $pn_type_id);
+						$va_sortable_elements = ca_metadata_elements::getSortableElements($ps_table, $pn_type_id);
 			foreach($va_sortable_elements as $vn_element_id => $va_sortable_element) {
 				$va_base_fields[$ps_table.'.'.$va_sortable_element['element_code']] = $va_sortable_element['display_label'];
 			}

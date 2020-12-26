@@ -95,12 +95,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 	protected $_rowAsSearchResult;
 	# ------------------------------------------------------
 	public function __construct($pn_id=null) {
-		require_once(__CA_MODELS_DIR__."/ca_editor_uis.php");
-		require_once(__CA_MODELS_DIR__."/ca_acl.php");
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_entries.php');
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_alert_rules.php');
-		require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
-
+										
 		parent::__construct($pn_id);	# call superclass constructor
 		
 		if ($pn_id) {
@@ -3182,8 +3177,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 		$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 
 		$va_path = array_keys(Datamodel::getPath($this->tableName(), $vs_table_name));
-		require_once(__CA_MODELS_DIR__."/{$vs_table_name}.php");
-		$t_item = new $vs_table_name;
+				$t_item = new $vs_table_name;
 		/** @var BaseRelationshipModel $t_item_rel */
 		$t_item_rel = Datamodel::getInstance($va_path[1]);
 
@@ -4346,8 +4340,7 @@ if (!$vb_batch) {
                             
                                     $vn_rep_type_id = $po_request->getParameter([$vs_prefix_stub.'rep_type_id_new_'.$va_matches[1], $vs_prefix_stub.'type_id_new_'.$va_matches[1]], pInteger);
                                     if(!$vn_rep_type_id && !($vn_rep_type_id = caGetDefaultItemID('object_representation_types'))) {
-                                        require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-                                        $t_list = new ca_lists();
+                                                                                $t_list = new ca_lists();
                                         if (is_array($va_rep_type_ids = $t_list->getItemsForList('object_representation_types', array('idsOnly' => true, 'enabledOnly' => true)))) {
                                             $vn_rep_type_id = array_shift($va_rep_type_ids);
                                         }
@@ -4476,9 +4469,7 @@ if (!$vb_batch) {
 					// This bundle is only available for types which support set membership
 					case 'ca_sets_checklist':
 						// check for existing labels to delete (no updating supported)
-						require_once(__CA_MODELS_DIR__.'/ca_sets.php');
-						require_once(__CA_MODELS_DIR__.'/ca_set_items.php');
-	
+													
 						$t_set = new ca_sets();
 if (!$vb_batch) {
 						$va_sets = caExtractValuesByUserLocale($t_set->getSetsForItem($this->tableNum(), $this->getPrimaryKey(), array('user_id' => $po_request->getUserID()))); 
@@ -4521,9 +4512,7 @@ if (!$vb_batch) {
 					case 'ca_set_items':
 						if ($vb_batch) { break; } // not supported in batch mode
 						// check for existing labels to delete (no updating supported)
-						require_once(__CA_MODELS_DIR__.'/ca_sets.php');
-						require_once(__CA_MODELS_DIR__.'/ca_set_items.php');
-						
+																		
 						$va_rids = explode(';', $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}setRowIDList", pString));
 						
 						$this->reorderItems($va_rids, array('user_id' => $po_request->getUserID(), 'treatRowIDsAsRIDs' => true, 'deleteExcludedItems' => true));
@@ -4571,8 +4560,7 @@ if (!$vb_batch) {
 					case 'ca_editor_ui_screens':
 						if ($vb_batch) { break; } // not supported in batch mode
 						global $g_ui_locale_id;
-						require_once(__CA_MODELS_DIR__.'/ca_editor_ui_screens.php');
-						$va_screen_ids = explode(';', $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_ScreenBundleList", pString));
+												$va_screen_ids = explode(';', $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_ScreenBundleList", pString));
 					
 						
 						foreach($_REQUEST as $vs_key => $vs_val) {
@@ -4616,8 +4604,7 @@ if (!$vb_batch) {
 					case 'ca_tour_stops_list':
 						if ($vb_batch) { break; } // not supported in batch mode
 						global $g_ui_locale_id;
-						require_once(__CA_MODELS_DIR__.'/ca_tour_stops.php');
-						$va_stop_ids = explode(';', $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_StopBundleList", pString));
+												$va_stop_ids = explode(';', $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_StopBundleList", pString));
 					
 						foreach($_REQUEST as $vs_key => $vs_val) {
 							if (!($vs_val = trim($vs_val))) { continue; }
@@ -4644,8 +4631,7 @@ if (!$vb_batch) {
 					case 'ca_user_groups':
 						if ($vb_batch) { break; } // not supported in batch mode
 						if (!$po_request->user->canDoAction('is_administrator') && ($po_request->getUserID() != $this->get('user_id'))) { break; }	// don't save if user is not owner
-						require_once(__CA_MODELS_DIR__.'/ca_user_groups.php');
-	
+							
 						$va_groups_to_set = $va_group_effective_dates = array();
 						foreach($_REQUEST as $vs_key => $vs_val) { 
 							if (preg_match("!^{$vs_placement_code}{$vs_form_prefix}_id(.*)$!", $vs_key, $va_matches)) {
@@ -4666,8 +4652,7 @@ if (!$vb_batch) {
 					case 'ca_users':
 						if ($vb_batch) { break; } // not supported in batch mode
 						if (!$po_request->user->canDoAction('is_administrator') && ($po_request->getUserID() != $this->get('user_id'))) { break; }	// don't save if user is not owner
-						require_once(__CA_MODELS_DIR__.'/ca_users.php');
-	
+							
 						$va_users_to_set = $va_user_effective_dates = array();
 						foreach($_REQUEST as $vs_key => $vs_val) { 
 							if (preg_match("!^{$vs_placement_code}{$vs_form_prefix}_id(.*)$!", $vs_key, $va_matches)) {
@@ -4688,8 +4673,7 @@ if (!$vb_batch) {
 					case 'ca_user_roles':
 						if ($vb_batch) { break; } // not supported in batch mode
 						if (!$po_request->user->canDoAction('is_administrator') && ($po_request->getUserID() != $this->get('user_id'))) { break; }	// don't save if user is not owner
-						require_once(__CA_MODELS_DIR__.'/ca_user_roles.php');
-	
+							
 						$va_roles_to_set = $va_roles_to_remove = array();
 						foreach($_REQUEST as $vs_key => $vs_val) { 
 							if (preg_match("!^{$vs_placement_code}{$vs_form_prefix}_access_([\d]+)$!", $vs_key, $va_matches)) {
@@ -4954,8 +4938,7 @@ if (!$vb_batch) {
 						
 						if (!caGetOption('hide_add_to_occurrence_controls', $va_bundle_settings, false)) {
 							// set occurrence
-							require_once(__CA_MODELS_DIR__."/ca_occurrences.php");
-							$t_occ = new ca_occurrences();
+														$t_occ = new ca_occurrences();
 							$va_occ_types = $t_occ->getTypeList(); 
 							foreach($va_occ_types as $vn_type_id => $vn_type_info) {
 								if ($vn_occurrence_id = $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_ca_occurrences_{$vn_type_id}_idnew_0", pInteger)) {
@@ -4976,8 +4959,7 @@ if (!$vb_batch) {
 						
 						if (!caGetOption('hide_add_to_collection_controls', $va_bundle_settings, false)) {
 							// set collection
-							require_once(__CA_MODELS_DIR__."/ca_collections.php");
-							$t_coll = new ca_collections();
+														$t_coll = new ca_collections();
 							$va_coll_types = $t_coll->getTypeList();
 							foreach($va_coll_types as $vn_type_id => $vn_type_info) {
 								if ($vn_collection_id = $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_ca_collections_{$vn_type_id}_idnew_0", pInteger)) {
@@ -4998,8 +4980,7 @@ if (!$vb_batch) {
 						
 						if (!caGetOption('hide_add_to_entity_controls', $va_bundle_settings, false)) {
 							// set entity
-							require_once(__CA_MODELS_DIR__."/ca_entities.php");
-							$t_entity = new ca_entities();
+														$t_entity = new ca_entities();
 							$va_entity_types = $t_entity->getTypeList();
 							foreach($va_entity_types as $vn_type_id => $vn_type_info) {
 								if ($vn_entity_id = $po_request->getParameter("{$vs_placement_code}{$vs_form_prefix}_ca_entities_{$vn_type_id}_idnew_0", pInteger)) {
@@ -5064,8 +5045,7 @@ if (!$vb_batch) {
 						if (!$po_request->user->canDoAction('can_edit_ca_objects')) { break; }
 					
 						// Save checkout/return note edits
-					    require_once(__CA_MODELS_DIR__."/ca_object_checkouts.php");
-					    
+					    					    
 					    $edits = [];
 						foreach($_REQUEST as $k => $v) {
 						    if (preg_match("!^{$vs_placement_code}{$vs_form_prefix}(checkout|return)_notes_([\d]+)$!", $k, $m)) {
@@ -5545,8 +5525,7 @@ if (!$vb_batch) {
 	 * @param string $ps_placement_code
 	 */
 	public function _processRelatedSets($po_request, $ps_form_prefix, $ps_placement_code) {
-		require_once(__CA_MODELS_DIR__ . '/ca_sets.php');
-
+		
 		foreach($_REQUEST as $vs_key => $vs_value ) {
 			// check for new relationships to add
 			if (preg_match("/^{$ps_placement_code}{$ps_form_prefix}_idnew_([\d]+)/", $vs_key, $va_matches)) {
@@ -5822,8 +5801,7 @@ if (!$vb_batch) {
 			if ($t_tmp->hasField('type_id')) {
 				$va_selects[] = $vs_linking_table.'.type_id relationship_type_id';
 
-				require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-				$t_rel = new ca_relationship_types();
+								$t_rel = new ca_relationship_types();
 
 				$vb_uses_relationship_types = true;
 			}
@@ -6751,8 +6729,7 @@ if (!$vb_batch) {
 			$vs_idno_fld = $this->getProperty('ID_NUMBERING_ID_FIELD');
 			
 			if (($this->tableName() == 'ca_objects') && $this->getAppConfig()->get('ca_objects_x_collections_hierarchy_enabled') && !$this->getAppConfig()->get('ca_objects_x_collections_hierarchy_disable_object_collection_idno_inheritance') && $pa_options['request'] && ($vn_collection_id = $pa_options['request']->getParameter('collection_id', pInteger))) {
-				require_once(__CA_MODELS_DIR__."/ca_collections.php");
-				// Parent will be set to collection
+								// Parent will be set to collection
 				$t_coll = new ca_collections($vn_collection_id);
 				if ($this->inTransaction()) { $t_coll->setTransaction($this->getTransaction()); }
 				if ($t_coll->getPrimaryKey()) {
@@ -7002,13 +6979,11 @@ $pa_options["display_form_field_tips"] = true;
 	 * 
 	 */
 	public function getACLUserHTMLFormBundle($po_request, $ps_form_name, $pa_options=null) {
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vs_view_path = (isset($pa_options['viewPath']) && $pa_options['viewPath']) ? $pa_options['viewPath'] : $po_request->getViewsDirectoryPath();
 		$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 		
-		require_once(__CA_MODELS_DIR__.'/ca_users.php');
-		$t_user = new ca_users();
+				$t_user = new ca_users();
 		
 		
 		$o_view->setVar('t_instance', $this);
@@ -7086,8 +7061,7 @@ $pa_options["display_form_field_tips"] = true;
 	public function addACLUsers($pa_user_ids) {
 		if (!($vn_id = (int)$this->getPrimaryKey())) { return null; }
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vn_table_num = $this->tableNum();
 		
 		$t_acl = new ca_acl();
@@ -7131,8 +7105,7 @@ $pa_options["display_form_field_tips"] = true;
 	public function removeACLUsers($pa_user_ids) {
 		if (!($vn_id = (int)$this->getPrimaryKey())) { return null; }
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vn_table_num = $this->tableNum();
 		
 		$va_current_users = $this->getACLUsers();
@@ -7183,8 +7156,7 @@ $pa_options["display_form_field_tips"] = true;
 		$vs_view_path = (isset($pa_options['viewPath']) && $pa_options['viewPath']) ? $pa_options['viewPath'] : $po_request->getViewsDirectoryPath();
 		$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 		
-		require_once(__CA_MODELS_DIR__.'/ca_user_groups.php');
-		$t_group = new ca_user_groups();
+				$t_group = new ca_user_groups();
 		
 		
 		$o_view->setVar('t_instance', $this);
@@ -7268,8 +7240,7 @@ $pa_options["display_form_field_tips"] = true;
 	public function addACLUserGroups($pa_group_ids, $pa_options=null) {
 		if (!($vn_id = (int)$this->getPrimaryKey())) { return null; }
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vn_table_num = $this->tableNum();
 		
 		$vn_user_id = (isset($pa_options['user_id']) && $pa_options['user_id']) ? $pa_options['user_id'] : null;
@@ -7324,8 +7295,7 @@ $pa_options["display_form_field_tips"] = true;
 	public function removeACLUserGroups($pa_group_ids) {
 		if (!($vn_id = (int)$this->getPrimaryKey())) { return null; }
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vn_table_num = $this->tableNum();
 		
 		$va_current_groups = $this->getUserGroups();
@@ -7418,8 +7388,7 @@ $pa_options["display_form_field_tips"] = true;
 		$vs_view_path = (isset($pa_options['viewPath']) && $pa_options['viewPath']) ? $pa_options['viewPath'] : $po_request->getViewsDirectoryPath();
 		$o_view = new View($po_request, "{$vs_view_path}/bundles/");
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		$t_acl = new ca_acl();
+				$t_acl = new ca_acl();
 		
 		$vn_access = 0;
 		if ($t_acl->load(array('group_id' => null, 'user_id' => null, 'table_num' => $this->tableNum(), 'row_id' => $this->getPrimaryKey()))) {		// try to load existing record
@@ -7444,8 +7413,7 @@ $pa_options["display_form_field_tips"] = true;
 	public function setACLWorldAccess($pn_world_access) {
 		if (!($vn_id = (int)$this->getPrimaryKey())) { return null; }
 		
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		$vn_table_num = $this->tableNum();
 		
 		
@@ -7491,8 +7459,7 @@ $pa_options["display_form_field_tips"] = true;
 			if (!$pn_id) { return null; }
 		}
 		if ($t_user->canDoAction('is_administrator')) { return __CA_ACL_EDIT_DELETE_ACCESS__; }
-		require_once(__CA_MODELS_DIR__.'/ca_acl.php');
-		
+				
 		return ca_acl::accessForRow($t_user, $this->tableNum(), $pn_id);
 	}
 	# --------------------------------------------------------------------------------------------		

@@ -545,8 +545,7 @@
 				}
  				if (!$pn_display_id) { 
  					// Try to guess
- 					require_once(__CA_MODELS_DIR__."/ca_bundle_displays.php");
- 					$t_display = new ca_bundle_displays();
+ 					 					$t_display = new ca_bundle_displays();
  					if (is_array($displays = $t_display->getBundleDisplays(['table' => $this->tableName(), 'restrictToTypes' => $pn_type_id ? [$pn_type_id] : null]))) {
  						if ($ps_show_in) {
  							foreach($displays as $id => $d) {

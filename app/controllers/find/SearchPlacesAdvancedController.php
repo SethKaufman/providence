@@ -28,9 +28,7 @@
  	require_once(__CA_LIB_DIR__."/BaseAdvancedSearchController.php");
  	require_once(__CA_LIB_DIR__."/Search/PlaceSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/PlaceBrowse.php");
-	require_once(__CA_MODELS_DIR__."/ca_places.php");
-	require_once(__CA_MODELS_DIR__."/ca_sets.php");
- 	
+		 	
  	class SearchPlacesAdvancedController extends BaseAdvancedSearchController {
  		# -------------------------------------------------------
  		/**

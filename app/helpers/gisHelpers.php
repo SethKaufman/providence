@@ -33,8 +33,6 @@
  /**
    *
    */
-    require_once(__CA_LIB_DIR__.'/Attributes/Values/LengthAttributeValue.php');
-    require_once(__CA_LIB_DIR__.'/Parsers/gPoint.php');
     
     /**
      * List of countries used for drop-down list

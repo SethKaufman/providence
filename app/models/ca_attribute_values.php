@@ -35,7 +35,6 @@
    */
  
 require_once(__CA_LIB_DIR__.'/Attributes/Attribute.php');
-require_once(__CA_MODELS_DIR__.'/ca_attribute_value_multifiles.php');
 require_once(__CA_LIB_DIR__."/SyncableBaseModel.php");
 
 
@@ -657,8 +656,7 @@ class ca_attribute_values extends BaseModel {
  	 */
  	static public function getValueIDFor($element_id, $value, $options=null) {
  	    if (!is_numeric($element_id)) { 
-            require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
- 	        $element_id = ca_metadata_elements::getElementID($element_id); 
+             	        $element_id = ca_metadata_elements::getElementID($element_id); 
  	   }
  	
         if ($element_id > 0) {

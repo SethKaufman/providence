@@ -34,7 +34,6 @@
  *
  */
 
-require_once(__CA_MODELS_DIR__.'/ca_user_sort_items.php');
 
 BaseModel::$s_ca_models_definitions['ca_user_sorts'] = array(
 	'NAME_SINGULAR' 	=> _t('user sort'),

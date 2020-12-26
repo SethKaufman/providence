@@ -35,10 +35,6 @@
    */
  
 require_once(__CA_LIB_DIR__.'/ModelSettings.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_rules.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_entry_labels.php');
-require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
 
 global $_ca_metadata_dictionary_entry_settings;
 $_ca_metadata_dictionary_entry_settings = array(		// global

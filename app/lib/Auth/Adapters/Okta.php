@@ -30,7 +30,6 @@
  * ----------------------------------------------------------------------
  */
 require_once(__CA_LIB_DIR__.'/Auth/BaseAuthAdapter.php');
-require_once(__CA_MODELS_DIR__.'/ca_users.php');
 
 class OktaAuthAdapter extends BaseAuthAdapter implements IAuthAdapter {
 	/**

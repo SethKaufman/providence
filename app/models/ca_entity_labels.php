@@ -36,7 +36,6 @@
 
 require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
-require_once(__CA_MODELS_DIR__.'/ca_entities.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_entity_labels'] = array(

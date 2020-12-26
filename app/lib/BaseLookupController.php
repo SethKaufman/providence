@@ -34,10 +34,7 @@
   *
   */
  	
- 	require_once(__CA_MODELS_DIR__.'/ca_lists.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
- 	require_once(__CA_MODELS_DIR__.'/ca_user_roles.php');
- 	
+ 	 	 	 	
  	class BaseLookupController extends ActionController {
  		# -------------------------------------------------------
  		protected $opb_uses_hierarchy_browser = false;
@@ -55,8 +52,7 @@
  		# -------------------------------------------------------
  		public function __construct(&$po_request, &$po_response, $pa_view_paths=null) {
 			if ($this->ops_search_class) { require_once(__CA_LIB_DIR__."/Search/".$this->ops_search_class.".php"); }
-			require_once(__CA_MODELS_DIR__."/".$this->ops_table_name.".php");
- 			parent::__construct($po_request, $po_response, $pa_view_paths);
+			 			parent::__construct($po_request, $po_response, $pa_view_paths);
  			$this->opo_item_instance = new $this->ops_table_name();
  		}
  		# -------------------------------------------------------

@@ -38,7 +38,6 @@ require_once(__CA_LIB_DIR__."/Controller/Request/Session.php");
 require_once(__CA_LIB_DIR__."/Configuration.php");
 require_once(__CA_LIB_DIR__."/Datamodel.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
-require_once(__CA_MODELS_DIR__."/ca_users.php");
 
 # ----------------------------------------------------------------------
 # Define parameter type constants for getParameter()

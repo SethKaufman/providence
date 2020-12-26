@@ -44,14 +44,12 @@
 				'ca_object_representations', 'ca_representation_annotations',
 				'ca_list_items'
 			) as $vs_table) {
-				require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-				$t_table = new $vs_table;
+								$t_table = new $vs_table;
 				$vs_pk = $t_table->primaryKey();
 				$qr_res = $o_db->query("SELECT {$vs_pk} FROM {$vs_table}");
 
 				if ($vs_label_table_name = $t_table->getLabelTableName()) {
-					require_once(__CA_MODELS_DIR__."/".$vs_label_table_name.".php");
-					$t_label = new $vs_label_table_name;
+										$t_label = new $vs_label_table_name;
 					$vs_label_pk = $t_label->primaryKey();
 					$qr_labels = $o_db->query("SELECT {$vs_label_pk} FROM {$vs_label_table_name}");
 
@@ -122,8 +120,7 @@
 		 */
 		public static function remove_unused_media($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-
+			
 			$vb_delete_opt = (bool)$po_opts->getOption('delete');
 			$o_db = new Db();
 
@@ -219,8 +216,7 @@
 		 */
 		public static function remove_deleted_representations($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-
+			
 			$vb_delete_opt = (bool)$po_opts->getOption('delete');
 			$o_db = new Db();
 
@@ -456,8 +452,7 @@
 		 * @return bool
 		 */
 		public static function clear_search_indexing_queue_lock_file($po_opts=null) {
-            require_once(__CA_MODELS_DIR__."/ca_search_indexing_queue.php");
-			
+            			
 			if (ca_search_indexing_queue::lockExists()) {
 			    if (ca_search_indexing_queue::lockCanBeRemoved()) {
 			        ca_search_indexing_queue::lockRelease();
@@ -703,9 +698,7 @@
 		 *
 		 */
 		public static function validate_using_metadata_dictionary_rules($po_opts=null) {
-			require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_rules.php');
-			require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_rule_violations.php');
-
+						
 			$rules = ca_metadata_dictionary_rules::getRules();
 			$tables = array_unique(array_map(function($v) { return $v['table_num']; }, $rules));
 			print CLIProgressBar::start(sizeof($tables), _t('Evaluating'));
@@ -774,8 +767,7 @@
 		 */
 		public static function check_media_fixity($po_opts=null) {
 			require_once(__CA_LIB_DIR__."/Db.php");
-			require_once(__CA_MODELS_DIR__."/ca_object_representations.php");
-
+			
 
 			$quiet = $po_opts->getOption('quiet');
 			
@@ -1422,8 +1414,7 @@
 		 * @return bool
 		 */
 		public static function reload_ulan_records($po_opts=null) {
-			require_once(__CA_MODELS_DIR__.'/ca_data_importers.php');
-
+			
 			if(!($vs_mapping = $po_opts->getOption('mapping'))) {
 				CLIUtils::addError("\t\tNo mapping found. Please use the -m parameter to specify a ULAN mapping.");
 				return false;
@@ -1600,8 +1591,7 @@
 								$vs_table = $va_detail_types[$vs_action]['table'];
 								$va_types = $va_detail_types[$vs_action]['restrictToTypes'];
 								if (!file_exists(__CA_MODELS_DIR__."/{$vs_table}.php")) { continue; }
-								require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-								
+																
 								if ($vs_url = caNavUrl($o_request, $vs_module_path, $vs_controller, $vs_action)) {
 									// get ids
 									$va_ids = call_user_func_array(array($vs_table, 'find'), array(['deleted' => 0], ['restrictToTypes' => $va_types, 'returnAs' => 'ids']));
@@ -1911,8 +1901,7 @@
 		 * @return bool
 		 */
 		public static function check_metadata_alerts($po_opts=null) {
-			require_once(__CA_MODELS_DIR__ . '/ca_metadata_alert_triggers.php');
-			ca_metadata_alert_triggers::firePeriodicTriggers();
+						ca_metadata_alert_triggers::firePeriodicTriggers();
 		}
 		# -------------------------------------------------------
 		public static function check_metadata_alertsParamList() {
@@ -2027,9 +2016,7 @@
 		 * @return bool
 		 */
 		public static function check_relationship_type_roots($po_opts=null) {
-            require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
-            require_once(__CA_MODELS_DIR__."/ca_locales.php");
-            
+                                    
 			$vn_locale_id = ca_locales::getDefaultCataloguingLocaleID();	
 			
 			$va_tables = Datamodel::getTableNames();
@@ -2037,8 +2024,7 @@
 		    $c = 0;
 			foreach($va_tables as $vs_table) {
 				if (!preg_match('!_x_!', $vs_table)) { continue; }
-				require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-				if (!($t_table = new $vs_table)) { continue; }
+								if (!($t_table = new $vs_table)) { continue; }
 				if (!$t_table->hasField('type_id')) { continue; }
 				$vs_pk = $t_table->primaryKey();
 				$vn_table_num = $t_table->tableNum();
@@ -2215,11 +2201,7 @@
 		}
         # -------------------------------------------------------
 		public static function reload_object_current_location_dates($po_opts=null) {
-			require_once(__CA_MODELS_DIR__."/ca_movements.php");
-			require_once(__CA_MODELS_DIR__."/ca_movements_x_objects.php");
-			require_once(__CA_MODELS_DIR__."/ca_movements_x_storage_locations.php");
-			require_once(__CA_MODELS_DIR__."/ca_objects_x_storage_locations.php");
-			
+															
 			$o_config = Configuration::load();
 			$o_db = new Db();
 			

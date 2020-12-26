@@ -35,13 +35,10 @@
   */
   
  require_once(__CA_LIB_DIR__.'/Search/SearchResult.php');
- require_once(__CA_MODELS_DIR__.'/ca_lists.php');
- require_once(__CA_MODELS_DIR__.'/ca_locales.php');
- 
+   
 	class BaseSearchResult extends SearchResult {
 		# -------------------------------------------------------
 		private $opo_list = null;
-		private $opo_datamodel = null;
 		private $opa_locales = null;
 		
 		/**

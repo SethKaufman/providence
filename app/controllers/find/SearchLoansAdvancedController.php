@@ -28,9 +28,7 @@
  	require_once(__CA_LIB_DIR__."/BaseAdvancedSearchController.php");
  	require_once(__CA_LIB_DIR__."/Search/LoanSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/LoanBrowse.php");
-	require_once(__CA_MODELS_DIR__."/ca_loans.php");
-	require_once(__CA_MODELS_DIR__."/ca_sets.php");
- 	
+		 	
  	class SearchLoansAdvancedController extends BaseAdvancedSearchController {
  		# -------------------------------------------------------
  		/**

@@ -37,9 +37,7 @@
  require_once(__CA_LIB_DIR__.'/BaseVersionUpdater.php');
  require_once(__CA_LIB_DIR__."/Db.php");
  require_once(__CA_LIB_DIR__."/Datamodel.php");
- require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
- require_once(__CA_MODELS_DIR__.'/ca_locales.php');
- 
+   
 	class VersionUpdate49 extends BaseVersionUpdater {
 		# -------------------------------------------------------
 		protected $opn_schema_update_to_version_number = 49;
@@ -108,8 +106,7 @@
 		
 			foreach($va_tables as $vs_table) {
 				if (!preg_match('!_x_!', $vs_table)) { continue; }
-				require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-				if (!($t_table = new $vs_table)) { continue; }
+								if (!($t_table = new $vs_table)) { continue; }
 				$vs_pk = $t_table->primaryKey();
 				$vn_table_num = $t_table->tableNum();
 				

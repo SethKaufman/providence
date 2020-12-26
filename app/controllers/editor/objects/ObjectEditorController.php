@@ -27,8 +27,6 @@
  */
  
 require_once(__CA_MODELS_DIR__."/ca_objects.php"); 
-require_once(__CA_MODELS_DIR__."/ca_object_lots.php");
-require_once(__CA_MODELS_DIR__."/ca_object_representation_multifiles.php");
 require_once(__CA_LIB_DIR__."/Media.php");
 require_once(__CA_LIB_DIR__."/Media/MediaProcessingSettings.php");
 require_once(__CA_LIB_DIR__."/BaseEditorController.php");

@@ -29,12 +29,10 @@
  	require_once(__CA_LIB_DIR__.'/IWidget.php');
  	require_once(__CA_LIB_DIR__.'/Db.php');
 	require_once(__CA_LIB_DIR__.'/Datamodel.php');
-	require_once(__CA_MODELS_DIR__."/ca_lists.php");
- 
+	 
 	class recordsByStatusWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		private $opo_config;
-		private $opo_datamodel;
 
 		private $opa_table_display_names;
 		private $opa_status_display_names;

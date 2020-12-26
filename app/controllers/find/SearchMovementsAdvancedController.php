@@ -28,9 +28,7 @@
  	require_once(__CA_LIB_DIR__."/BaseAdvancedSearchController.php");
  	require_once(__CA_LIB_DIR__."/Search/MovementSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/MovementBrowse.php");
-	require_once(__CA_MODELS_DIR__."/ca_movements.php");
-	require_once(__CA_MODELS_DIR__."/ca_sets.php");
- 	
+		 	
  	class SearchMovementsAdvancedController extends BaseAdvancedSearchController {
  		# -------------------------------------------------------
  		/**

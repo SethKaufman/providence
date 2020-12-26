@@ -34,8 +34,6 @@
    *
    */
 require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
-require_once(__CA_MODELS_DIR__.'/ca_editor_ui_screens.php');
-require_once(__CA_MODELS_DIR__.'/ca_editor_ui_type_restrictions.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_editor_uis'] = array(
@@ -238,8 +236,7 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 		parent::__construct($pn_id);
 		
 		if (!ca_editor_uis::$s_loaded_relationship_tables) {
-			require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-			$t_rel = new ca_relationship_types();
+						$t_rel = new ca_relationship_types();
 			$va_rels = $t_rel->getRelationshipsUsingTypes();
 			
 			foreach($va_rels as $vn_table_num => $va_rel_table_info) {

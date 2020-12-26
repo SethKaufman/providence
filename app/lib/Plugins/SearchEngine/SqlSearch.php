@@ -42,8 +42,7 @@
  require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/SqlSearchResult.php'); 
  require_once(__CA_LIB_DIR__.'/Search/Common/Stemmer/SnoballStemmer.php');
  require_once(__CA_LIB_DIR__.'/Parsers/TimeExpressionParser.php');
- require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
- require_once(__CA_APP_DIR__.'/helpers/gisHelpers.php');
+  require_once(__CA_APP_DIR__.'/helpers/gisHelpers.php');
  require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/BaseSearchPlugin.php');
 
 class WLPlugSearchEngineSqlSearch extends BaseSearchPlugin implements IWLPlugSearchEngine {
@@ -259,7 +258,6 @@ class WLPlugSearchEngineSqlSearch extends BaseSearchPlugin implements IWLPlugSea
 		}
 		unset($this->opo_config);
 		unset($this->opo_search_config);
-		unset($this->opo_datamodel);
 		unset($this->opo_db);
 		unset($this->opo_tep);
 	}

@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
- 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  	require_once(__CA_LIB_DIR__."/Search/RelationshipTypeSearch.php");
  	require_once(__CA_LIB_DIR__."/ResultContext.php");
  	

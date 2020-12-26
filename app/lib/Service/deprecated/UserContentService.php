@@ -35,9 +35,6 @@
   */
   
 require_once(__CA_LIB_DIR__."/Service/BaseService.php");
-require_once(__CA_MODELS_DIR__."/ca_item_comments.php");
-require_once(__CA_MODELS_DIR__."/ca_sets.php");
-require_once(__CA_MODELS_DIR__."/ca_set_items.php");
 
 class UserContentService extends BaseService {
 	# -------------------------------------------------------
@@ -274,8 +271,7 @@ class UserContentService extends BaseService {
 		if(!in_array($ps_type, array("ca_objects", "ca_entities", "ca_places", "ca_occurrences", "ca_collections", "ca_list_items", "ca_object_representations", "ca_storage_locations", "ca_movements", "ca_loans", "ca_tours", "ca_tour_stops"))){
 			throw new SoapFault("Server", "Invalid type or item_id");
 		} else {
-			require_once(__CA_MODELS_DIR__."/{$ps_type}.php");
-			$t_instance = new $ps_type();
+						$t_instance = new $ps_type();
 			if($pn_type_id_to_load){
 				if(!$t_instance->load($pn_type_id_to_load)){
 					return false;

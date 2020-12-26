@@ -27,8 +27,7 @@
  */
  	require_once(__CA_LIB_DIR__.'/BaseWidget.php');
  	require_once(__CA_LIB_DIR__.'/IWidget.php');
-	require_once(__CA_MODELS_DIR__."/ca_objects.php");
- 
+	 
 	class randomObjectWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		private $opo_config;

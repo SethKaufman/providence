@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	require_once(__CA_LIB_DIR__."/Controller/ActionController.php");
- 	require_once(__CA_MODELS_DIR__."/ca_metadata_elements.php");
- 
+ 	 
  	//
  	// This lookup controller doesn't extend BaseLookupController
  	// since direct lookups on attributes are handled specially – not via the search engine

@@ -35,7 +35,6 @@
    */
 
 require_once(__CA_LIB_DIR__.'/BaseLabel.php');
-require_once(__CA_MODELS_DIR__."/ca_data_exporters.php");
 
 BaseModel::$s_ca_models_definitions['ca_data_exporter_labels'] = array(
  	'NAME_SINGULAR' 	=> _t('exporter name'),

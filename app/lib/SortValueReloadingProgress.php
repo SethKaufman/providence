@@ -74,14 +74,12 @@
 				
 				$vn_tc = 0;
 				foreach($va_table_names as $vs_table) {
-					require_once(__CA_MODELS_DIR__."/{$vs_table}.php");
-					$t_table = new $vs_table;
+										$t_table = new $vs_table;
 					$vs_pk = $t_table->primaryKey();
 					$qr_res = $o_db->query("SELECT {$vs_pk} FROM {$vs_table}");
 					
 					if ($vs_label_table_name = $t_table->getLabelTableName()) {
-						require_once(__CA_MODELS_DIR__."/{$vs_label_table_name}.php");
-						$va_table_names[] = $vs_label_table_name;
+												$va_table_names[] = $vs_label_table_name;
 						
 						$t_label = new $vs_label_table_name;
 						$vs_label_pk = $t_label->primaryKey();

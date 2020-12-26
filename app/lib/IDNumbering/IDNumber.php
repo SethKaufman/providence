@@ -47,12 +47,6 @@
 		protected $opo_config;
 		
 		/**
-		 * Instance of application data model
-		 * @type Datamodel
-		 */
-		protected $opo_datamodel;
-		
-		/**
 		 * The current format
 		 * @type string
 		 */

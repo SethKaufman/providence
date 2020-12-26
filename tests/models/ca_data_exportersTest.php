@@ -31,7 +31,6 @@
  */
 use PHPUnit\Framework\TestCase;
 
-require_once(__CA_MODELS_DIR__.'/ca_data_exporters.php');
 
 class ca_data_exportersTest extends TestCase {
 	/**

@@ -42,8 +42,7 @@
  	require_once(__CA_LIB_DIR__."/Search/TourStopSearch.php");
  	require_once(__CA_LIB_DIR__."/Search/QuickSearch.php");
  	
- 	require_once(__CA_MODELS_DIR__."/ca_lists.php");
- 	
+ 	 	
  	class QuickSearchController extends BaseFindController {
  		# -------------------------------------------------------
  		private $opn_num_results_per_item_type = 100;

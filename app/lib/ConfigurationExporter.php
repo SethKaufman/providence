@@ -36,17 +36,6 @@
 
 require_once(__CA_LIB_DIR__."/Configuration.php");
 require_once(__CA_LIB_DIR__."/Datamodel.php");
-require_once(__CA_MODELS_DIR__.'/ca_bundle_displays.php');
-require_once(__CA_MODELS_DIR__."/ca_lists.php");
-require_once(__CA_MODELS_DIR__."/ca_metadata_elements.php");
-require_once(__CA_MODELS_DIR__."/ca_locales.php");
-require_once(__CA_MODELS_DIR__."/ca_editor_ui_bundle_placements.php");
-require_once(__CA_MODELS_DIR__."/ca_user_roles.php");
-require_once(__CA_MODELS_DIR__."/ca_user_groups.php");
-require_once(__CA_MODELS_DIR__."/ca_search_forms.php");
-require_once(__CA_MODELS_DIR__."/ca_search_form_placements.php");
-require_once(__CA_MODELS_DIR__."/ca_editor_ui_screens.php");
-require_once(__CA_MODELS_DIR__.'/ca_metadata_dictionary_entries.php');
 
 
 final class ConfigurationExporter {

@@ -37,9 +37,7 @@
  require_once(__CA_LIB_DIR__.'/BaseVersionUpdater.php');
  require_once(__CA_LIB_DIR__."/Db.php");
  require_once(__CA_LIB_DIR__."/Datamodel.php");
- require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
- require_once(__CA_MODELS_DIR__.'/ca_locales.php');
- 
+   
 	class VersionUpdate109 extends BaseVersionUpdater {
 		# -------------------------------------------------------
 		protected $opn_schema_update_to_version_number = 109;

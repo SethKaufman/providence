@@ -31,8 +31,7 @@
  	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  	require_once(__CA_APP_DIR__."/helpers/displayHelpers.php");
  	require_once(__CA_LIB_DIR__."/Search/ListItemSearch.php");
- 	require_once(__CA_MODELS_DIR__."/ca_objects.php");
- 	require_once(__CA_LIB_DIR__."/BaseLookupController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseLookupController.php");
  
  	class VocabularyController extends BaseLookupController {
  		# -------------------------------------------------------

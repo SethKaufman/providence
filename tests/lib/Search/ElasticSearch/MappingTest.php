@@ -32,7 +32,6 @@
  use PHPUnit\Framework\TestCase;
 
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch/Mapping.php');
-require_once(__CA_MODELS_DIR__.'/ca_metadata_elements.php');
 
 class MappingTest extends TestCase {
 	public function testGetFieldsToIndex() {

@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_MODELS_DIR__."/ca_tour_stops.php");
- 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  	
  
  	class TourStopEditorController extends BaseEditorController {

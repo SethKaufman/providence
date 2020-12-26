@@ -46,12 +46,7 @@
 	function caLoadAAT($ps_path_to_aat_data=null, $pa_options=null) {
 		if (!$ps_path_to_aat_data) { $ps_path_to_aat_data = "./AAT.xml"; }
 		require_once(__CA_LIB_DIR__.'/Db.php');
-		require_once(__CA_MODELS_DIR__.'/ca_locales.php');
-		require_once(__CA_MODELS_DIR__.'/ca_lists.php');
-		require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
-		require_once(__CA_MODELS_DIR__.'/ca_list_items_x_list_items.php');
-		require_once(__CA_MODELS_DIR__.'/ca_relationship_types.php');
-
+										
 		$o_log = new KLogger(__CA_APP_DIR__.'/log', KLogger::INFO);
 		
 		if (!file_exists($ps_path_to_aat_data)) {

@@ -37,8 +37,6 @@ require_once(__CA_LIB_DIR__."/AccessRestrictions.php");
 require_once(__CA_LIB_DIR__."/Controller/RequestDispatcher.php");
 require_once(__CA_LIB_DIR__."/Controller/Request/RequestHTTP.php");
 require_once(__CA_LIB_DIR__."/Controller/Response/ResponseHTTP.php");
-require_once(__CA_MODELS_DIR__."/ca_user_roles.php");
-require_once(__CA_MODELS_DIR__."/ca_users.php");
 
 class AccessControlTest extends TestCase {
 	# -------------------------------------------------------

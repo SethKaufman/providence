@@ -31,8 +31,6 @@
  */
 
 require_once(__CA_LIB_DIR__."/Service/BaseJSONService.php");
-require_once(__CA_MODELS_DIR__."/ca_lists.php");
-require_once(__CA_MODELS_DIR__."/ca_relationship_types.php");
 
 class ModelService extends BaseJSONService {
 	# -------------------------------------------------------

@@ -32,10 +32,7 @@
  	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
  	require_once(__CA_APP_DIR__.'/helpers/themeHelpers.php');
  	
-	require_once(__CA_MODELS_DIR__."/ca_site_templates.php");
-	require_once(__CA_MODELS_DIR__."/ca_site_pages.php");
-	require_once(__CA_MODELS_DIR__."/ca_site_page_media.php");
- 
+			 
  	class PawtucketController extends ActionController {
  		# -------------------------------------------------------
  		public function __construct(&$po_request, &$po_response, $pa_view_paths=null) {

@@ -32,7 +32,6 @@
 
 require_once(__CA_LIB_DIR__.'/Auth/BaseAuthAdapter.php');
 require_once(__CA_LIB_DIR__.'/Auth/PasswordHash.php');
-require_once(__CA_MODELS_DIR__.'/ca_users.php');
 
 class CaUsersAuthAdapter extends BaseAuthAdapter implements IAuthAdapter {
 	# --------------------------------------------------------------------------------

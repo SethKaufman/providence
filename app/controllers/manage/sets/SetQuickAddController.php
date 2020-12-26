@@ -26,7 +26,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_MODELS_DIR__.'/ca_sets.php');
 require_once(__CA_LIB_DIR__.'/BaseQuickAddController.php');
 
 class SetQuickAddController extends BaseQuickAddController {

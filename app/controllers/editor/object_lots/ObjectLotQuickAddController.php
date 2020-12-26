@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_MODELS_DIR__."/ca_object_lots.php");
- 	require_once(__CA_LIB_DIR__."/BaseQuickAddController.php");
+ 	 	require_once(__CA_LIB_DIR__."/BaseQuickAddController.php");
  
  	class ObjectLotQuickAddController extends BaseQuickAddController {
  		# -------------------------------------------------------

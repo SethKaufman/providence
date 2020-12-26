@@ -30,8 +30,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/ApplicationVars.php');
-
 /**
  * Ensure system GUID is set and set system-wide GUID constant
  */

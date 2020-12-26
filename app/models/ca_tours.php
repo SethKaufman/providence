@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_MODELS_DIR__.'/ca_tour_stops.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_tours'] = array(

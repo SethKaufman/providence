@@ -194,8 +194,7 @@
 		 *
 		 */
 		public static function process_indexing_queue($po_opts=null) {
-			require_once(__CA_MODELS_DIR__.'/ca_search_indexing_queue.php');
-
+			
 			ca_search_indexing_queue::process();
 		}
 		# -------------------------------------------------------

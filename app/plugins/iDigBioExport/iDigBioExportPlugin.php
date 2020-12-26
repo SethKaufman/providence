@@ -27,9 +27,7 @@
  */
 
     require_once(__CA_LIB_DIR__.'/Logging/Eventlog.php');
-    require_once(__CA_MODELS_DIR__.'/ca_data_exporters.php');
-	require_once(__CA_MODELS_DIR__.'/ca_objects.php');
-	require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
+    		require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
 	require_once(__CA_LIB_DIR__.'/Search/ObjectSearch.php');
 
 	class iDigBioExportPlugin extends BaseApplicationPlugin {
