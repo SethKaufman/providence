@@ -36,8 +36,7 @@
 		 *
 		 */
 		public static function import_media($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/BatchProcessor.php");
-			
+						
 			
 			if (!caCheckMediaDirectoryPermissions()) {
 			    CLIUtils::addError(_t('The media directory is not writeable by the current user. Try again, running the import as the web server user.'));
@@ -1059,8 +1058,7 @@
 		 * @return bool
 		 */
 		public static function run_external_export($po_opts=null) {
-            require_once(__CA_LIB_DIR__."/ExternalExportManager.php");
-            
+                        
             $target = $po_opts->getOption('target');
 			if ($target && !ExternalExportManager::isValidTarget($target)) {
 				CLIUtils::addMessage(_t('Ignoring invalid target %1', $target));
@@ -1123,8 +1121,7 @@
 		 * @return bool
 		 */
 		public static function run_pending_external_exports($po_opts=null) {
-            require_once(__CA_LIB_DIR__."/ExternalExportManager.php");
-            
+                        
             $target = $po_opts->getOption('target');
 			if ($target && !ExternalExportManager::isValidTarget($target)) {
 				CLIUtils::addMessage(_t('Ignoring invalid target %1', $target));
@@ -1170,8 +1167,7 @@
 		 * @return bool
 		 */
 		public static function write_exporter_to_file($po_opts=null) {
-            require_once(__CA_LIB_DIR__."/ExternalExportManager.php");
-            
+                        
             $file = $po_opts->getOption('file');
             if (!$file) {
 				CLIUtils::addError(_t('A file must be specified'));

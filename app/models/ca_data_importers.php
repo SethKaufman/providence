@@ -33,14 +33,10 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
-require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
 require_once(__CA_LIB_DIR__.'/Import/DataReaderManager.php');
 require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
-require_once(__CA_LIB_DIR__.'/ProgressBar.php');
 require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');
 require_once(__CA_LIB_DIR__.'/Parsers/ExpressionParser.php');
-require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
 require_once(__CA_LIB_DIR__.'/Db/Transaction.php');
 
 

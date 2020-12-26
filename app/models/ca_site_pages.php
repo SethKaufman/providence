@@ -34,7 +34,6 @@
    *
    */
  
-require_once(__CA_LIB_DIR__.'/BaseModel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_site_pages'] = array(

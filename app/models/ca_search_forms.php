@@ -30,8 +30,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
-require_once(__CA_LIB_DIR__."/BundlableLabelableBaseModelWithAttributes.php");
 require_once(__CA_LIB_DIR__.'/SetUniqueIdnoTrait.php'); 
 
 

@@ -28,8 +28,7 @@
 
  	require_once(__CA_APP_DIR__.'/helpers/libraryServicesHelpers.php');
 	require_once(__CA_LIB_DIR__.'/Search/ObjectCheckoutSearch.php');
- 		require_once(__CA_LIB_DIR__.'/ResultContext.php');
-
+ 		
  	class CheckInController extends ActionController {
  		# -------------------------------------------------------
  		#

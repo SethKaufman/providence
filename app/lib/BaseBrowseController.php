@@ -34,9 +34,7 @@
   *
   */
  
-	require_once(__CA_LIB_DIR__."/BaseFindController.php");
-	require_once(__CA_LIB_DIR__."/Datamodel.php");
-	 	require_once(__CA_APP_DIR__.'/helpers/browseHelpers.php');
+			 	require_once(__CA_APP_DIR__.'/helpers/browseHelpers.php');
  	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
  	
  	class BaseBrowseController extends BaseFindController {

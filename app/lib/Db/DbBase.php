@@ -34,7 +34,6 @@
   *
   */
 
-require_once(__CA_LIB_DIR__.'/BaseObject.php');
 /**
  * Provides common error handling methods
  */

@@ -34,7 +34,6 @@
   *
   */
  
-require_once(__CA_LIB_DIR__."/Configuration.php");
 
 /**
  * Standard error handling class. Each Error instance represents a single error that has occurred.

@@ -34,7 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
 
 global $_ca_search_form_type_restriction_settings;
 $_ca_search_form_type_restriction_settings = array(

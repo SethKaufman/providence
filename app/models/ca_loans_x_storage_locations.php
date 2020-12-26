@@ -33,8 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseRelationshipModel.php');
-require_once(__CA_LIB_DIR__."/HistoryTrackingCurrentValueTrait.php");
 
 
 BaseModel::$s_ca_models_definitions['ca_loans_x_storage_locations'] = array(

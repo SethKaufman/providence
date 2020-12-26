@@ -39,8 +39,7 @@
 		 * @return bool
 		 */
 		public static function scan_site_page_templates($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/SitePageTemplateManager.php");
-			
+						
 			CLIUtils::addMessage(_t("Scanning templates for tags"));
 			$va_results = SitePageTemplateManager::scan();
 			

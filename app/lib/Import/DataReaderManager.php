@@ -34,8 +34,7 @@
   *
   */
  
-	require_once(__CA_LIB_DIR__.'/Configuration.php');
- 	require_once(__CA_LIB_DIR__.'/Import/BaseDataReader.php');
+	 	require_once(__CA_LIB_DIR__.'/Import/BaseDataReader.php');
  
 	class DataReaderManager {
 		# -------------------------------------------------------

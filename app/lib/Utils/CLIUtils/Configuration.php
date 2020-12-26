@@ -249,8 +249,7 @@
 		 * Export current system configuration as an XML installation profile
 		 */
 		public static function export_profile($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/ConfigurationExporter.php");
-
+			
 			if(!class_exists("DOMDocument")){
 				CLIUtils::addError(_t("The PHP DOM extension is required to export profiles"));
 				return false;
@@ -321,8 +320,7 @@
 		 * @return bool
 		 */
 		public static function push_config_changes($po_opts=null) {
-			require_once(__CA_LIB_DIR__.'/ConfigurationExporter.php');
-
+			
 			if (!($vs_targets = $po_opts->getOption('targets'))) {
 				CLIUtils::addError(_t("Missing required parameter: targets. Try checking the help for this subcommand."));
 				return false;

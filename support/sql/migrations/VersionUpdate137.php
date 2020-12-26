@@ -34,7 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__.'/BaseVersionUpdater.php');
 
 
 class VersionUpdate137 extends BaseVersionUpdater {

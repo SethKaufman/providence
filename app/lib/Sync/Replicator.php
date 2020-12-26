@@ -31,7 +31,6 @@
  */
 
 require_once(__CA_LIB_DIR__."/Logging/Logger.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
 
 use \CollectiveAccessService as CAS;
 

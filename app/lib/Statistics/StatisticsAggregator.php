@@ -33,7 +33,6 @@
  /**
   *
   */
-require_once(__CA_LIB_DIR__."/Configuration.php");
 use \CollectiveAccessService as CAS;
 
 

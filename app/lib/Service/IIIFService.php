@@ -30,8 +30,7 @@
  * ----------------------------------------------------------------------
  */
  
- require_once(__CA_LIB_DIR__."/Media.php");
- require_once(__CA_LIB_DIR__."/Parsers/TilepicParser.php");
+  require_once(__CA_LIB_DIR__."/Parsers/TilepicParser.php");
   
 class IIIFService {
 	# -------------------------------------------------------

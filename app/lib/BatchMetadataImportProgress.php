@@ -37,8 +37,7 @@
   */
  
  	require_once(__CA_LIB_DIR__.'/Controller/AppController/AppControllerPlugin.php');
- 	require_once(__CA_LIB_DIR__.'/BatchProcessor.php');
- 
+ 	 
 	class BatchMetadataImportProgress extends AppControllerPlugin {
 		# -------------------------------------------------------
 		private $request;

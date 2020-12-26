@@ -37,10 +37,7 @@
 require_once(__CA_LIB_DIR__."/Db/Transaction.php");
 require_once(__CA_LIB_DIR__."/Plugins/WLPlug.php");
 require_once(__CA_LIB_DIR__."/Plugins/IWLPlugTaskQueueHandler.php");
-require_once(__CA_LIB_DIR__.'/Db.php');
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
-require_once(__CA_LIB_DIR__.'/BatchProcessor.php');
 	
 	class WLPlugTaskQueueHandlerbatchEditor Extends WLPlug Implements IWLPlugTaskQueueHandler {
 		# --------------------------------------------------------------------------------

@@ -31,7 +31,6 @@
  */
  use PHPUnit\Framework\TestCase;
  
-require_once(__CA_LIB_DIR__."/Db.php");
 
 class DbTest extends TestCase {
 

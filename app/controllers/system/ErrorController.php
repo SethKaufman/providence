@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
 
-	require_once(__CA_LIB_DIR__."/ApplicationError.php");
- 
+	 
  	class ErrorController extends ActionController {
  		# -------------------------------------------------------
 		

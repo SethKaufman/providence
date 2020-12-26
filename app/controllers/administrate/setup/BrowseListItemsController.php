@@ -26,7 +26,6 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_LIB_DIR__."/BaseBrowseController.php");
  	require_once(__CA_LIB_DIR__."/Browse/ListItemBrowse.php");
  
  	class BrowseListItemsController extends BaseBrowseController {

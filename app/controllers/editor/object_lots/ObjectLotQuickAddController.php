@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/BaseQuickAddController.php");
- 
+ 	 	 
  	class ObjectLotQuickAddController extends BaseQuickAddController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_object_lots';		// name of "subject" table (what we're editing)

@@ -25,10 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 
- 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
  	
- 
  	class DataDictionaryEntryEditorController extends BaseEditorController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_metadata_dictionary_entries';		// name of "subject" table (what we're editing)

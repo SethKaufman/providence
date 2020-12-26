@@ -34,14 +34,9 @@
   *
   */
 
-require_once(__CA_LIB_DIR__."/IBundleProvider.php");
-require_once(__CA_LIB_DIR__."/SyncableBaseModel.php");
-require_once(__CA_LIB_DIR__."/DeduplicateBaseModel.php");
-require_once(__CA_LIB_DIR__."/LabelableBaseModelWithAttributes.php");
 require_once(__CA_LIB_DIR__."/Plugins/SearchEngine/CachedResult.php");
 require_once(__CA_LIB_DIR__."/Search/SearchResult.php");
 
-require_once(__CA_LIB_DIR__."/IDNumbering.php");
 require_once(__CA_APP_DIR__."/helpers/accessHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/searchHelpers.php");
 

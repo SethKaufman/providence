@@ -36,8 +36,7 @@
 		 * Process queued tasks
 		 */
 		public static function process_task_queue($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/TaskQueue.php");
-
+			
 			$vo_tq = new TaskQueue();
 
 			if($po_opts->getOption("restart")) { $vo_tq->resetUnfinishedTasks(); }
@@ -87,8 +86,7 @@
 		 * List queued tasks
 		 */
 		public static function list_task_queue($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/TaskQueue.php");
-			$vo_tq = new TaskQueue();
+						$vo_tq = new TaskQueue();
 
 			$o_db = new Db();
 

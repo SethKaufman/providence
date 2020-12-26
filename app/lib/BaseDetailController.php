@@ -35,10 +35,7 @@
   */
   
  	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
-	require_once(__CA_LIB_DIR__."/Datamodel.php");
- 	require_once(__CA_LIB_DIR__.'/ResultContext.php');
- 	require_once(__CA_LIB_DIR__.'/GeographicMap.php');
-			 	
+	 	 				 	
 	class BaseDetailController extends ActionController {
 		# -------------------------------------------------------
  		protected $ops_context = '';

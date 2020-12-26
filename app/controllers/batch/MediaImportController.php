@@ -36,13 +36,6 @@
  
  	require_once(__CA_APP_DIR__."/helpers/batchHelpers.php");
  	require_once(__CA_APP_DIR__."/helpers/configurationHelpers.php");
- 	 	 	 	require_once(__CA_LIB_DIR__."/Datamodel.php");
- 	require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
- 	require_once(__CA_LIB_DIR__."/ResultContext.php");
- 	require_once(__CA_LIB_DIR__."/BatchProcessor.php");
- 	require_once(__CA_LIB_DIR__."/BatchEditorProgress.php");
- 	require_once(__CA_LIB_DIR__."/BatchMediaImportProgress.php");
-
  
  	class MediaImportController extends ActionController {
  		# -------------------------------------------------------

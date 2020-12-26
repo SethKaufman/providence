@@ -34,7 +34,6 @@
    *
    */
  
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
 
 global $_ca_metadata_dictionary_rules_settings;
 $_ca_metadata_dictionary_rules_settings = array(		// global

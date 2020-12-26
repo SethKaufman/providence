@@ -34,8 +34,7 @@
   *
   */
  
-	require_once(__CA_LIB_DIR__.'/IWidget.php');
- 	require_once(__CA_LIB_DIR__.'/ApplicationVars.php'); 	
+	 	require_once(__CA_LIB_DIR__.'/ApplicationVars.php'); 	
  
 	abstract class BaseWidget implements IWidget {
 		# -------------------------------------------------------

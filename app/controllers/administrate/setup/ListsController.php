@@ -25,7 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/BaseSearchController.php");
  	require_once(__CA_LIB_DIR__."/Browse/ListItemBrowse.php");
  	
  	class ListsController extends BaseSearchController {

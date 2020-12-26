@@ -37,8 +37,7 @@
 		 *
 		 */
 		public static function precache_simple_services($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/SitePageTemplateManager.php");
-			
+						
 		
 		    $o_app_conf = Configuration::load();
             $o_service_conf = Configuration::load(__CA_APP_DIR__.'/conf/services.conf');

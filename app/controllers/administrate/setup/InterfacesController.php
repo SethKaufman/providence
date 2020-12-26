@@ -25,10 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 
-						require_once(__CA_LIB_DIR__.'/Datamodel.php');
-	require_once(__CA_LIB_DIR__.'/BaseEditorController.php');
-	require_once(__CA_LIB_DIR__.'/ResultContext.php');
 
 class InterfacesController extends BaseEditorController {
 	# -------------------------------------------------------

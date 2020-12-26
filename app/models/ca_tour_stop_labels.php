@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_tour_stop_labels'] = array(

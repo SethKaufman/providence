@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/BaseQuickAddController.php");
- 
+ 	 	 
  	class PlaceQuickAddController extends BaseQuickAddController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_places';		// name of "subject" table (what we're editing)

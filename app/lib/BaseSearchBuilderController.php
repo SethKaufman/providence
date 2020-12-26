@@ -33,10 +33,8 @@
  /**
   *
   */
-	require_once(__CA_LIB_DIR__."/BaseSearchController.php");
-	require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
-	require_once(__CA_LIB_DIR__."/Datamodel.php");
-	 	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
+		require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
+		 	require_once(__CA_APP_DIR__.'/helpers/accessHelpers.php');
 	require_once(__CA_LIB_DIR__.'/Media/MediaViewerManager.php');
 	require_once(__CA_APP_DIR__.'/helpers/browseHelpers.php');
  	

@@ -34,9 +34,7 @@
  *
  */
  
-	require_once(__CA_LIB_DIR__.'/Configuration.php');
-	require_once(__CA_LIB_DIR__.'/View.php');
- 
+		 
 	class BaseMediaViewer {
 		# -------------------------------------------------------
 		/**

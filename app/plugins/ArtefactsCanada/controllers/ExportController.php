@@ -25,7 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
-require_once(__CA_LIB_DIR__.'/ProgressBar.php');
 require_once(__CA_LIB_DIR__.'/Parsers/ZipFile.php');
 
 

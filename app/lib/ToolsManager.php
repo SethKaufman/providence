@@ -33,8 +33,7 @@
  /**
   *
   */
- 	require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
-
+ 	
  
 	class ToolsManager {
 		# -------------------------------------------------------

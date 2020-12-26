@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_LIB_DIR__."/BaseBrowseController.php");
- 	require_once(__CA_LIB_DIR__."/Browse/LoanBrowse.php");
+ 	 	require_once(__CA_LIB_DIR__."/Browse/LoanBrowse.php");
  
  	class BrowseLoansController extends BaseBrowseController {
  		# -------------------------------------------------------

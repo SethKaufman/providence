@@ -34,8 +34,7 @@
    *
    */
    
- require_once(__CA_LIB_DIR__.'/Configuration.php');
- 
+  
 	 # --------------------------------------------------------------------------------------------
 	 /**
 	  * Return list of values to validate object/entity/place/etc 'access' field against

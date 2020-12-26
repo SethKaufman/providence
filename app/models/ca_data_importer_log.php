@@ -34,8 +34,7 @@
    *
    */
 
-	require_once(__CA_LIB_DIR__.'/Datamodel.php');
-		
+			
 /**
   * Constants for data import items (ca_data_import_items) "success" flag
   */

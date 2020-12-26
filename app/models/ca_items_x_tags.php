@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseModel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_items_x_tags'] = array(

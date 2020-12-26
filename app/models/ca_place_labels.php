@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_place_labels'] = array(

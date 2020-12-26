@@ -33,10 +33,7 @@
  /**
   *
   */
-require_once(__CA_LIB_DIR__."/ApplicationError.php");
 require_once(__CA_LIB_DIR__."/Controller/Request/Session.php");
-require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
 
 # ----------------------------------------------------------------------

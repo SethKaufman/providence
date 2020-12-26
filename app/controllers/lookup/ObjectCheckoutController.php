@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/BaseLookupController.php");
- 
+ 	 
  	class ObjectCheckoutController extends BaseLookupController {
  		# -------------------------------------------------------
  		protected $opb_uses_hierarchy_browser = true;

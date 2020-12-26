@@ -26,10 +26,8 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_LIB_DIR__."/BaseBrowseController.php");
- 	require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
- 	require_once(__CA_LIB_DIR__."/GeographicMap.php");
- 
+ 	 	require_once(__CA_LIB_DIR__."/Browse/ObjectBrowse.php");
+ 	 
  	class BrowseObjectsController extends BaseBrowseController {
  		# -------------------------------------------------------
  		 /** 

@@ -34,8 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
 
 
 final class ConfigurationExporter {

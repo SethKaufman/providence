@@ -34,7 +34,6 @@
   *
   */
 
-require_once(__CA_LIB_DIR__.'/BaseRelationshipModel.php');
 require_once(__CA_APP_DIR__.'/helpers/htmlFormHelpers.php');
  
 class BaseRepresentationRelationship extends BaseRelationshipModel {

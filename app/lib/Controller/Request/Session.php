@@ -34,9 +34,6 @@
   *
   */
  
-require_once(__CA_LIB_DIR__."/ApplicationError.php");
-require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/Db.php");
 require_once(__CA_APP_DIR__."/helpers/utilityHelpers.php");
 
 register_shutdown_function("Session::save");

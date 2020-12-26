@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/BaseSearchController.php");
- 	require_once(__CA_LIB_DIR__."/Search/TourSearch.php");
+ 	 	require_once(__CA_LIB_DIR__."/Search/TourSearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/TourBrowse.php");
  	
  	class SearchToursController extends BaseSearchController {

@@ -34,7 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
 
 BaseModel::$s_ca_models_definitions['ca_data_exporter_items'] = array(
  	'NAME_SINGULAR' 	=> _t('data exporter item'),

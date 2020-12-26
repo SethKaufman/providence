@@ -34,9 +34,6 @@
    *
    */
  
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
-require_once(__CA_LIB_DIR__.'/RepresentableBaseModel.php');
-require_once(__CA_LIB_DIR__.'/IHierarchy.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_list_items'] = array(

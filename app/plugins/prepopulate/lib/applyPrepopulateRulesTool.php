@@ -35,8 +35,6 @@
   */
  
 require_once(__CA_LIB_DIR__.'/Utils/BaseApplicationTool.php');
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
-require_once(__CA_LIB_DIR__.'/Db.php');
 require_once(__CA_MODELS_DIR__."/ca_storage_locations.php");	
 require_once(__CA_MODELS_DIR__."/ca_objects.php");	
 require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');

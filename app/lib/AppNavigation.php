@@ -33,11 +33,7 @@
  /**
   *
   */
-	require_once(__CA_LIB_DIR__."/BaseObject.php");
-	require_once(__CA_LIB_DIR__."/Datamodel.php");
-	require_once(__CA_LIB_DIR__."/Configuration.php");
- 	require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
-	
+			 		
 	class AppNavigation extends BaseObject {
 		# -------------------------------------------------------
 		/**

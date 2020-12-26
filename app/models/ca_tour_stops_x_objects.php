@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/ObjectRelationshipBaseModel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_tour_stops_x_objects'] = array(

@@ -26,10 +26,8 @@
  * ----------------------------------------------------------------------
  */
  
- 	require_once(__CA_LIB_DIR__."/Media.php");
- 	require_once(__CA_LIB_DIR__."/Media/MediaProcessingSettings.php");
- 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
- 	
+ 	 	require_once(__CA_LIB_DIR__."/Media/MediaProcessingSettings.php");
+ 	 	
  	 	 
  	class RepresentationAnnotationEditorController extends BaseEditorController {
  		# -------------------------------------------------------

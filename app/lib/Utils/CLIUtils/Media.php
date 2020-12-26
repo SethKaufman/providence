@@ -36,8 +36,7 @@
 		 * Reprocess media
 		 */
 		public static function reprocess_media($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			$o_db = new Db();
 
 			$t_rep = new ca_object_representations();
@@ -302,8 +301,7 @@
 		 * Reindex PDF media by content for in-PDF search
 		 */
 		public static function reindex_pdfs($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			if (!caPDFMinerInstalled()) {
 				CLIUtils::addError(_t("Can't reindex PDFs: PDFMiner is not installed."));
 				return false;
@@ -495,8 +493,7 @@
 		 *
 		 */
 		public static function regenerate_annotation_previews($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			$o_db = new Db();
 
 			$t_rep = new ca_object_representations();

@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/ModelSettings.php');
 
 global $_ca_editor_display_placement_settings;
 $_ca_editor_display_placement_settings = array(		// global

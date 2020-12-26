@@ -34,7 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_user_representation_annotation_labels'] = array(

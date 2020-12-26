@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/BaseAdvancedSearchController.php");
- 	require_once(__CA_LIB_DIR__."/Search/EntitySearch.php");
+ 	 	require_once(__CA_LIB_DIR__."/Search/EntitySearch.php");
  	require_once(__CA_LIB_DIR__."/Browse/EntityBrowse.php");
 		 	
  	class SearchEntitiesAdvancedController extends BaseAdvancedSearchController {

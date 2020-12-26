@@ -25,8 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
-require_once(__CA_LIB_DIR__."/Controller/ActionController.php");
-require_once(__CA_LIB_DIR__."/ResultContext.php");
 
 class DataDictionaryController extends ActionController {
 	# -------------------------------------------------------

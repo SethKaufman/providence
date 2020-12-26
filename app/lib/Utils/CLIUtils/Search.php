@@ -92,8 +92,7 @@
 		 *
 		 */
 		public static function create_ngrams($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-
+			
 			$o_db = new Db();
 
 			$pb_clear = ((bool)$po_opts->getOption('clear'));

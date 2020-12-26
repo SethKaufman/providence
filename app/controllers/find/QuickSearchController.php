@@ -26,9 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	
- 	require_once(__CA_LIB_DIR__."/Configuration.php");
- 	require_once(__CA_LIB_DIR__."/BaseFindController.php");
- 	require_once(__CA_LIB_DIR__."/Search/ObjectSearch.php");
+ 	 	 	require_once(__CA_LIB_DIR__."/Search/ObjectSearch.php");
  	require_once(__CA_LIB_DIR__."/Search/ObjectLotSearch.php");
  	require_once(__CA_LIB_DIR__."/Search/EntitySearch.php");
  	require_once(__CA_LIB_DIR__."/Search/PlaceSearch.php");

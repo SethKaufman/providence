@@ -25,8 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__."/BaseSearchController.php");
-	 	require_once(__CA_LIB_DIR__."/Search/ItemCommentSearch.php");
+ 		 	require_once(__CA_LIB_DIR__."/Search/ItemCommentSearch.php");
  	
  	class CommentsController extends BaseSearchController {
  		# -------------------------------------------------------

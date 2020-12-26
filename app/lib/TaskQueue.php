@@ -34,14 +34,8 @@
   *
   */
  
-require_once(__CA_LIB_DIR__."/BaseObject.php");
-require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/Db.php");
-require_once(__CA_LIB_DIR__."/ApplicationError.php");
 require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
-require_once(__CA_LIB_DIR__."/ApplicationVars.php");
 require_once(__CA_LIB_DIR__."/Utils/ProcessStatus.php");
-require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
 
 class TaskQueue extends BaseObject {
 

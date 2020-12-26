@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
 
- 	 	require_once(__CA_LIB_DIR__.'/ResultContext.php');
-
+ 	 	
  	class GroupsController extends ActionController {
  		# -------------------------------------------------------
  		private $pt_group;

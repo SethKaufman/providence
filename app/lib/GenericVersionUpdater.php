@@ -34,8 +34,7 @@
   *
   */
  
- require_once(__CA_LIB_DIR__.'/BaseVersionUpdater.php');
- 
+  
 	class GenericVersionUpdater extends BaseVersionUpdater {
 		# -------------------------------------------------------
 		/**

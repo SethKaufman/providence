@@ -119,8 +119,7 @@
 		 * Remove media present in media directories but not referenced in database (aka. orphan media)
 		 */
 		public static function remove_unused_media($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			$vb_delete_opt = (bool)$po_opts->getOption('delete');
 			$o_db = new Db();
 
@@ -215,8 +214,7 @@
 		 * Permanently remove object representations marked for deletion, deleting referenced files on disk and reclaiming disk space
 		 */
 		public static function remove_deleted_representations($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			$vb_delete_opt = (bool)$po_opts->getOption('delete');
 			$o_db = new Db();
 
@@ -390,8 +388,7 @@
 		 * Update database schema
 		 */
 		public static function update_database_schema($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/ConfigurationCheck.php");
-
+			
 			$o_config_check = new ConfigurationCheck();
 			if (($vn_current_revision = ConfigurationCheck::getSchemaVersion()) < __CollectiveAccess_Schema_Rev__) {
 				CLIUtils::addMessage(_t("Are you sure you want to update your CollectiveAccess database from revision %1 to %2?\nNOTE: you should backup your database before applying updates!\n\nType 'y' to proceed or 'N' to cancel, then hit return ", $vn_current_revision, __CollectiveAccess_Schema_Rev__));
@@ -766,8 +763,7 @@
 		 *
 		 */
 		public static function check_media_fixity($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 
 			$quiet = $po_opts->getOption('quiet');
 			
@@ -1186,8 +1182,7 @@
 		 *
 		 */
 		public static function clear_caches($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Configuration.php");
-			$o_config = Configuration::load();
+						$o_config = Configuration::load();
 
 			$ps_cache = strtolower((string)$po_opts->getOption('cache'));
 			if (!in_array($ps_cache, array('all', 'app', 'usermedia'))) { $ps_cache = 'all'; }
@@ -1262,8 +1257,7 @@
 			include_once(__CA_LIB_DIR__."/Media.php");
 			include_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
 			include_once(__CA_LIB_DIR__."/ConfigurationCheck.php");
-			require_once(__CA_LIB_DIR__."/Configuration.php");
-			
+						
 			// Media
 			$t_media = new Media();
 			$va_plugin_names = $t_media->getPluginNames();
@@ -1491,8 +1485,7 @@
 		 *
 		 */
 		public static function precache_search_index($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			$o_db = new Db();
+						$o_db = new Db();
 			
 			CLIUtils::addMessage(_t("Preloading primary search index..."), array('color' => 'bold_blue'));
 			$o_db->query("SELECT * FROM ca_sql_search_word_index", array(), array('resultMode' => MYSQLI_USE_RESULT));
@@ -1541,8 +1534,7 @@
 		 *
 		 */
 		public static function precache_content($po_opts=null) {
-			require_once(__CA_LIB_DIR__."/Db.php");
-			
+						
 			$o_config = Configuration::load();
 			if(!(bool)$o_config->get('do_content_caching')) { 
 				CLIUtils::addError(_t("Content caching is not enabled"));

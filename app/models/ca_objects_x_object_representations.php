@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseRepresentationRelationship.php');
 require_once(__CA_LIB_DIR__."/Db/Transaction.php");
 
 

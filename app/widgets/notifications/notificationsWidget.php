@@ -25,10 +25,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__.'/BaseWidget.php');
- 	require_once(__CA_LIB_DIR__.'/IWidget.php');
- 	require_once(__CA_LIB_DIR__.'/Db.php');
- 	 
+ 	 	 	 	 
 	class notificationsWidget extends BaseWidget implements IWidget {
 		# -------------------------------------------------------
 		private $opo_config;

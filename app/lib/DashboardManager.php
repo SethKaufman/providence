@@ -34,8 +34,7 @@
   *
   */
   
- 	require_once(__CA_LIB_DIR__.'/WidgetManager.php');
- 	require_once(__CA_LIB_DIR__.'/ApplicationVars.php'); 	
+ 	 	require_once(__CA_LIB_DIR__.'/ApplicationVars.php'); 	
  
 	class DashboardManager {
 		# -------------------------------------------------------

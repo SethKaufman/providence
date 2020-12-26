@@ -30,8 +30,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/Configuration.php');
-require_once(__CA_LIB_DIR__.'/Datamodel.php');
 require_once(__CA_LIB_DIR__.'/Plugins/WLPlug.php');
 require_once(__CA_LIB_DIR__.'/Plugins/IWLPlugSearchEngine.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/BaseSearchPlugin.php');

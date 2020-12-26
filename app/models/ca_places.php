@@ -34,9 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__."/IBundleProvider.php");
-require_once(__CA_LIB_DIR__."/RepresentableBaseModel.php");
-require_once(__CA_LIB_DIR__.'/IHierarchy.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_places'] = array(

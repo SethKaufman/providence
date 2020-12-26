@@ -33,10 +33,7 @@
  /**
   *
   */
- 	require_once(__CA_LIB_DIR__.'/BaseFindEngine.php');
- 	require_once(__CA_LIB_DIR__.'/Datamodel.php');
- 	require_once(__CA_LIB_DIR__.'/Db.php');
- 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AuthorityAttributeValue.php');
+ 	 	 	 	require_once(__CA_LIB_DIR__.'/Attributes/Values/AuthorityAttributeValue.php');
 	require_once(__CA_LIB_DIR__.'/Attributes/Values/CollectionsAttributeValue.php');
 	require_once(__CA_LIB_DIR__.'/Attributes/Values/EntitiesAttributeValue.php');
 	require_once(__CA_LIB_DIR__.'/Attributes/Values/LoansAttributeValue.php');

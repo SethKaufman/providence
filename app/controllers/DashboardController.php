@@ -25,7 +25,6 @@
  *
  * ----------------------------------------------------------------------
  */
- 	require_once(__CA_LIB_DIR__.'/DashboardManager.php');
  
  	class DashboardController extends ActionController {
  		# -------------------------------------------------------

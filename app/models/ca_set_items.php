@@ -34,7 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_set_items'] = array(

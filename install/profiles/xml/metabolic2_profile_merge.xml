@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="profile.xsd" useForConfiguration="1" base="base" infoUrl="">
+  <profileName>collectiveaccess</profileName>
+  <profileDescription>Profile created on August 14 2020 by CollectiveAccess
+    Administrator</profileDescription>
+  <locales>
+    <locale lang="en" country="US">English</locale>
+  </locales>
+  <lists>
+    <list code="processes_and_techniques" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Processes and Techniques</name>
+        </label>
+      </labels>
+      <items>
+        <item idno="Photography" enabled="0" default="0" value="Photography" rank="0" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Photography</name_singular>
+              <name_plural>Photography</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Photograph_Chemical_Photograph" enabled="0" default="0"
+              value="Photograph_Chemical_Photography" rank="378">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Chemical Photography Processes</name_singular>
+                  <name_plural>Chemical Photography Processes</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Photograph_Chemical_P_Standard" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Standard_B_amp_W_Process" rank="379">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Standard B&amp;W Process</name_singular>
+                      <name_plural>Standard B&amp;W Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_RA_4_Col" enabled="1" default="0"
+                  value="Photograph_Chemical_P_RA_4_Color_Process" rank="380">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>RA-4 Color Process</name_singular>
+                      <name_plural>RA-4 Color Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Reversal" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Reversal_RA_4_Color_Process_Ron_Mowrey_Method"
+                  rank="381">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Reversal RA-4 Color Process, Ron Mowrey Method</name_singular>
+                      <name_plural>Reversal RA-4 Color Process, Ron Mowrey Method</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_C_41_Pro" enabled="1" default="0"
+                  value="Photograph_Chemical_P_C_41_Process" rank="382">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>C-41 Process</name_singular>
+                      <name_plural>C-41 Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_E_6_Proc" enabled="1" default="0"
+                  value="Photograph_Chemical_P_E_6_Process" rank="383">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>E-6 Process</name_singular>
+                      <name_plural>E-6 Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Cyanotyp" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Cyanotype_Process" rank="384">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Cyanotype Process</name_singular>
+                      <name_plural>Cyanotype Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Salted_P" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Salted_Paper_Process" rank="385">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Salted Paper Process</name_singular>
+                      <name_plural>Salted Paper Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Carbon_P" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Carbon_Printing_Process" rank="386">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Carbon Printing Process</name_singular>
+                      <name_plural>Carbon Printing Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Collodio" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Collodion_Process" rank="387">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Collodion Process</name_singular>
+                      <name_plural>Collodion Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Albumen_" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Albumen_Process" rank="388">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Albumen Process</name_singular>
+                      <name_plural>Albumen Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Lippmann" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Lippmann_Process" rank="389">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Lippmann Process</name_singular>
+                      <name_plural>Lippmann Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Lakebed_" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Lakebed_Developed_Process" rank="390">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Lakebed Developed Process</name_singular>
+                      <name_plural>Lakebed Developed Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Desiccat" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Desiccated_Salt_Accretion_Process" rank="391">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Desiccated/Salt Accretion Process</name_singular>
+                      <name_plural>Desiccated/Salt Accretion Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Hologram_Process" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Laser_Hologram_Process" rank="392">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Laser Hologram Process</name_singular>
+                      <name_plural>Laser Hologram Process</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="Reflection_Hologram" enabled="1" default="0"
+                      value="Photograph_Exposure_T_Laser_Holo_Reflection_Hologram" rank="393">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Reflection Hologram</name_singular>
+                          <name_plural>Reflection Hologram</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Exposure_T_Laser_Ho_1" enabled="1" default="0"
+                      value="Photograph_Exposure_T_Laser_Holo_Transmission_Hologram" rank="394">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Transmission Hologram</name_singular>
+                          <name_plural>Transmission Hologram</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item idno="Photograph_Exposure_Techniques" enabled="0" default="0"
+              value="Photograph_Exposure_Techniques" rank="395">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Exposure Techniques</name_singular>
+                  <name_plural>Exposure Techniques</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Photograph_Exposure_T_Double_E" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Double_Exposure" rank="396">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Double Exposure</name_singular>
+                      <name_plural>Double Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Exposure_T_Transpar" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Transparency_Masked_Exposure" rank="397">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Transparency-Masked Exposure</name_singular>
+                      <name_plural>Transparency-Masked Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Exposure_T_3_Dimens" enabled="1" default="0"
+                  value="Photograph_Exposure_T_3_Dimensional_Imaging" rank="398">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>3-Dimensional Imaging</name_singular>
+                      <name_plural>3-Dimensional Imaging</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="Stereoscopic_Exposure" enabled="1" default="0"
+                      value="Photograph_Exposure_T_3_Dimensio_Stereoscopic_Exposure" rank="399">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Stereoscopic Exposure</name_singular>
+                          <name_plural>Stereoscopic Exposure</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Exposure_T_3_Dimens_1" enabled="1" default="0"
+                      value="Photograph_Exposure_T_3_Dimensio_Anaglyph_Exposure" rank="400">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Anaglyph Exposure</name_singular>
+                          <name_plural>Anaglyph Exposure</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+                <item idno="Photograph_Exposure_T_Cymatic_" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Cymatic_Exposure" rank="401">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Cymatic Exposure</name_singular>
+                      <name_plural>Cymatic Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Exposure_T_Photogra" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Photogram_Exposure" rank="402">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Photogram Exposure</name_singular>
+                      <name_plural>Photogram Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Exposure_T_Dry_Eras" enabled="1" default="0"
+                  value="Photograph_Exposure_T_Dry_Erase_Drawing_Exposure" rank="403">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Dry-Erase Drawing Exposure</name_singular>
+                      <name_plural>Dry-Erase Drawing Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph___Mural_Film_Strip_" enabled="1" default="0"
+                  value="Photograph___Mural_Film_Strip_Multiple_Frame_Exposure" rank="404">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Mural Film Strip, Multiple Frame Exposure</name_singular>
+                      <name_plural>Mural Film Strip, Multiple Frame Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph___Test_Strip" enabled="1" default="0"
+                  value="Photograph___Test_Strip" rank="405">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Test Strip</name_singular>
+                      <name_plural>Test Strip</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Chemical_P_Wet_Posi" enabled="1" default="0"
+                  value="Photograph_Chemical_P_Wet_Positive_Exposure" rank="406">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Wet Positive Exposure</name_singular>
+                      <name_plural>Wet Positive Exposure</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_nonstandard_negativ" enabled="1" default="0"
+                  value="Photograph_nonstandard_negative" rank="407">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Print from Non-standard Negative</name_singular>
+                      <name_plural>Print from Non-standard Negative</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+          </items>
+        </item>
+        <item idno="3d" enabled="0" default="0" rank="440" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>3-Dimensional</name_singular>
+              <name_plural>3-Dimensional</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="living_works" enabled="0" default="0" rank="435" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Living Works Processes</name_singular>
+                  <name_plural>Living Works Processes</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="hugel" enabled="1" default="0" rank="436" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Hugel</name_singular>
+                      <name_plural>Hugel</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="mycoremediation" enabled="1" default="0" rank="437" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Mycoremediation</name_singular>
+                      <name_plural>Mycoremediation</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="compost" enabled="1" default="0" rank="438" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Compost</name_singular>
+                      <name_plural>Compost</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="clay" enabled="1" default="0" rank="441" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>clay</name_singular>
+                  <name_plural>clay</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="ceramic" enabled="1" default="0" rank="442" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>ceramic</name_singular>
+                      <name_plural>ceramic</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="moon_clay" enabled="1" default="0" rank="449" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>moon clay</name_singular>
+                      <name_plural>moon clay</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="organic_material" enabled="0" default="0" rank="443" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Organic Material</name_singular>
+                  <name_plural>Organic Material</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="fava_bean" enabled="1" default="0" rank="444" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>fava bean</name_singular>
+                      <name_plural>fava bean</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="corn" enabled="1" default="0" rank="445" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>corn</name_singular>
+                      <name_plural>corn</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="medicinal_plant" enabled="1" default="0" rank="446" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>medicinal plant</name_singular>
+                      <name_plural>medicinal plant</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="gourd" enabled="1" default="0" rank="447" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>gourd</name_singular>
+                      <name_plural>gourd</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="fungi" enabled="1" default="0" rank="448" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>fungi</name_singular>
+                      <name_plural>fungi</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="native_plant" enabled="1" default="0" rank="451" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>native plant</name_singular>
+                      <name_plural>native plant</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="beexwax" enabled="1" default="0" rank="454" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>beeswax</name_singular>
+                      <name_plural>beeswax</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="cotton" enabled="1" default="0" rank="455" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>cotton</name_singular>
+                      <name_plural>cotton</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="honey" enabled="1" default="0" rank="460" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>honey</name_singular>
+                      <name_plural>honey</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="wood" enabled="1" default="0" rank="464" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>wood</name_singular>
+                      <name_plural>wood</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="wool" enabled="1" default="0" rank="465" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>wool</name_singular>
+                      <name_plural>wool</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="neon" enabled="1" default="0" rank="452" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>neon</name_singular>
+                  <name_plural>neon</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="glass" enabled="1" default="0" rank="453" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>glass</name_singular>
+                  <name_plural>glass</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="metal" enabled="1" default="0" rank="461" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>metal</name_singular>
+                  <name_plural>metal</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="uranium" enabled="1" default="0" rank="466" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>uranium</name_singular>
+                      <name_plural>uranium</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="silver" enabled="1" default="0" rank="467" type="concept">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>silver</name_singular>
+                      <name_plural>silver</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="plastic" enabled="1" default="0" rank="462" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>plastic</name_singular>
+                  <name_plural>plastic</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="rubber" enabled="1" default="0" rank="463" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>rubber</name_singular>
+                  <name_plural>rubber</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="embroidery" enabled="1" default="0" rank="470" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>embroidery</name_singular>
+                  <name_plural>embroidery</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="drawing" enabled="0" default="0" rank="456" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Drawing</name_singular>
+              <name_plural>Drawing</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="graphite" enabled="1" default="0" rank="457" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>graphite</name_singular>
+                  <name_plural>graphite</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="ink" enabled="1" default="0" rank="458" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>ink</name_singular>
+                  <name_plural>ink</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="crayon" enabled="1" default="0" rank="459" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>crayon</name_singular>
+                  <name_plural>crayon</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="marker" enabled="1" default="0" rank="468" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>marker</name_singular>
+                  <name_plural>marker</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="pencil" enabled="1" default="0" rank="469" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>pencil</name_singular>
+                  <name_plural>pencil</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="painting" enabled="0" default="0" rank="471" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Painting</name_singular>
+              <name_plural>Painting</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="watercolor" enabled="1" default="0" rank="472" type="concept">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>watercolor </name_singular>
+                  <name_plural>watercolor</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+      </items>
+    </list>
+    <list code="physical_media" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Physical Media</name>
+        </label>
+      </labels>
+      <items>
+        <item idno="Photography" enabled="1" default="0" value="Photography" rank="307">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Photography</name_singular>
+              <name_plural>Photography</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Photograph_Digital_photography" enabled="1" default="0"
+              value="Photograph_Digital_photography" rank="308">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Digital Photography</name_singular>
+                  <name_plural>Digital Photography</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Photograph_Digital_ph_Born_dig" enabled="1" default="0"
+                  value="Photograph_Digital_ph_Born_digital_file" rank="309">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Born Digital File</name_singular>
+                      <name_plural>Born Digital File</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Photograph_Digital_ph_Digital_" enabled="1" default="0"
+                  value="Photograph_Digital_ph_Digital_print" rank="310">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Digital Print</name_singular>
+                      <name_plural>Digital Print</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="Photograph_Chemical_photograph" enabled="1" default="0"
+              value="Photograph_Chemical_photography" rank="311">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Chemical Photography</name_singular>
+                  <name_plural>Chemical Photography</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Photograph_Chemical_p_Photogra" enabled="1" default="0"
+                  value="Photograph_Chemical_p_Photographic_paper" rank="312">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Photographic Paper</name_singular>
+                      <name_plural>Photographic Paper</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="RA_4_Paper" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Photograph_RA_4_Paper" rank="313">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>RA-4 Paper</name_singular>
+                          <name_plural>RA-4 Paper</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Chemical_p_Photogra_1" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Photograph_B_amp_W_RC_Commercial_Resin_Coated_Silver_Gelatin_Paper"
+                      rank="314">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>B&amp;W RC, Commercial Resin Coated Silver Gelatin
+                            Paper</name_singular>
+                          <name_plural>B&amp;W RC, Commercial Resin Coated Silver Gelatin
+                            Paper</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Chemical_p_Photogra_2" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Photograph_B_amp_W_Fiber_Commercial_Fiber_Silver_Gelatin_Paper"
+                      rank="315">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>B&amp;W Fiber, Commercial Fiber Silver Gelatin
+                            Paper</name_singular>
+                          <name_plural>B&amp;W Fiber, Commercial Fiber Silver Gelatin
+                            Paper</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Chemical_p_Photogra_3" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Photograph_Emulsion_Coated_on_Art_Paper_or_Other_Nonstandard_Paper"
+                      rank="316">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Emulsion Coated on Art Paper or Other Nonstandard
+                            Paper</name_singular>
+                          <name_plural>Emulsion Coated on Art Paper or Other Nonstandard
+                            Paper</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+                <item idno="Photograph_Chemical_p_Film" enabled="1" default="0"
+                  value="Photograph_Chemical_p_Film" rank="317">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Film</name_singular>
+                      <name_plural>Film</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="Photograph_Chemical_p_Film_C_4" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Film_C_41_Film" rank="318">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>C-41 Film</name_singular>
+                          <name_plural>C-41 Film</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Chemical_p_Film_E_6" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Film_E_6_Film" rank="319">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>E-6 Film</name_singular>
+                          <name_plural>E-6 Film</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                    <item idno="Photograph_Chemical_p_Film_Mon" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Film_Monochrome_Film" rank="320">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Monochrome Film</name_singular>
+                          <name_plural>Monochrome Film</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+                <item idno="Photograph_Chemical_p_Plate" enabled="1" default="0"
+                  value="Photograph_Chemical_p_Plate" rank="321">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Plate</name_singular>
+                      <name_plural>Plate</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="Photograph_Chemical_p_Plate_Gl" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Plate_Glass_Plate" rank="322">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Glass Plate</name_singular>
+                          <name_plural>Glass Plate</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+                <item idno="Photograph_Chemical_p_Non_stan" enabled="1" default="0"
+                  value="Photograph_Chemical_p_Non_standard" rank="323">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>Non-standard</name_singular>
+                      <name_plural>Non-standard</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                  <items>
+                    <item idno="Emulsion_Nonstandard_material" enabled="1" default="0"
+                      value="Photograph_Chemical_p_Photograph_Emulsion_Coated_on__Nonstandard_material"
+                      rank="324">
+                      <labels>
+                        <label locale="en_US" preferred="1">
+                          <name_singular>Emulsion Coated on Nonstandard Material</name_singular>
+                          <name_plural>Emulsion Coated on Nonstandard Material</name_plural>
+                          <description/>
+                        </label>
+                      </labels>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </item>
+        <item idno="Painting" enabled="1" default="0" value="Painting" rank="325">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Painting</name_singular>
+              <name_plural>Painting</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Moving_Image" enabled="1" default="0" value="Moving_Image" rank="334">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Moving Image</name_singular>
+              <name_plural>Moving Image</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Moving_Ima_Digital_Video" enabled="1" default="0"
+              value="Moving_Ima_Digital_Video" rank="335">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Digital Video</name_singular>
+                  <name_plural>Digital Video</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Moving_Ima_Digital_Vi_MiniDV" enabled="1" default="0"
+                  value="Moving_Ima_Digital_Vi_MiniDV" rank="336">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>MiniDV</name_singular>
+                      <name_plural>MiniDV</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="Moving_Ima_Analog_Video" enabled="1" default="0"
+              value="Moving_Ima_Analog_Video" rank="337">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Analog Video</name_singular>
+                  <name_plural>Analog Video</name_plural>
+                  <description/>
+                </label>
+              </labels>
+              <items>
+                <item idno="Moving_Ima_Analog_Vid_VHS" enabled="1" default="0"
+                  value="Moving_Ima_Analog_Vid_VHS" rank="338">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>VHS</name_singular>
+                      <name_plural>VHS</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Moving_Ima_Analog_Vid_HI_8" enabled="1" default="0"
+                  value="Moving_Ima_Analog_Vid_HI_8" rank="339">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>HI-8</name_singular>
+                      <name_plural>HI-8</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+                <item idno="Moving_Ima_Analog_Vid_BetaMax" enabled="1" default="0"
+                  value="Moving_Ima_Analog_Vid_BetaMax" rank="340">
+                  <labels>
+                    <label locale="en_US" preferred="1">
+                      <name_singular>BetaMax</name_singular>
+                      <name_plural>BetaMax</name_plural>
+                      <description/>
+                    </label>
+                  </labels>
+                </item>
+              </items>
+            </item>
+            <item idno="unidentified_movingimage" enabled="1" default="0"
+              value="unidentified_movingimage" rank="143">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Unidentified (A/V)</name_singular>
+                  <name_plural>Unidentified (A/V)</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="Audio" enabled="1" default="0" value="Audio" rank="141">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Audio</name_singular>
+              <name_plural>Audio</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Audio_Analog" enabled="1" default="0" value="Audio_Analog" rank="142">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Analog</name_singular>
+                  <name_plural>Analog</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="Audio_Born_Digital" enabled="1" default="0" value="Audio_Born_Digital"
+              rank="143">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Born Digital</name_singular>
+                  <name_plural>Born Digital</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="unidentified" enabled="1" default="0" value="unidentified" rank="143">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Unidentified (A/V)</name_singular>
+                  <name_plural>Unidentified (A/V)</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="Document_Textual_Ephemera" enabled="1" default="0"
+          value="Document_Textual_Ephemera" rank="153">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Document/Textual/Ephemera</name_singular>
+              <name_plural>Document/Textual/Ephemera</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Document_T_Correspondence" enabled="1" default="0"
+              value="Document_T_Correspondence" rank="148">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Correspondence</name_singular>
+                  <name_plural>Correspondence</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="Document_T_Document" enabled="1" default="0" value="Document_T_Document"
+              rank="149">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Document</name_singular>
+                  <name_plural>Document</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="Document_T_Ephemera" enabled="1" default="0" value="Document_T_Ephemera"
+              rank="150">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Ephemera</name_singular>
+                  <name_plural>Ephemera</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="Document_T_Manuscript" enabled="1" default="0" value="Document_T_Manuscript"
+              rank="151">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Manuscript</name_singular>
+                  <name_plural>Manuscript</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="Document_T_Poster" enabled="1" default="0" value="Document_T_Poster"
+              rank="152">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Poster</name_singular>
+                  <name_plural>Poster</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+            <item idno="map" enabled="1" default="0" value="map" rank="352">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Map</name_singular>
+                  <name_plural>Map</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="Sculpture" enabled="1" default="0" value="Sculpture" rank="159">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Sculpture</name_singular>
+              <name_plural>Sculpture</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Installation" enabled="1" default="0" value="Installation" rank="161">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Installation</name_singular>
+              <name_plural>Installation</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Mixed_media" enabled="1" default="0" value="Mixed_media" rank="162">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Mixed-media</name_singular>
+              <name_plural>Mixed-media</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Drawing_Sketch" enabled="1" default="0" value="Drawing_Sketch" rank="144">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Drawing/Sketch</name_singular>
+              <name_plural>Drawing/Sketch</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Print" enabled="1" default="0" value="Print" rank="184">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Print</name_singular>
+              <name_plural>Print</name_plural>
+              <description/>
+            </label>
+          </labels>
+          <items>
+            <item idno="Print_Silk_Screen_Print" enabled="1" default="0"
+              value="Print_Silk_Screen_Print" rank="179">
+              <labels>
+                <label locale="en_US" preferred="1">
+                  <name_singular>Silk-Screen-Print</name_singular>
+                  <name_plural>Silk-Screen-Print</name_plural>
+                  <description/>
+                </label>
+              </labels>
+            </item>
+          </items>
+        </item>
+        <item idno="unidentified_art" enabled="1" default="0" value="unidentified_art" rank="187">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unidentified (Art)</name_singular>
+              <name_plural>Unidentified (Art)</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Object" enabled="1" default="0" value="Object" rank="186">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Object</name_singular>
+              <name_plural>Object</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="Architectural_Model_Plan_Proto" enabled="1" default="0"
+          value="Architectural_Model_Plan_Prototype" rank="151">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Architectural Model/Plan/Prototype</name_singular>
+              <name_plural>Architectural Model/Plan/Prototype</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="audio_film_unidentified" enabled="1" default="0" value="audio_film_unidentified"
+          rank="188">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unidentified (A/V)</name_singular>
+              <name_plural>Unidentified (A/V)</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="living_work" enabled="1" default="0" value="living_work" rank="433"
+          type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Living work</name_singular>
+              <name_plural>Living works</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="image_management" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Image Management</name>
+        </label>
+      </labels>
+      <items>
+        <item idno="publication_use" enabled="1" default="0" rank="475" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>High Res - Publication Use</name_singular>
+              <name_plural>High Res - Publication Use</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="archiving" enabled="1" default="0" rank="476" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Low Res - Archiving Purpose</name_singular>
+              <name_plural>Low Res - Archiving Purpose</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="need_high_res" enabled="1" default="0" rank="477" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>High Res Image Needed</name_singular>
+              <name_plural>High Res Image Needed</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+        <item idno="high_res_not_needed" enabled="1" default="0" rank="478" type="concept">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>High Res Image Not Needed</name_singular>
+              <name_plural>High Res Image Not Needed</name_plural>
+              <description/>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+  </lists>
+  <elementSets>
+    <metadataElement code="image_management" datatype="List" list="image_management">
+      <labels>
+        <label locale="en_US">
+          <name>Image Management</name>
+        </label>
+      </labels>
+      <settings>
+        <setting name="render">select</setting>
+        <setting name="restrictToTypes">2</setting>
+      </settings>
+      <typeRestrictions>
+        <restriction>
+          <table>ca_objects</table>
+          <includeSubtypes>1</includeSubtypes>
+          <settings>
+            <setting name="minAttributesPerRow"/>
+            <setting name="maxAttributesPerRow">225</setting>
+            <setting name="minimumAttributeBundlesToDisplay"/>
+          </settings>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+  </elementSets>
+  <userInterfaces>
+    <userInterface code="object_ui" type="ca_objects">
+      <labels>
+        <label locale="en_US">
+          <name>Object Screens</name>
+        </label>
+      </labels>
+      <screens>
+        <screen idno="general_item" default="1">
+          <labels>
+            <label locale="en_US">
+              <name>General</name>
+            </label>
+          </labels>
+          <roleAccess>
+            <permission role="admin" access="edit"/>
+            <permission role="cataloguer" access="edit"/>
+            <permission role="researcher" access="read"/>
+            <permission role="moderator" access="read"/>
+          </roleAccess>
+          <bundlePlacements>
+            <placement code="access1">
+              <bundle>access</bundle>
+            </placement>
+            <placement code="ca_object_representations">
+              <bundle>ca_object_representations</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">collapse</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">bubbles</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="display_template">&lt;ifdef code='ca_object_representations.preferred_labels.name'&gt;^ca_object_representations.preferred_labels.name&lt;br/&gt;&lt;/ifdef&gt;&#13;
+&lt;ifdef code='ca_object_representations.original_filename'&gt;Filename: ^ca_object_representations.original_filename&lt;br/&gt;&lt;/ifdef&gt;&#13;
+^ca_object_representations.media_format ^ca_object_representations.media_filesize (^ca_object_representations.media_dimensions) </setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="prepopulateQuickaddFields">0</setting>
+                <setting name="disableSorts">1</setting>
+                <setting name="showCount">1</setting>
+                <setting name="numPerPage">10</setting>
+                <setting name="dontShowPreferredLabel"/>
+                <setting name="dontShowIdno"/>
+                <setting name="dontShowStatus"/>
+                <setting name="dontShowAccess"/>
+                <setting name="dontShowTranscribe"/>
+                <setting name="uiStyle">NEW_UI</setting>
+                <setting name="showBundlesForEditing">media</setting>
+                <setting name="showBundlesForEditing">access</setting>
+                <setting name="showBundlesForEditing">ca_object_representations.preferred_labels.name</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_physical_media3">
+              <bundle>ca_objects.physical_media</bundle>
+              <settings>
+                <setting name="add_label" locale="en_US">Add physical media type</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">dont_force</setting>
+                <setting name="expand_collapse_no_value">dont_force</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_processes_and_tec">
+              <bundle>ca_objects.processes_and_techniques</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Materials, Processes, Techniques</setting>
+                <setting name="add_label" locale="en_US">Add materials, process or technique</setting>
+                <setting name="height">125px</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">dont_force</setting>
+                <setting name="expand_collapse_no_value">dont_force</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_color_monochrome5">
+              <bundle>ca_objects.color_monochrome</bundle>
+            </placement>
+            <placement code="ca_attribute_positive_negative">
+              <bundle>ca_objects.positive_negative</bundle>
+            </placement>
+            <placement code="ca_attribute_form_factor7">
+              <bundle>ca_objects.form_factor</bundle>
+            </placement>
+            <placement code="idno">
+              <bundle>idno</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Item ID</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="usewysiwygeditor"/>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_altID4">
+              <bundle>ca_objects.altID</bundle>
+            </placement>
+            <placement code="preferred_labels">
+              <bundle>preferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Title</setting>
+                <setting name="height">100px</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="usewysiwygeditor">1</setting>
+                <setting name="use_list_format">lookup</setting>
+              </settings>
+            </placement>
+            <placement code="nonpreferred_labels">
+              <bundle>nonpreferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Alternate Title</setting>
+                <setting name="add_label" locale="en_US">Add Alternate Title</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="usewysiwygeditor"/>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_date">
+              <bundle>ca_objects.date</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_dimensions">
+              <bundle>ca_objects.dimensions</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_description">
+              <bundle>ca_attribute_description</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_collections">
+              <bundle>ca_collections</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related Projects</setting>
+                <setting name="add_label" locale="en_US">Add Project</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">list</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="display_template">&lt;l&gt;(^ca_collections.idno) ^ca_collections.preferred_labels&lt;/l&gt; ^ca_collections.description_brief </setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="prepopulateQuickaddFields">0</setting>
+                <setting name="disableSorts">0</setting>
+              </settings>
+            </placement>
+            <placement code="ca_occurrences_act">
+              <bundle>ca_occurrences</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related Actions</setting>
+                <setting name="add_label" locale="en_US">Add Action</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="restrict_to_types">action</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">list</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="display_template">   &lt;l&gt;(^ca_occurrences.idno) ^ca_occurrences.preferred_labels&lt;/l&gt; </setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="prepopulateQuickaddFields">0</setting>
+                <setting name="disableSorts">0</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_edition">
+              <bundle>ca_objects.edition</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_item_tags">
+              <bundle>ca_item_tags</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Tags</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_georeference">
+              <bundle>ca_objects.georeference</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_internal_notes">
+              <bundle>ca_objects.internal_notes</bundle>
+              <settings>
+                <setting name="height">120px</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_studio_contribute">
+              <bundle>ca_objects.studio_contributed</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_credit_line">
+              <bundle>ca_objects.credit_line</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">collapse</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_caption">
+              <bundle>ca_objects.caption</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_exhibition_notes2">
+              <bundle>ca_objects.exhibition_notes</bundle>
+            </placement>
+            <placement code="ca_attribute_insurance_value">
+              <bundle>ca_objects.insurance_value</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            
+            <placement code="ca_attribute_condition_general">
+              <bundle>ca_objects.condition_general</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_condition_report">
+              <bundle>ca_objects.condition_report</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_occurrences_exh">
+              <bundle>ca_occurrences</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related Exhibitions</setting>
+                <setting name="add_label" locale="en_US">Add Exhibition</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="restrict_to_relationship_types">exhibited</setting>
+                <setting name="restrict_to_types">exhibition</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">list</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="display_template">&lt;l&gt;(^ca_occurrences.idno) ^ca_occurrences.preferred_labels&lt;/l&gt; </setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="prepopulateQuickaddFields">0</setting>
+                <setting name="disableSorts">0</setting>
+              </settings>
+            </placement>
+            <placement code="ca_occurrences30">
+              <bundle>ca_occurrences</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related Publications</setting>
+                <setting name="add_label" locale="en_US">Add publication</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">dont_force</setting>
+                <setting name="expand_collapse_no_value">dont_force</setting>
+                <setting name="restrict_to_relationship_types">publication</setting>
+                <setting name="restrict_to_types">publication</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">bubbles</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="showCurrentUsingDate">effective_date</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="disableSorts">0</setting>
+                <setting name="showCount"/>
+                <setting name="numPerPage">10</setting>
+              </settings>
+            </placement>
+            <placement code="ca_entities">
+              <bundle>ca_entities</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related Entities</setting>
+                <setting name="add_label" locale="en_US">Add Entity</setting>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="dont_include_subtypes_in_type_restriction">0</setting>
+                <setting name="list_format">list</setting>
+                <setting name="sortDirection">ASC</setting>
+                <setting name="dontShowDeleteButton">0</setting>
+                <setting name="display_template">&lt;l&gt;(^ca_entities.idno) ^ca_entities.preferred_labels&lt;/l&gt; </setting>
+                <setting name="minRelationshipsPerRow"/>
+                <setting name="maxRelationshipsPerRow"/>
+                <setting name="showCurrentOnly">0</setting>
+                <setting name="showCurrentUsingDate">effective_date</setting>
+                <setting name="disableQuickadd">0</setting>
+                <setting name="disableSorts">0</setting>
+                <setting name="showCount"/>
+                <setting name="numPerPage">100</setting>
+              </settings>
+            </placement>
+            <placement code="ca_sets">
+              <bundle>ca_sets_checklist</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">expand</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_url">
+              <bundle>ca_objects.url</bundle>
+              <settings>
+                <setting name="readonly"/>
+                <setting name="expand_collapse_value">collapse</setting>
+                <setting name="expand_collapse_no_value">collapse</setting>
+                <setting name="sort">1</setting>
+                <setting name="sortDirection">ASC</setting>
+              </settings>
+            </placement>
+            <placement code="ca_attribute_image_management3">
+              <bundle>ca_objects.image_management</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+
+      </screens>
+    </userInterface>
+  </userInterfaces>
+  <relationshipTypes/>
+  <roles/>
+  <groups/>
+  <displays/>
+  <searchForms/>
+</profile>

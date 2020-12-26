@@ -34,11 +34,7 @@
    *
    */
 
-require_once(__CA_LIB_DIR__."/IBundleProvider.php");
-require_once(__CA_LIB_DIR__."/RepresentableBaseModel.php");
 require_once(__CA_APP_DIR__."/helpers/mediaPluginHelpers.php");
-require_once(__CA_LIB_DIR__."/HistoryTrackingCurrentValueTrait.php");
-require_once(__CA_LIB_DIR__."/DeaccessionTrait.php");
 
 
 BaseModel::$s_ca_models_definitions['ca_objects'] = array(

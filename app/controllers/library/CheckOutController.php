@@ -28,8 +28,7 @@
 
  	require_once(__CA_APP_DIR__.'/helpers/libraryServicesHelpers.php');
 	require_once(__CA_LIB_DIR__.'/Search/ObjectSearch.php');
- 		require_once(__CA_LIB_DIR__.'/ResultContext.php');
-
+ 		
  	class CheckOutController extends ActionController {
  		# -------------------------------------------------------
  		public function __construct(&$po_request, &$po_response, $pa_view_paths=null) {

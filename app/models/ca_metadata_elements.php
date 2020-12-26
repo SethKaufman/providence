@@ -34,9 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__.'/ITakesSettings.php');
-require_once(__CA_LIB_DIR__.'/LabelableBaseModelWithAttributes.php');
-require_once(__CA_LIB_DIR__."/SyncableBaseModel.php");
 
 
 BaseModel::$s_ca_models_definitions['ca_metadata_elements'] = array(

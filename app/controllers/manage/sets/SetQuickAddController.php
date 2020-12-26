@@ -26,7 +26,6 @@
  * ----------------------------------------------------------------------
  */
 
-require_once(__CA_LIB_DIR__.'/BaseQuickAddController.php');
 
 class SetQuickAddController extends BaseQuickAddController {
 	# -------------------------------------------------------

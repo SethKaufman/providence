@@ -37,8 +37,7 @@
    	if (!defined('__CA_MICROTIME_START_OF_REQUEST__')) { define("__CA_MICROTIME_START_OF_REQUEST__", microtime()); }
    	if (!defined('__CA_BASE_MEMORY_USAGE__')) { define("__CA_BASE_MEMORY_USAGE__", memory_get_usage(true)); }
    	
-   require_once(__CA_LIB_DIR__.'/Configuration.php');
-   
+      
 	class ApplicationMonitor {
 		# ------------------------------------------------------------------------------------------------
 		/**

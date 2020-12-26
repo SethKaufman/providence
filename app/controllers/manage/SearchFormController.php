@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	require_once(__CA_LIB_DIR__."/Controller/ActionController.php");
- 	require_once(__CA_LIB_DIR__."/ResultContext.php");
-		require_once(__CA_MODELS_DIR__.'/ca_bundle_display_placements.php'); 
+ 			require_once(__CA_MODELS_DIR__.'/ca_bundle_display_placements.php'); 
 	require_once(__CA_MODELS_DIR__.'/ca_bundle_displays_x_user_groups.php'); 
  	
  	class SearchFormController extends ActionController {

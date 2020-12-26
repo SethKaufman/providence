@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseRelationshipModel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_representation_annotations_x_vocabulary_terms'] = array(

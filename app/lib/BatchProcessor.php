@@ -37,13 +37,9 @@
  	require_once(__CA_APP_DIR__."/helpers/importHelpers.php");
  	require_once(__CA_APP_DIR__."/helpers/configurationHelpers.php");
  	require_once(__CA_APP_DIR__."/helpers/mailHelpers.php");
- 	 	 	 	require_once(__CA_LIB_DIR__."/Datamodel.php");
- 	require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
- 	require_once(__CA_LIB_DIR__."/ResultContext.php");
-	require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
+ 	 	 	 	 	 		require_once(__CA_LIB_DIR__."/Logging/Eventlog.php");
 	require_once(__CA_LIB_DIR__."/Logging/Batchlog.php");
-	require_once(__CA_LIB_DIR__."/SMS.php");
-	require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');
+		require_once(__CA_LIB_DIR__.'/Logging/KLogger/KLogger.php');
 
 	class BatchProcessor {
 		# ----------------------------------------

@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  	require_once(__CA_LIB_DIR__."/Controller/ActionController.php");
- 	require_once(__CA_LIB_DIR__."/ResultContext.php");
-		
+ 			
  	class BundleDisplaysController extends ActionController {
  		# -------------------------------------------------------
  		public function ListDisplays() {

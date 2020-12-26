@@ -34,7 +34,6 @@
  *
  */
 
-require_once(__CA_LIB_DIR__.'/Db.php');
 require_once(__CA_LIB_DIR__.'/Search/SearchIndexer.php');
 
 

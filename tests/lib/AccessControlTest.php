@@ -31,9 +31,6 @@
  */
  use PHPUnit\Framework\TestCase;
 
-require_once(__CA_LIB_DIR__."/Db.php");
-require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/AccessRestrictions.php");
 require_once(__CA_LIB_DIR__."/Controller/RequestDispatcher.php");
 require_once(__CA_LIB_DIR__."/Controller/Request/RequestHTTP.php");
 require_once(__CA_LIB_DIR__."/Controller/Response/ResponseHTTP.php");

@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
- 
+ 	 	 
  	class MovementEditorController extends BaseEditorController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_movements';		// name of "subject" table (what we're editing)

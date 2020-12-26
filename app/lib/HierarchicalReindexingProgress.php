@@ -36,8 +36,7 @@
   * after the web UI page has been sent to the client
   */
  
- 	require_once(__CA_LIB_DIR__.'/Datamodel.php');
- 	require_once(__CA_LIB_DIR__.'/Controller/AppController/AppControllerPlugin.php');
+ 	 	require_once(__CA_LIB_DIR__.'/Controller/AppController/AppControllerPlugin.php');
  
 	class HierarchicalReindexingProgress extends AppControllerPlugin {
 		# -------------------------------------------------------

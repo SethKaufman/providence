@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/BaseQuickAddController.php");
- 
+ 	 	 
  	class OccurrenceQuickAddController extends BaseQuickAddController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_occurrences';		// name of "subject" table (what we're editing)

@@ -27,12 +27,8 @@
  */
 
 require_once(__CA_LIB_DIR__.'/Cache/CompositeCache.php');
-require_once(__CA_LIB_DIR__.'/Configuration.php');
-require_once(__CA_LIB_DIR__.'/Datamodel.php');
-require_once(__CA_LIB_DIR__.'/Db.php');
 require_once(__CA_LIB_DIR__.'/Media/MediaVolumes.php');
 require_once(__CA_APP_DIR__.'/helpers/utilityHelpers.php');
-require_once(__CA_LIB_DIR__.'/BundlableLabelableBaseModelWithAttributes.php');
 require_once(__CA_LIB_DIR__.'/Plugins/SearchEngine/ElasticSearch.php');
 
 class Installer {
@@ -291,8 +287,7 @@ class Installer {
 	 * @return bool
 	 */
 	protected static function addLabelsFromXMLElement($t_instance,$po_labels, $pa_locales, $pb_force_preferred=false) {
-		require_once(__CA_LIB_DIR__."/LabelableBaseModelWithAttributes.php");
-
+		
 		if(!($t_instance instanceof LabelableBaseModelWithAttributes)) {
 			return false;
 		}

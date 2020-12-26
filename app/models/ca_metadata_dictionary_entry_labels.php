@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_metadata_dictionary_entry_labels'] = array(

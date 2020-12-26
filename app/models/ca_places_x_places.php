@@ -33,7 +33,6 @@
  /**
    *
    */
-require_once(__CA_LIB_DIR__.'/BaseRelationshipModel.php');
 
 
 BaseModel::$s_ca_models_definitions['ca_places_x_places'] = array(

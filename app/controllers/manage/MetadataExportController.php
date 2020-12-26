@@ -36,10 +36,6 @@
 
 require_once(__CA_APP_DIR__."/helpers/batchHelpers.php");
 require_once(__CA_APP_DIR__."/helpers/configurationHelpers.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
-require_once(__CA_LIB_DIR__."/ApplicationPluginManager.php");
-require_once(__CA_LIB_DIR__."/BatchProcessor.php");
-require_once(__CA_LIB_DIR__."/BatchMetadataExportProgress.php");
 
 
 class MetadataExportController extends ActionController {
@@ -209,8 +205,7 @@ class MetadataExportController extends ActionController {
 	 * Export single record (usually via inspector)
 	 */
 	public function ExternalExportSingle() {
-		require_once(__CA_LIB_DIR__."/ExternalExportManager.php");
-		$target = $this->request->getParameter('target', pString);
+				$target = $this->request->getParameter('target', pString);
 		$id = $this->request->getParameter('item_id', pInteger);
 		
 		if (!is_array($target_info = ExternalExportManager::getTargetInfo($target))) { 

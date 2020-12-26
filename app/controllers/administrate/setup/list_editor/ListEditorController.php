@@ -26,9 +26,6 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
- 	require_once(__CA_LIB_DIR__."/Search/ListSearch.php");
- 	
  
  	class ListEditorController extends BaseEditorController {
  		# -------------------------------------------------------

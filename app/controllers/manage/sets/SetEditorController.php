@@ -26,8 +26,7 @@
  * ----------------------------------------------------------------------
  */
 
- 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
-	require_once(__CA_LIB_DIR__.'/Parsers/ZipStream.php');
+ 	 		require_once(__CA_LIB_DIR__.'/Parsers/ZipStream.php');
 	require_once(__CA_APP_DIR__.'/helpers/exportHelpers.php');
 
  	class SetEditorController extends BaseEditorController {

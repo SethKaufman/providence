@@ -34,8 +34,7 @@
   *
   */
 
-	require_once(__CA_LIB_DIR__.'/Configuration.php');
-
+	
 	/*
 	 * Globals used by asset load manager
 	 */

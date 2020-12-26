@@ -26,10 +26,6 @@
  * ----------------------------------------------------------------------
  */
  
- 	 	require_once(__CA_LIB_DIR__."/BaseEditorController.php");
- 	require_once(__CA_LIB_DIR__."/Search/CollectionSearch.php");
- 	
- 
  	class CollectionEditorController extends BaseEditorController {
  		# -------------------------------------------------------
  		protected $ops_table_name = 'ca_collections';		// name of "subject" table (what we're editing)

@@ -28,8 +28,7 @@
  	require_once(__CA_APP_DIR__.'/helpers/mailHelpers.php');
  	require_once(__CA_APP_DIR__.'/helpers/libraryServicesHelpers.php');
  	 	 	require_once(__CA_LIB_DIR__.'/Logging/Eventlog.php');
- 	require_once(__CA_LIB_DIR__.'/Db.php');
-	
+ 		
 	class libraryServicesPlugin extends BaseApplicationPlugin {
 		# -------------------------------------------------------
 		private $opo_config;

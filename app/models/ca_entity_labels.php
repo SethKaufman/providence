@@ -34,7 +34,6 @@
    *
    */
 
-require_once(__CA_LIB_DIR__.'/BaseLabel.php');
 require_once(__CA_LIB_DIR__.'/Utils/DataMigrationUtils.php');
 
 
