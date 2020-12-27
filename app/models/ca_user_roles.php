@@ -523,6 +523,9 @@ class ca_user_roles extends BaseModel {
 	 */
 	public static function loadRoleActionList() {
 		if (!ca_user_roles::$s_action_list) {
+			if (CompositeCache::contains("userRoleActionList") && is_array(ca_user_roles::$s_action_list = CompositeCache::fetch("userRoleActionList"))) {
+				return ca_user_roles::$s_action_list;
+			}
 			$o_config = Configuration::load();
 			$o_actions_config = Configuration::load(__CA_CONF_DIR__.'/user_actions.conf');
 			
@@ -578,6 +581,7 @@ class ca_user_roles extends BaseModel {
 			
 			ca_user_roles::$s_action_list = array('raw' => $va_raw_actions, 'flattened' => $va_flattened_actions);
 		}
+		CompositeCache::save("userRoleActionList", ca_user_roles::$s_action_list);
 		return ca_user_roles::$s_action_list;
 	}
 	# ------------------------------------------------------
