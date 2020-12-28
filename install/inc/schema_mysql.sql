@@ -7279,7 +7279,7 @@ create table ca_persistent_cache (
 
 
 /*==========================================================================*/
-create table if not exists ca_ip_bans (
+create table ca_ip_bans (
    ban_id                    int unsigned                   not null AUTO_INCREMENT,
    reason                    varchar(255)                   not null,
    created_on                int unsigned                   not null,
@@ -7296,7 +7296,7 @@ create table if not exists ca_ip_bans (
 
 
 /*==========================================================================*/
-create table if not exists ca_representation_transcriptions (
+create table ca_representation_transcriptions (
    transcription_id          int unsigned                   not null AUTO_INCREMENT,
    representation_id         int unsigned                   not null references ca_object_representations(representation_id),
    transcription             longtext                       not null,
@@ -7320,7 +7320,7 @@ create table if not exists ca_representation_transcriptions (
 
 
 /*==========================================================================*/
-create table if not exists ca_media_upload_sessions (
+create table ca_media_upload_sessions (
    session_id                int unsigned                   not null AUTO_INCREMENT,
    user_id                   int unsigned                   not null references ca_users(user_id),
    session_key               char(36)                       not null,
@@ -7347,6 +7347,51 @@ create table if not exists ca_media_upload_sessions (
 
 
 /*==========================================================================*/
+create table ca_browse_references (
+    row_id int unsigned not null, 
+    value_id int unsigned not null, 
+    access tinyint unsigned not null default 0,
+    
+    primary key (row_id, value_id),
+    
+    index i_all                     (row_id, value_id, access)
+) engine=innodb CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+/*==========================================================================*/
+create table ca_browse_facets (
+	facet_id smallint unsigned not null AUTO_INCREMENT,
+	name varchar(255) not null,
+	code varchar(255) not null,
+    table_num tinyint unsigned not null,
+
+    primary key (facet_id),
+    
+    unique index u_name             (name),
+    unique index u_code             (code)
+) engine=innodb CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+/*==========================================================================*/
+create table ca_browse_values (
+    value_id int unsigned not null AUTO_INCREMENT,
+    facet_id smallint unsigned not null references ca_browse_facets(facet_id),
+    value varchar(512) not null, 
+    value_sort varchar(512) not null, 
+    item_id int unsigned null references ca_list_item(item_id), 
+    parent_id int unsigned null references ca_browse_value(value_id), 
+    
+    primary key (value_id),
+        
+    index i_facet_id                (facet_id),
+    index i_value                   (value, facet_id),
+    index i_value_sort              (value_sort, facet_id),
+    index i_item_id                 (item_id),
+    index i_parent_id               (parent_id)
+) engine=innodb CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+/*==========================================================================*/
 /* Schema update tracking                                                   */
 /*==========================================================================*/
 create table ca_schema_updates (
@@ -7357,4 +7402,4 @@ create table ca_schema_updates (
 ) engine=innodb CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 /* Indicate up to what migration this schema definition covers */
-INSERT IGNORE INTO ca_schema_updates (version_num, datetime) VALUES (166, unix_timestamp());
+INSERT IGNORE INTO ca_schema_updates (version_num, datetime) VALUES (167, unix_timestamp());
