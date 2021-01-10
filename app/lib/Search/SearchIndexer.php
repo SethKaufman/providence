@@ -2205,6 +2205,10 @@ if (!$for_current_value_reindex) {
 									$vn_private = (is_array($va_private_rel_types) && sizeof($va_private_rel_types) && in_array($vn_rel_type_id, $va_private_rel_types)) ? 1 : 0;
 									
 									$vs_key = $vn_dep_table_num.'/'.$vn_row_id.'/'.$vn_rel_table_num.'/'.$vn_fld_row_id;
+									
+									if(!self::_applyFilters($vs_rel_table, $va_table_info, $va_linking_tables_config, $va_row)) {
+										continue;
+									}
 
 									if (!isset($va_dependent_rows[$vs_key])) {
 										$va_dependent_rows[$vs_key] = array(
@@ -2946,6 +2950,62 @@ if (!$for_current_value_reindex) {
 		}
 		
 		return $filter_sql;
+	}
+	# ------------------------------------------------
+	/**
+	 * Evaluate table-level filters. Used when doing dependent/incremental indexing. 
+	 * Filters may be specified directly in a table block or in a linking table entry.
+	 *
+	 * @param string $table Table name
+	 * @param array $table_info Table configuration
+	 * @param array $linking_tables_config Config from linking tables block 
+	 * @param array $data Row data to be evaluated
+	 *
+	 * @return bool True if data passes filter, false if data fails filter
+	 */
+	private static function _applyFilters(string $table, array $table_info, ?array $linking_tables_config, array $data) {
+		if($filters = caGetOption('filter', $table_info, null)) {
+			foreach($filters as $k => $v) {
+				if(!($field_info = Datamodel::getFieldInfo($table, $k))) { continue; }
+				switch($k) {
+					case 'status':
+					case 'access':
+						$criteria = [];
+						$vals = is_array($v) ? $v : preg_split('![;,]+!', $v);
+						foreach($vals as $t) {
+							$criteria[] = (int)$t;
+						}
+						if(sizeof($criteria) > 0) {
+							if (!in_array($data[$k], $criteria)) { return false; }
+						}
+						break;
+					case 'is_preferred':
+						$value = (bool)$v ? 1 : 0;
+						$filter_criteria[] = "{$alias}.{$k} = {$value}";
+						if (isset($data[$k]) && ((int)$data[$k] !== (int)$v)) {
+							return false;
+						}
+						break;
+					case 'type_id':
+						if(!isset($data['type_id']) || is_null($data['type_id'])) { break; }
+						$type_criteria = [];
+						$types = is_array($v) ? $v : preg_split('![;,]+!', $v);
+						foreach($types as $t) {
+							if(is_numeric($t)) {
+								$type_criteria[] = (int)$t;
+							} elseif(!empty($field_info['LIST_CODE']) && ($type_id = caGetListItemID($field_info['LIST_CODE'], $t))) {
+								$type_criteria[] = $type_id;
+							}
+						}
+						if(sizeof($type_criteria) > 0) {
+							if (!in_array($data['type_id'], $type_criteria)) { return false; }
+						}
+						break;
+				}
+			}
+		}
+		
+		return true;
 	}
 	# ------------------------------------------------
 	/**
