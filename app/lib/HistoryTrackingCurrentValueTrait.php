@@ -946,7 +946,7 @@
 						$relation_id = $linking_table ? $qr_lots->get("{$linking_table}.relation_id") : $vn_lot_id;
 		
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_lot_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date))) { continue; }
 							
@@ -1043,7 +1043,7 @@
                         }
 				
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_loan_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date))) { continue; }
 							
@@ -1148,7 +1148,7 @@
 						}
 		
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_movement_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date))) { continue; }
 							
@@ -1260,7 +1260,7 @@
                         }
 				
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_occurrence_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date) || ($va_date['bounds'][1] < $vn_current_date))) { continue; }
 					
@@ -1375,7 +1375,7 @@
                         }
 				
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_entity_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date) || ($va_date['bounds'][1] < $vn_current_date))) { continue; }
 					
@@ -1483,7 +1483,7 @@
                         }
 				
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_collection_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date) || ($va_date['bounds'][1] < $vn_current_date))) { continue; }
 					
@@ -1591,7 +1591,7 @@
                         }
 				
 						foreach($va_dates as $va_date) {
-							if (!$va_date['sortable']) { continue; }
+							if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 							if (!in_array($vn_type_id, $va_object_types)) { continue; }
 							if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date) || ($va_date['bounds'][1] < $vn_current_date))) { continue; }
 					
@@ -1661,6 +1661,7 @@
 					$loc_table_num = Datamodel::getTableNum('ca_storage_locations');
 					$rel_table_num = Datamodel::getTableNum($linking_table);
 				
+					$unsortable = [];
 					while($qr_locations->nextHit()) {
 						if ((string)$qr_locations->get('ca_storage_locations.deleted') !== '0') { continue; }	// filter out deleted
 					    
@@ -1683,7 +1684,7 @@
 							);
 						}
 
-						if (!$va_date['sortable']) { continue; }
+						if (!$va_date['sortable']) { $va_date['sortable'] = 0; }
 						if (sizeof($va_location_types) && sizeof($va_location_types) && !in_array($vn_rel_type_id = $qr_locations->get("{$linking_table}.type_id"), $va_location_types)) { continue; }
 						
 						if ($pb_get_current_only && (($va_date['bounds'][0] > $vn_current_date))) { continue; }
