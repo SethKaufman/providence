@@ -478,18 +478,25 @@ abstract class Base {
 				}
 				
 				// handle many-to-ones relationships (Eg. ca_set_items.set_id => ca_sets.set_id)
+				$rel_is_not_set = false;
 				if (isset($va_many_to_one_rels[$vs_field]) && ($t_rel_item = \Datamodel::getInstanceByTableName($va_many_to_one_rels[$vs_field]['one_table'], true)) && ($t_rel_item instanceof \BundlableLabelableBaseModelWithAttributes)) {
 					$t_rel_item->setTransaction($this->getTx());
 					if($t_rel_item->loadByGUID($va_snapshot[$vs_field.'_guid'])) {
 						$this->getModelInstance()->set($vs_field, $t_rel_item->getPrimaryKey());
 						continue;
 					} else {
+						$rel_is_not_set = true;
 						if (($vs_field === 'user_id') && ($AUTH_CURRENT_USER_ID > 0)) {
 							$vm_val = $AUTH_CURRENT_USER_ID;
 						} elseif (!in_array($vs_field, ['type_id', 'locale_id', 'item_id', 'lot_id', 'home_location_id'])) {	// let auto-resolved fields fall through
 							throw new IrrelevantLogEntry(_t("%1 guid value '%2' is not defined on this system for %3: %4", $vs_field, $va_snapshot[$vs_field.'_guid'], $t_rel_item->tableName(), print_R($va_snapshot, true)));
 						}
 					}
+				}
+				
+				// Hack to deal with unreplicated storage locations => if home location doesn't exist we just skip replicating it.
+				if (($vs_field === 'home_location_id') && $rel_is_not_set) {
+					$vm_val = null;
 				}
 
 				if(($this->getModelInstance() instanceof \ca_representation_annotations) && ($vs_field == 'representation_id')) {
