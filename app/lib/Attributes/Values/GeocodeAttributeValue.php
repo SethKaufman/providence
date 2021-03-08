@@ -508,6 +508,9 @@
  		 * @return string
  		 */
  		public function htmlFormElement($pa_element_info, $pa_options=null) {
+			AssetLoadManager::register('maps');
+			AssetLoadManager::register('leaflet');
+			
  			$vs_class = trim((isset($pa_options['class']) && $pa_options['class']) ? $pa_options['class'] : '');
  			
  			if (isset($pa_options['forSearch']) && $pa_options['forSearch']) {
