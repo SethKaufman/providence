@@ -12,12 +12,14 @@ CREATE INDEX i_sorting ON ca_attribute_values(element_id, attribute_id, value_so
 /* Objects */
 drop index i_name on ca_object_labels;
 drop index i_name_sort on ca_object_labels;
+update ca_object_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_object_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_object_labels(name(255));
 create index i_name_sort on ca_object_labels(name_sort);
 create index i_key_name_sort on ca_object_labels(object_id, name_sort);
 
 /* Object representations */
+update ca_object_representation_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_object_representation_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_object_representation_id on ca_object_representation_labels(representation_id);
 create unique index u_all on ca_object_representation_labels(representation_id, name(255), type_id, locale_id);
@@ -32,6 +34,7 @@ drop index u_all on ca_occurrence_labels;
 drop index i_name on ca_occurrence_labels;
 drop index i_name_sort on ca_occurrence_labels;
 alter table ca_occurrence_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_occurrence_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_occurrence_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name_sort on ca_occurrence_labels(name_sort);
 create index i_name on ca_occurrence_labels(name(255));
@@ -48,6 +51,7 @@ drop index u_all on ca_collection_labels;
 drop index i_name on ca_collection_labels;
 drop index i_name_sort on ca_collection_labels;
 alter table ca_collection_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_collection_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_collection_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name_sort on ca_collection_labels(name_sort);
 create index i_name on ca_collection_labels(name);
@@ -64,7 +68,8 @@ create unique index u_all on ca_collection_labels
 drop index u_all on ca_place_labels;
 drop index i_name on ca_place_labels;
 drop index i_name_sort on ca_place_labels;
-alter table ca_collection_labels MODIFY COLUMN name varchar(1024) not null default '';
+alter table ca_place_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_place_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_place_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_place_labels(name(255));
 create index i_name_sort on ca_place_labels(name_sort);
@@ -82,6 +87,7 @@ drop index u_all on ca_storage_location_labels;
 drop index i_name on ca_storage_location_labels;
 drop index i_name_sort on ca_storage_location_labels;
 alter table ca_storage_location_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_storage_location_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_storage_location_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_storage_location_labels(name(25));
 create index i_name_sort on ca_storage_location_labels(name_sort);
@@ -95,6 +101,7 @@ create unique index u_all on ca_storage_location_labels
 );
 
 /* Loans */
+update ca_loan_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_loan_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 drop index i_name on ca_loan_labels;
 create index i_name on ca_loan_labels(name(255));
@@ -110,6 +117,7 @@ create unique index u_all on ca_loan_labels
 );
 
 /* Movements */
+update ca_movement_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_movement_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 drop index i_name on ca_movement_labels;
 drop index i_name_sort on ca_movement_labels;
@@ -128,6 +136,7 @@ create unique index u_all on ca_movement_labels
 drop index u_all on ca_representation_annotation_labels;
 drop index i_name on ca_representation_annotation_labels;
 drop index i_name_sort on ca_representation_annotation_labels;
+update ca_representation_annotation_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_representation_annotation_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_representation_annotation_labels(name(255));
 create index i_name_sort on ca_representation_annotation_labels(name_sort);
@@ -143,12 +152,14 @@ create unique index u_all on ca_representation_annotation_labels
 /* Object lots */
 drop index i_name on ca_object_lot_labels;
 drop index i_name_sort on ca_object_lot_labels;
+update ca_object_lot_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_object_lot_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_object_lot_labels(name(255));
 create index i_name_sort on ca_object_lot_labels(name_sort);
 create index i_key_name_sort on ca_object_lot_labels(lot_id, name_sort);
 
 /* List item labels */
+update ca_list_item_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_list_item_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 DROP INDEX i_name ON ca_list_item_labels;
 DROP INDEX i_name_sort ON ca_list_item_labels;
@@ -159,6 +170,7 @@ CREATE index i_name_singular ON ca_list_item_labels(item_id, name_singular);
 CREATE index i_name ON ca_list_item_labels(item_id, name_plural);
 
 /* Data importer labels */
+update ca_data_exporter_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_data_exporter_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 #drop index i_name on ca_data_importer_labels;
 drop index i_name_sort on ca_data_importer_labels;
@@ -167,6 +179,7 @@ create index i_name_sort on ca_data_importer_labels(name_sort);
 create index i_key_name_sort on ca_data_importer_labels(importer_id, name_sort);
 
 /* Data exporter labels */
+update ca_data_exporter_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_data_exporter_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 #drop index i_name on ca_data_exporter_labels;
 drop index i_name_sort on ca_data_exporter_labels;
@@ -175,6 +188,7 @@ create index i_name_sort on ca_data_exporter_labels(name_sort);
 create index i_key_name_sort on ca_data_exporter_labels(exporter_id, name_sort);
 
 /* Entities */
+update ca_entity_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_entity_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 drop index i_forename on ca_entity_labels;
 drop index i_surname on ca_entity_labels;
@@ -185,12 +199,14 @@ create index i_name_sort on ca_entity_labels(name_sort);
 create index i_key_name_sort on ca_entity_labels(entity_id, name_sort);
 
 /* Search form labels */
+update ca_search_form_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_search_form_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_search_form_labels(name);
 create index i_name_sort on ca_search_form_labels(name_sort);
 create index i_key_name_sort on ca_search_form_labels(form_id, name_sort);
 
 /* Bundle display labels */
+update ca_bundle_display_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_bundle_display_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_bundle_display_labels(name);
 create index i_name_sort on ca_bundle_display_labels(name_sort);
@@ -200,6 +216,7 @@ create index i_key_name_sort on ca_bundle_display_labels(display_id, name_sort);
 drop index i_name on ca_tour_labels;
 drop index i_name_sort on ca_tour_labels;
 alter table ca_tour_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_tour_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_tour_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_tour_labels(name(255));
 create index i_name_sort on ca_tour_labels(name_sort);
@@ -215,6 +232,7 @@ create unique index u_all on ca_tour_labels
 drop index i_name on ca_tour_stop_labels;
 drop index i_name_sort on ca_tour_stop_labels;
 alter table ca_tour_stop_labels MODIFY COLUMN name varchar(1024) not null default '';
+update ca_tour_stop_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_tour_stop_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_tour_stop_labels(name(255));
 create index i_name_sort on ca_tour_stop_labels(name_sort);
@@ -227,6 +245,7 @@ create unique index u_all on ca_tour_stop_labels
 );
 
 /* Metadata dictionary */
+update ca_metadata_dictionary_entry_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_metadata_dictionary_entry_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_metadata_dictionary_entry_labels(name);
 create index i_name_sort on ca_metadata_dictionary_entry_labels(name_sort);
@@ -236,6 +255,7 @@ create index i_key_name_sort on ca_metadata_dictionary_entry_labels(entry_id, na
 drop index u_all on ca_user_representation_annotation_labels;
 drop index i_name on ca_user_representation_annotation_labels;
 drop index i_name_sort on ca_user_representation_annotation_labels;
+update ca_user_representation_annotation_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_user_representation_annotation_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_user_representation_annotation_labels(name(255));
 create index i_name_sort on ca_user_representation_annotation_labels(name_sort);
@@ -249,6 +269,7 @@ create unique index u_all on ca_user_representation_annotation_labels
 );
 
 /* Metadata alert labels */
+update ca_metadata_alert_rule_labels set name_sort = substr(name_sort, 1, 255) where length(name_sort) > 255;
 alter table ca_metadata_alert_rule_labels MODIFY COLUMN name_sort varchar(255) not null default '';
 create index i_name on ca_metadata_alert_rule_labels(name);
 create index i_name_sort on ca_metadata_alert_rule_labels(name_sort);
