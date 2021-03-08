@@ -154,7 +154,7 @@ require_once(__CA_MODELS_DIR__.'/ca_list_items.php');
 			return null; 
 		}
 		
-		MemoryCache::save($vs_cache_key, $code = $t_list->getItemIDFromList($ps_list_code, $ps_idno, $pa_options), 'listCodes', $g_list_cache_size);
+		MemoryCache::save($vs_cache_key, $code = $t_list->get('list_code'), 'listCodes', $g_list_cache_size);
 		return $code;
 	}
 	# ---------------------------------------
