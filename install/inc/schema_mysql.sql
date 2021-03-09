@@ -5061,7 +5061,7 @@ create table ca_bundle_display_labels (
 
 create index i_name on ca_bundle_display_labels(name);
 create index i_name_sort on ca_bundle_display_labels(name_sort);
-create index i_key_name_sort on ca_bundle_display_labels(form_id, name_sort);
+create index i_key_name_sort on ca_bundle_display_labels(display_id, name_sort);
 
 
 /*==========================================================================*/
@@ -5184,7 +5184,6 @@ create unique index u_all on ca_tour_labels
 (
    name(255),
    locale_id,
-   type_id,
    tour_id
 );
 
@@ -5252,11 +5251,10 @@ create unique index u_locale_id on ca_tour_stop_labels(stop_id, locale_id);
 create index i_name on ca_tour_stop_labels(name(255));
 create index i_name_sort on ca_tour_stop_labels(name_sort);
 create index i_key_name_sort on ca_tour_stop_labels(stop_id, name_sort);
-create unique index u_all on ca_tour_labels
+create unique index u_all on ca_tour_stop_labels
 (
    name(255),
    locale_id,
-   type_id,
    stop_id
 );
 
@@ -6685,7 +6683,7 @@ create table ca_metadata_dictionary_entry_labels (
 
 create index i_name on ca_metadata_dictionary_entry_labels(name);
 create index i_name_sort on ca_metadata_dictionary_entry_labels(name_sort);
-create index i_key_name_sort on ca_metadata_dictionary_entry_labels(entry, name_sort);
+create index i_key_name_sort on ca_metadata_dictionary_entry_labels(name, name_sort);
 
 
 /*==========================================================================*/
@@ -7127,7 +7125,7 @@ create table ca_metadata_alert_rule_labels (
 
 create index i_name on ca_metadata_alert_rule_labels(name);
 create index i_name_sort on ca_metadata_alert_rule_labels(name_sort);
-create index i_key_name_sort on ca_metadata_alert_rule_labels(display_id, name_sort);
+create index i_key_name_sort on ca_metadata_alert_rule_labels(label_id, name_sort);
 
 /*==========================================================================*/
 
@@ -7434,7 +7432,6 @@ create table if not exists ca_media_upload_sessions (
    index i_created_on			    (created_on),
    index i_completed_on			    (completed_on),
    index i_last_activity_on			(last_activity_on),
-   index i_cancelled      	        (cancelled),
    index i_error_code      	        (error_code),
    index i_status   	            (status),
    unique index i_session_key      	(session_key)
