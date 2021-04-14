@@ -788,7 +788,6 @@
 			if (!($table_name = Datamodel::getTableName($table_name_or_num))) { return null; }
 			$o_find_navigation = Configuration::load(((defined('__CA_THEME_DIR__') && (__CA_APP_TYPE__ == 'PAWTUCKET')) ? __CA_THEME_DIR__ : __CA_APP_DIR__).'/conf/find_navigation.conf');
 			$find_nav = $o_find_navigation->getAssoc($table_name);
-			print_R($find_nav);
 			if(is_null($nav = caGetOption($find_type, $find_nav, null))) { return null; }
 			
 			return caNavUrl($request, trim($nav['module_path']), trim($nav['controller']), trim($nav['action']), []);
@@ -832,9 +831,17 @@
 			} else {
 				$vs_action = $va_nav['action'];
 			}
+			
+			$o_context = new ResultContext($po_request, $pm_table_name_or_num, $va_tmp[0], isset($va_tmp[1]) ? $va_tmp[1] : null);
+			if(is_array($tags = caGetTemplateTags($vs_action)) && sizeof($tags)) {
+				$tag_vals = [];
+				foreach($tags as $t) {
+					$tag_vals[$t] = $o_context->getParameter($t);
+				}
+				$va_nav['action'] = $vs_action = caProcessTemplate($vs_action, $tag_vals);
+			}
 			$va_params = array();
 			if (is_array($va_nav['params'])) {
-				$o_context = new ResultContext($po_request, $pm_table_name_or_num, $va_tmp[0], isset($va_tmp[1]) ? $va_tmp[1] : null);
 				foreach ($va_nav['params'] as $vs_param) {
 					if (!($vs_param = trim($vs_param))) { continue; }
 					if(!trim($va_params[$vs_param] = $po_request->getParameter($vs_param, pString))) {
@@ -890,9 +897,17 @@
 				$vs_action = $va_nav['action'];
 			}
 			
+			$o_context = new ResultContext($po_request, $pm_table_name_or_num, $va_tmp[0], isset($va_tmp[1]) ? $va_tmp[1] : null);
+			if(is_array($tags = caGetTemplateTags($vs_action)) && sizeof($tags)) {
+				$tag_vals = [];
+				foreach($tags as $t) {
+					$tag_vals[$t] = $o_context->getParameter($t);
+				}
+				$va_nav['action'] = $vs_action = caProcessTemplate($vs_action, $tag_vals);
+			}
+			
 			$va_params = array();
 			if (is_array($va_nav['params'])) {
-				$o_context = new ResultContext($po_request, $pm_table_name_or_num, $va_tmp[0], isset($va_tmp[1]) ? $va_tmp[1] : null);
 				foreach ($va_nav['params'] as $vs_param) {
 					if (!($vs_param = trim($vs_param))) { continue; }
 					if(!trim($va_params[$vs_param] = $po_request->getParameter($vs_param, pString, ['forcePurify' => true]))) {
