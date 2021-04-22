@@ -589,6 +589,7 @@
 					break;
 				# -----------------------------------------------------
 			    case 'relationship_types':
+			    case 'relationshipTypes':
 			        if (!($t_rel = Datamodel::getInstanceByTableName($va_facet_info['relationship_table'], true))) { break; }
 			        $t_rel_type = new ca_relationship_types();
 			        $info = $t_rel_type->getRelationshipInfo($va_facet_info['relationship_table']);
@@ -717,6 +718,7 @@
 				# -----------------------------------------------------
 				case 'location':
 				case 'current_value':
+				case 'currentValue':
 					$va_row_tmp = explode(":", urldecode($pn_row_id));
 					
 					$subject_table = $this->ops_browse_table_name;
@@ -1998,6 +2000,7 @@
 								# -----------------------------------------------------
 								case 'authority':
 								case 'relationship_types':  
+								case 'relationshipTypes':
 									$vs_rel_table_name = $va_facet_info['table'];
 									
 									if ($t_user && $t_user->isLoaded() && ($t_user->getBundleAccessLevel($this->ops_browse_table_name, $vs_rel_table_name) < __CA_BUNDLE_ACCESS_READONLY__)) {  break; }
@@ -2160,6 +2163,7 @@
 							# -----------------------------------------------------
 								case 'location':
 								case 'current_value':
+								case 'currentValue':
 								    if ($t_user && $t_user->isLoaded() && ($t_user->getBundleAccessLevel($this->ops_browse_table_name, 'ca_objects_location') < __CA_BUNDLE_ACCESS_READONLY__)) { return []; }
 					
 									foreach($va_row_ids as $vn_row_id) {
@@ -3032,6 +3036,7 @@
 								$va_groups[] = mb_substr($va_item[$va_label_order_by_fields[0]], 0, 1);
 								break;
 							case 'relationship_types':
+							case 'relationshipTypes':
 								foreach($va_item['rel_type_id'] as $vs_g) {
 									if (isset($va_relationship_types[$vs_g]['typename'])) {
 										$va_groups[$vs_g] = $va_relationship_types[$vs_g]['typename'];
@@ -3086,6 +3091,7 @@
 							        $va_item['content_count'] = $va_item['counts_by_type'][$vs_g];
 							        break;
 							    case 'relationship_types':
+							    case 'relationshipTypes':
 							        $va_item['content_count'] = $va_item['counts_by_rel_type'][$vs_g];
 							        break;
 							}
@@ -4262,6 +4268,7 @@
 				# -----------------------------------------------------
 				case 'location':
 				case 'current_value':
+				case 'currentValue':
 					$t_item = Datamodel::getInstanceByTableName($vs_browse_table_name, true);
 					if ($t_user && $t_user->isLoaded() && ($t_user->getBundleAccessLevel($vs_browse_table_name, 'ca_objects_location') < __CA_BUNDLE_ACCESS_READONLY__)) { return []; }
 		            if (!is_array($va_restrict_to_types = $va_facet_info['restrict_to_types'])) { $va_restrict_to_types = array(); }
@@ -6312,6 +6319,7 @@
 				# -----------------------------------------------------
 				case 'authority':
 			    case 'relationship_types':  
+			    case 'relationshipTypes':
 					$vs_rel_table_name = $va_facet_info['table'];
 					$va_params = $this->opo_ca_browse_cache->getParameters();
 					
