@@ -176,7 +176,7 @@ class RecordSelection {
 			'id' => $this->ID(),
 			'name' => $this->name(),
 			'table' => $this->tableName(),
-			'items' => array_slice($this->getItemRowIDs(), 0, 10000),	// limit to max 10000 items
+			'items' => array_slice($this->getItemRowIDs(), 0, 32768),	// cap number of items to avoid memory exhaustion
 			'types' => $this->getTypesForItems()
 		];
 	}
