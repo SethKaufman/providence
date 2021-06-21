@@ -433,7 +433,7 @@
  			}
 
  			$vn_max_length = 255;
- 			$vs_element .= caHTMLTextInput(
+ 			$vs_element = caHTMLTextInput(
 				'{fieldNamePrefix}'.$pa_element_info['element_id'].'_{n}',
 				array(
 					'id' => '{fieldNamePrefix}'.$pa_element_info['element_id'].'_{n}',

@@ -1701,7 +1701,7 @@
 			
 			foreach($sortable_elements as $element_id => $sortable_element) {
 				$va_base_fields[$ps_table.'.'.$sortable_element['element_code']] = $sortable_element['display_label'];
-				if(is_array($sortable_element['elements'])) {
+				if(isset($sortable_element['elements']) && is_array($sortable_element['elements'])) {
 					foreach($sortable_element['elements'] as $e) {
 						$va_base_fields[$ps_table.'.'.$sortable_element['element_code'].'.'.$e['element_code']] = str_repeat("&nbsp;", 5).'↳ '.$e['display_label'];
 					}	

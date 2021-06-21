@@ -641,7 +641,9 @@ class MultipartIDNumber extends IDNumber {
 				default:
 					$output[] = str_repeat(' ', $padding - mb_strlen($element_values[$i])).$element_values[$i];
 					break;
-
+			}
+			if(sizeof($element_values) > sizeof($output)) {	// add extra eleemnts as needed
+				$output += array_slice($element_values, sizeof($output)-1);
 			}
 		}
 		return join($separator, $output);
@@ -1187,7 +1189,7 @@ class MultipartIDNumber extends IDNumber {
 						$next_num = $this->getNextValue($element_name, null, true);
 						$element .= "<span id='".$id_prefix.$element_form_name."'>&lt;"._t('Will be assigned %1 when saved', $next_num)."&gt;</span>";
 					} else {
-						if ($element_info['editable']) {
+						if (isset($element_info['editable']) && $element_info['editable']) {
 							$element .= '<input type="text" name="'.$element_form_name.'" id="'.$id_prefix.$element_form_name.'" value="'.htmlspecialchars($element_value, ENT_QUOTES, 'UTF-8').'" size="'.$width.'" maxlength="'.$width.'"'.($options['readonly'] ? ' disabled="1" ' : '').'/>';
 						} else {
 							$element .= '<input type="hidden" name="'.$element_form_name.'" id="'.$id_prefix.$element_form_name.'" value="'.htmlspecialchars($element_value, ENT_QUOTES, 'UTF-8').'"/>'.$element_value;
@@ -1200,7 +1202,7 @@ class MultipartIDNumber extends IDNumber {
 				$width = $this->getElementWidth($element_info, 3);
 
 				if (!$element_value) { $element_value = $element_info['value']; }
-				if ($element_info['editable'] || $generate_for_search_form) {
+				if ((isset($element_info['editable']) && $element_info['editable']) || $generate_for_search_form) {
 					$element .= '<input type="text" name="'.$element_form_name.'" id="'.$id_prefix.$element_form_name.'" value="'.htmlspecialchars($element_value, ENT_QUOTES, 'UTF-8').'" size="'.$width.'"'.($options['readonly'] ? ' disabled="1" ' : '').'/>';
 				} else {
 					$element .= '<input type="hidden" name="'.$element_form_name.'" id="'.$id_prefix.$element_form_name.'" value="'.htmlspecialchars($element_value, ENT_QUOTES, 'UTF-8').'"/>'.$element_value;

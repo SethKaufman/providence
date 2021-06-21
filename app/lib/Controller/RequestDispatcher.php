@@ -101,6 +101,8 @@ class RequestDispatcher extends BaseObject {
 			$vs_path = $this->ops_default_action;
 		}
 		
+		$va_params = [];
+		
 		if ($vs_path[0] === '/') { $vs_path = substr($vs_path, 1); }	// trim leading forward slash...
 		$va_tmp = explode('/', $vs_path);								// break path into parts
 		
@@ -178,6 +180,8 @@ class RequestDispatcher extends BaseObject {
 	# -------------------------------------------------------
 	public function dispatch($pa_plugins) {
 		$this->setPlugins($pa_plugins);
+		
+		$va_params = [];
 		if ($this->isDispatchable()) {
 			do {
 				$vs_classname = ucfirst($this->ops_controller).'Controller';

@@ -2508,7 +2508,7 @@ class TimeExpressionParser {
 		}
 	
 		$va_times = $this->getTimes();
-		if ($va_times['start'] != null) {
+		if (isset($va_times['start'] ) && ($va_times['start'] != null)) {
 			//
 			// Time-only expression
 			//
@@ -2550,7 +2550,7 @@ class TimeExpressionParser {
 		if (!$va_dates['start']) {
 			$va_unix_dates = $this->getUnixTimestamps();
 		
-			if (($va_unix_dates['start'] != null) && ($va_unix_dates['start'] != -1)) {
+			if (isset($va_unix_dates['start']) && ($va_unix_dates['start'] != null) && ($va_unix_dates['start'] != -1)) {
 				// convert unix timestamps for historic timestamp format for evaluation
 				$va_dates = array(
 					'start' 	=> $this->unixToHistoricTimestamp($va_unix_dates['start']),
@@ -2560,8 +2560,8 @@ class TimeExpressionParser {
 		}
 		
 		// is it undated?
-		if (($va_dates['start'] === null) && ($va_dates['end'] === null)) {
-			if ($pa_options['isLifespan'] || !$pa_options['showUndated']) { return ''; }	// no "undated" for lifedates
+		if (isset($va_dates['start']) && isset($va_dates['end']) && ($va_dates['start'] === null) && ($va_dates['end'] === null)) {
+			if (($pa_options['isLifespan'] ?? false) || !($pa_options['showUndated'] ?? false)) { return ''; }	// no "undated" for lifedates
 			if (is_array($va_undated = $this->opo_language_settings->getList('undatedDate'))) {
 				return array_shift($va_undated);
 			} 
@@ -2588,10 +2588,10 @@ class TimeExpressionParser {
 			
 			$va_end_pieces = $this->getHistoricDateParts($va_dates['end']);
 				
-			if ($pa_options['start_as_iso8601']) {
+			if ($pa_options['start_as_iso8601'] ?? false) {
 				return $this->getISODateTime($va_start_pieces, 'FULL', $pa_options);
 			}
-			if ($pa_options['end_as_iso8601']) {
+			if ($pa_options['end_as_iso8601'] ?? false) {
 
 				if(caGetOption('dontReturnValueIfOnSameDayAsStart', $pa_options, false)) {
 					if(
@@ -2610,7 +2610,7 @@ class TimeExpressionParser {
 				if ((isset($pa_options['dateFormat']) && ($pa_options['dateFormat'] == 'yearOnly'))) { 
 					return $va_start_pieces['year'];
 				}
-				if ($pa_options['start_as_iso8601'] || $pa_options['end_as_iso8601']) {
+				if (($pa_options['start_as_iso8601'] ?? false) || ($pa_options['end_as_iso8601'] ?? false)) {
 					return $this->getISODateTime($va_start_pieces, 'FULL', $pa_options);
 				}
 				if ((isset($pa_options['dateFormat']) && ($pa_options['dateFormat'] == 'iso8601'))) { 
@@ -2670,7 +2670,7 @@ class TimeExpressionParser {
 				return $vs_date;
 			}
 
-			if ($pa_options['start_as_na_date']) {
+			if ($pa_options['start_as_na_date'] ?? false) {
 				$vs_date = $va_start_pieces['month'].'-'.$va_start_pieces['day'].'-'.$va_start_pieces['year'];
 				
 				if (!($va_start_pieces['hours'] == 0 && $va_start_pieces['minutes'] == 0 && $va_start_pieces['seconds'] == 0)) {
@@ -2678,7 +2678,7 @@ class TimeExpressionParser {
 				}
 				return $vs_date;
 			}
-			if ($pa_options['end_as_na_date']) {
+			if ($pa_options['end_as_na_date'] ?? false) {
 				$vs_date = $va_end_pieces['month'].'-'.$va_end_pieces['day'].'-'.$va_end_pieces['year'];
 				
 				if (!($va_end_pieces['hours'] == 23 && $va_end_pieces['minutes'] == 59 && $va_end_pieces['seconds'] == 59)) {
@@ -2706,7 +2706,7 @@ class TimeExpressionParser {
 			}
 			
 			// catch formats
-			if ($pa_options['format']) {
+			if (isset($pa_options['format']) && $pa_options['format']) {
 				$va_seen = array();
 				$vs_output = '';
 				for($vn_i=0; $vn_i < strlen($pa_options['format']); $vn_i++) {
@@ -2777,7 +2777,7 @@ class TimeExpressionParser {
 
 			// catch quarter centuries
 			if (
-				($pa_options['useQuarterCenturySyntaxForDisplay'])
+				(isset($pa_options['useQuarterCenturySyntaxForDisplay']) && $pa_options['useQuarterCenturySyntaxForDisplay'])
 				&&
 				(((int)$va_start_pieces['year'] > 0) && (!((int)$va_start_pieces['year'] % 25)))
 				&&
@@ -2884,10 +2884,10 @@ class TimeExpressionParser {
 
 			// catch 'circa' and 'probably' dates
 			$va_circa_indicators = $this->opo_language_settings->getList('dateCircaIndicator');
-			$vs_circa_indicator = ($pa_options['circaIndicator'] && in_array($pa_options['circaIndicator'], $va_circa_indicators)) ? $pa_options['circaIndicator'] : $va_circa_indicators[0];
+			$vs_circa_indicator = (isset($pa_options['circaIndicator']) && $pa_options['circaIndicator'] && in_array($pa_options['circaIndicator'], $va_circa_indicators)) ? $pa_options['circaIndicator'] : $va_circa_indicators[0];
 
             $va_probably_indicators = $this->opo_language_settings->getList('dateProbablyIndicator');
-			$vs_probably_indicator = ($pa_options['probablyIndicator'] && in_array($pa_options['probablyIndicator'], $va_probably_indicators)) ? $pa_options['probablyIndicator'] : $va_probably_indicators[0];
+			$vs_probably_indicator = (isset($pa_options['probablyIndicator']) && $pa_options['probablyIndicator'] && in_array($pa_options['probablyIndicator'], $va_probably_indicators)) ? $pa_options['probablyIndicator'] : $va_probably_indicators[0];
 
 			$vs_start_circa = $vs_end_circa = '';
 			if ($va_start_pieces['is_circa']) { $vs_start_circa = $vs_circa_indicator.' '; }
@@ -3229,7 +3229,7 @@ class TimeExpressionParser {
 		}
 	
 		$va_uncertainty_indicators = $this->opo_language_settings->getList("dateUncertaintyIndicator");
-		if ($pa_options['uncertaintyIndicator'] && in_array($pa_options['uncertaintyIndicator'], $va_uncertainty_indicators)) {
+		if (isset($pa_options['uncertaintyIndicator']) && $pa_options['uncertaintyIndicator'] && in_array($pa_options['uncertaintyIndicator'], $va_uncertainty_indicators)) {
 			$vs_uncertainty_indicator = $pa_options['uncertaintyIndicator'];
 		} else {
 			$vs_uncertainty_indicator = $va_uncertainty_indicators[0];
@@ -3243,7 +3243,7 @@ class TimeExpressionParser {
 		}
 		
 		$vs_month = null;
-		if ($pa_date_pieces['month'] > 0) {		// date with month
+		if (isset($pa_date_pieces['month']) && ($pa_date_pieces['month'] > 0)) {		// date with month
 			if (in_array((string)$pa_options['dateFormat'], ['delimited', 'ymd'], true)) {
 				$vs_month = $pa_date_pieces['month'];
 			} else {
@@ -3252,21 +3252,21 @@ class TimeExpressionParser {
 			}
 		} 	
 		$vs_day = null;
-		if ($pa_date_pieces['day'] > 0) {		// date with day
+		if (isset($pa_date_pieces['day']) && ($pa_date_pieces['day'] > 0)) {		// date with day
 			$vs_day = $pa_date_pieces['day'];
 		}	
 		
-		if ($pa_date_pieces['year']) {
+		if (isset($pa_date_pieces['year']) && $pa_date_pieces['year']) {
 			if ($pa_date_pieces['year'] < 0) {		// date with year
 				$vs_year = abs($pa_date_pieces['year']).' '.$pa_date_pieces['era'];
 			} else {
 				$vs_year = $pa_date_pieces['year'];
-				if ($pa_options['showADEra']) {
+				if (isset($pa_options['showADEra']) && $pa_options['showADEra']) {
 					$vs_year .= ' '.$pa_date_pieces['era'];
 				}
 			}
 					
-			if ($pa_date_pieces['uncertainty_units'] && $pa_date_pieces['uncertainty']) {
+			if (isset($pa_date_pieces['uncertainty_units']) && $pa_date_pieces['uncertainty_units'] && isset($pa_date_pieces['uncertainty']) && $pa_date_pieces['uncertainty']) {
 				$vs_year .= ' '.$vs_uncertainty_indicator.' '.$pa_date_pieces['uncertainty'].$pa_date_pieces['uncertainty_units'];
 			}
 		}

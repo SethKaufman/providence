@@ -780,7 +780,7 @@ $g_source_access_level_cache = array();
 	function caTranslateBundlesForAccessChecking($ps_table_name, $ps_bundle_name) {
 		
 		$va_tmp = explode(".", $ps_bundle_name);
-		if (in_array($va_tmp[1], array('hierarchy', 'parent', 'children'))) {
+		if (isset($va_tmp[1]) && in_array($va_tmp[1], array('hierarchy', 'parent', 'children'))) {
 			unset($va_tmp[1]); 
 		}
 		

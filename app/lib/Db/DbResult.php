@@ -191,10 +191,6 @@ class DbResult extends DbBase {
 			$vs_val = caEscapeForXML($vs_val);
 		}
 
-		if (get_magic_quotes_gpc() || $pa_options["stripSlashes"]) {
-			$vs_val = stripSlashes($vs_val);
-		}
-
 		return $vs_val;
 	}
 

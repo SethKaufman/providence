@@ -117,9 +117,10 @@
 				$vs_main_package = array_shift($va_pack_path);
 				
 				$vb_is_theme_specific = false;
-				if (($va_list = $va_packages[$vs_main_package])) {
+				$va_list = null;
+				if (isset($va_packages[$vs_main_package]) && ($va_list = $va_packages[$vs_main_package])) {
 					// noop
-				} elseif (($va_list = $va_theme_packages[$vs_main_package])) {
+				} elseif (isset($va_theme_packages[$vs_main_package]) && ($va_list = $va_theme_packages[$vs_main_package])) {
 					$vb_is_theme_specific = true;
 				}
 				 

@@ -557,6 +557,8 @@ class ca_editor_ui_screens extends BundlableLabelableBaseModelWithAttributes {
 			while($qr_res->nextRow()) {
 				$vs_bundle_name = $qr_res->get('bundle_name');
 				
+				if(!isset($va_available_bundles[$vs_bundle_name])) { continue; }
+				
 				$va_placements[$vn_placement_id = (int)$qr_res->get('placement_id')] = $qr_res->getRow();
 				$va_placements[$vn_placement_id]['settings'] = $va_settings = caUnserializeForDatabase($qr_res->get('settings'));
 				if (!$pb_settings_only) {

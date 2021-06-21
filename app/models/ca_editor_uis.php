@@ -346,7 +346,8 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 				}
 				$va_uis_by_type = []; 
 			} else {
-				if (!isset($va_available_uis_by_type[$vn_type_id][$va_uis_by_type[$vn_type_id]]) && !isset($va_available_uis_by_type['__all__'][$va_uis_by_type[$vn_type_id]])) {
+				$uis_for_type = isset($va_uis_by_type[$vn_type_id]) ? $va_uis_by_type[$vn_type_id] : null;
+				if ($uis_for_type && !isset($va_available_uis_by_type[$vn_type_id][$uis_for_type]) && !isset($va_available_uis_by_type['__all__'][$uis_for_type])) {
 					$vn_type_id = null;
 				}
 			}
@@ -358,7 +359,8 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 		if (!$vn_type_id && method_exists($t_instance, "getTypeFieldName") && (bool)$t_instance->getFieldInfo($t_instance->getTypeFieldName(), 'IS_NULL')) {
 			$vn_type_id = '_NONE_';
 		}
-		if (!$vn_type_id || !(is_array($va_uis_by_type) && ($vn_rc = $t_ui->load($va_uis_by_type[$vn_type_id])))) {
+		
+		if (!$vn_type_id || !(is_array($va_uis_by_type) && isset($va_uis_by_type[$vn_type_id]) && ($vn_rc = $t_ui->load($va_uis_by_type[$vn_type_id])))) {
 			$va_ui_ids = ca_editor_uis::getAvailableUIs($vn_table_num, $po_request, $vn_type_id, true);
 			
 			if (!is_array($va_ui_ids) || (sizeof($va_ui_ids) == 0)) { return ca_editor_uis::$s_default_ui_cache[$pm_table_name_or_num.'/'.$pn_type_id] = false; }
@@ -482,8 +484,10 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 		$va_ids = [];
 		while($qr_res->nextRow()) {
 		    if ($vb_ids_only) { $va_ids[] = $qr_res->get('screen_id'); continue; }
+		    $vn_screen_id = $qr_res->get('screen_id');
+		    $vn_screen_locale_id = $qr_res->get('locale_id');
 		    
-			if (!$va_screens[$vn_screen_id = $qr_res->get('screen_id')][$vn_screen_locale_id = $qr_res->get('locale_id')]) {
+			if (!isset($va_screens[$vn_screen_id][$vn_screen_locale_id]) || !$va_screens[$vn_screen_id][$vn_screen_locale_id]) {
 				$va_screens[$vn_screen_id][$vn_screen_locale_id] = $qr_res->getRow();
 				if ((bool)$va_screens[$vn_screen_id][$vn_screen_locale_id]['is_default']) {
 					$va_screens[$vn_screen_id][$vn_screen_locale_id]['isDefault'] = "◉";
@@ -523,7 +527,7 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 		foreach($va_screens as $vn_screen_id => $va_screen_labels_by_locale) {
 			if (is_array($va_screens_with_bundles) && !isset($va_screens_with_bundles[$vn_screen_id])) { unset($va_screens[$vn_screen_id]); continue; }
 			foreach($va_screen_labels_by_locale as $vn_locale_id => $va_restriction_info) {
-				if (!is_array($va_screens[$vn_screen_id][$vn_locale_id]['typeRestrictions'])) { continue; }
+				if (!isset($va_screens[$vn_screen_id][$vn_locale_id]['typeRestrictions']) || !is_array($va_screens[$vn_screen_id][$vn_locale_id]['typeRestrictions'])) { continue; }
 				$va_screens[$vn_screen_id][$vn_locale_id]['typeRestrictionsForDisplay'] = join(', ', $va_screens[$vn_screen_id][$vn_locale_id]['typeRestrictions']);
 			}
 		}
@@ -882,7 +886,7 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 		$va_nav = [];
 		$vn_default_screen_id = null;
 		foreach($va_screens as $va_screen) {
-			$va_screen_restrictions = $va_screen['typeRestrictions'];
+			$va_screen_restrictions = $va_screen['typeRestrictions'] ?? null;
 		    if(is_array($va_screen_restrictions)) { $va_screen_restrictions = caMakeTypeIDList($this->get('editor_type'), array_keys($va_screen_restrictions)); }
 			
 			if(is_array($restrict_to_types) && is_array($va_screen_restrictions) && (sizeof($va_screen_restrictions) > 0)) {
@@ -1058,11 +1062,14 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 	 */
 	public static function getAvailableUIs($pn_table_num, $po_request, $pn_type_id=null) {
 		$pn_user_id = $po_request->getUserID();
-		if (ca_editor_uis::$s_available_ui_cache[$pn_table_num.'/'.$pn_type_id.'/'.$pn_user_id]) { return ca_editor_uis::$s_available_ui_cache[$pn_table_num.'/'.$pn_type_id.'/'.$pn_user_id]; }
+		
+		$key = $pn_table_num.'/'.$pn_type_id.'/'.$pn_user_id;
+		if (isset(ca_editor_uis::$s_available_ui_cache[$key]) && ca_editor_uis::$s_available_ui_cache[$key]) { return ca_editor_uis::$s_available_ui_cache[$key]; }
 		
 		if ($pn_type_id) {
 			$va_ui_list = $po_request->user->_getUIListByType($pn_table_num);
-			if (!is_array($va_uis = $va_ui_list[$pn_type_id])) { $va_uis = []; }
+			$va_uis = $va_ui_list[$pn_type_id] ?? null;
+			if (!is_array($va_uis)) { $va_uis = []; }
 			if (is_array($va_ui_list['__all__'])) {
 				$va_uis = $va_uis + $va_ui_list['__all__'];
 			}
@@ -1070,7 +1077,7 @@ class ca_editor_uis extends BundlableLabelableBaseModelWithAttributes {
 			$va_uis = $po_request->user->_getUIList($pn_table_num);
 		}
 		
-		return ca_editor_uis::$s_available_ui_cache[$pn_table_num.'/'.$pn_type_id.'/'.$pn_user_id] = $va_uis;
+		return ca_editor_uis::$s_available_ui_cache[$key] = $va_uis;
 	}
 	# ------------------------------------------------------
 	/**

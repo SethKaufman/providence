@@ -1267,9 +1267,11 @@ class BaseEditorController extends ActionController {
 			// The "above_id" is set when the new record we're creating is to be inserted *above* an existing record (eg. made
 			// the parent of another record). It will be set to the record we're inserting above. We ignore it if set when editing
 			// an existing record since it is only relevant for newly created records.
+			$vn_above_id = $this->request->getParameter('above_id', pInteger);
+			$vn_after_id = $this->request->getParameter('after_id', pInteger);
 			if (!$vn_subject_id) {
-				$this->view->setVar('above_id', $vn_above_id = $this->request->getParameter('above_id', pInteger));
-				$this->view->setVar('after_id', $vn_after_id = $this->request->getParameter('after_id', pInteger));
+				$this->view->setVar('above_id', $vn_above_id);
+				$this->view->setVar('after_id', $vn_after_id);
 				$t_subject->set($vs_parent_id_fld, $vn_parent_id);
 
 				if ($vn_above_id > 0) { 

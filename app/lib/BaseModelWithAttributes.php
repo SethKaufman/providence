@@ -1308,7 +1308,7 @@
 		 * Field in this table that defines the type of the row; the type determines which attributes are applicable to the row
 		 */
 		public function getTypeFieldName() {
-			return $this->ATTRIBUTE_TYPE_ID_FLD;
+			return property_exists($this, 'ATTRIBUTE_TYPE_ID_FLD') ? $this->ATTRIBUTE_TYPE_ID_FLD : null;
 		}
 		# ------------------------------------------------------------------
 		/**
@@ -1427,7 +1427,7 @@
 		 * @return array List of types
 		 */ 
 		public function getTypeList($pa_options=null) {
-			$ids_only = $pa_options['idsOnly'];
+			$ids_only = $pa_options['idsOnly'] ?? false;
 			if (isset($pa_options['childrenOfCurrentTypeOnly']) && $pa_options['childrenOfCurrentTypeOnly']) {
 				$pa_options['item_id'] = $this->get('type_id');
 			}
@@ -1782,7 +1782,7 @@
 			
 			$vs_view_path = (isset($pa_options['viewPath']) && $pa_options['viewPath']) ? $pa_options['viewPath'] : $po_request->getViewsDirectoryPath();
 			$o_view = new View($po_request, "{$vs_view_path}/bundles/");
-			$o_view->setVar('graphicsPath', $pa_options['graphicsPath']);
+			$o_view->setVar('graphicsPath', $pa_options['graphicsPath'] ?? null);
 			
 			// get all elements of this element set
 			$va_element_set = $t_element->getElementsInSet();
@@ -1857,18 +1857,18 @@
 						'dontDoRefSubstitution' => true,
 						'format' => 
 							// Set format to single line when displaying yes_no checkboxes
-							(($va_element['datatype'] == 3) && ($va_element['settings']['render'] === 'yes_no_checkboxes')) ? $this->getAppConfig()->get('form_element_display_format_single_line') 
+							(($va_element['datatype'] == 3) && is_array($va_element['settings']) && ($va_element['settings']['render'] === 'yes_no_checkboxes')) ? $this->getAppConfig()->get('form_element_display_format_single_line') 
 							: null
 						
 				])));
 				
 				// If the elements datatype returns true from renderDataType, then force render the element
-				if(Attribute::renderDataType($va_element)) {
+				if(MetadataAttribute::renderDataType($va_element)) {
 					return array_pop($va_elements_by_container[$va_element['element_id']]);
 				}
 				$va_element_ids[] = $va_element['element_id'];
 				
-				$vs_setting = Attribute::getValueDefault($va_element);
+				$vs_setting = MetadataAttribute::getValueDefault($va_element);
 				if (strlen($vs_setting)) {
 					$tmp_element = ca_metadata_elements::getInstance($va_element['element_id']);
 					$va_element_value_defaults[$va_element['element_id']] = caProcessTemplate($tmp_element->getSetting($vs_setting), $user_values);
@@ -2073,7 +2073,7 @@
 				$va_elements_by_container[$va_element['parent_id'] ? $va_element['parent_id'] : $va_element['element_id']][] = $vs_form_element;
 				
 				// If the elements datatype returns true from renderDataType, then force render the element
-				if(Attribute::renderDataType($va_element)) {
+				if(MetadataAttribute::renderDataType($va_element)) {
 					return array_pop($va_elements_by_container[$va_element['element_id']]);
 				}
 				$va_element_ids[] = $va_element['element_id'];
@@ -3250,7 +3250,8 @@
  		public function getApplicableElementCodes($pn_type_id=null, $pb_include_sub_element_codes=false, $pb_dont_cache=true) {
 			if (!$pn_type_id) { $pn_type_id = null; }
  			 
-			if (!$pb_dont_cache && is_array($va_tmp = BaseModelWithAttributes::$s_applicable_element_code_cache[$this->tableNum().'/'.$pn_type_id.'/'.($pb_include_sub_element_codes ? 1 : 0)])) {
+ 			$key = $this->tableNum().'/'.$pn_type_id.'/'.($pb_include_sub_element_codes ? 1 : 0);
+			if (!$pb_dont_cache && isset(BaseModelWithAttributes::$s_applicable_element_code_cache[$key]) && is_array($va_tmp = BaseModelWithAttributes::$s_applicable_element_code_cache[$key])) {
 				return $va_tmp;
 			}
  			

@@ -52,6 +52,11 @@
 		 */
 		protected $ops_label_display_field = null;
 		
+		/**
+		 *
+		 */
+		protected $ops_filter_field = null;
+		
 		# -------------------------------------------------------
 		public function __construct($po_engine_result=null, $pa_tables=null) {
 			parent::__construct($po_engine_result, $pa_tables);

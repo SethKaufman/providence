@@ -58,7 +58,7 @@
 	}else{
 		$vs_join = " ";
 	}
-	print implode($va_counts, $vs_join).".";
+	print join($vs_join, $va_counts).".";
 ?>
 	
 </div>

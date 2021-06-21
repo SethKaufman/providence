@@ -649,7 +649,7 @@
 
 			// is metadata element
 			$vn_element_id = $t_element->getPrimaryKey();
-			if (!($vs_sortable_value_fld = Attribute::getSortFieldForDatatype($datatype))) {
+			if (!($vs_sortable_value_fld = MetadataAttribute::getSortFieldForDatatype($datatype))) {
 				return false;
 			}
 

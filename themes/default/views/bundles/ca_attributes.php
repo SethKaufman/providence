@@ -102,7 +102,7 @@
 				
 				$attr_table = method_exists($o_value, 'tableName') ? $o_value->tableName() : null;
 				
-				if ($va_failed_updates[$vn_attr_id] && !in_array($o_value->getDatatype(), array(
+				if (isset($va_failed_updates[$vn_attr_id]) && $va_failed_updates[$vn_attr_id] && !in_array($o_value->getDatatype(), array(
 					__CA_ATTRIBUTE_VALUE_LCSH__, 
 					__CA_ATTRIBUTE_VALUE_OBJECTS__,
 					__CA_ATTRIBUTE_VALUE_OBJECTLOTS__,
@@ -166,7 +166,7 @@
 	
 	// bundle settings
 	global $g_ui_locale;
-	if (!$vs_add_label = $va_settings['add_label'][$g_ui_locale]) {
+	if (!isset($va_settings['add_label'][$g_ui_locale]) || (!$vs_add_label = $va_settings['add_label'][$g_ui_locale])) {
 		$vs_add_label = _t("Add %1", $vs_element_set_label);
 	}
 	

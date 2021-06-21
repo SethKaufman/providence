@@ -431,7 +431,7 @@ trait ModelSettings {
 					}
 					$vs_return .= ($vs_locale_label ? "{$vs_locale_label}<br/>" : "").caHTMLTextInput($vs_input_name.$vs_input_name_suffix, array('size' => $va_properties["width"], 'height' => $va_properties["height"], 'value' => $vs_text_value, 'id' => $vs_input_id.$vs_input_name_suffix))."<br/>\n";	
 					
-					if($va_properties['usewysiwygeditor']) {
+					if(isset($va_properties['usewysiwygeditor']) && $va_properties['usewysiwygeditor']) {
 						AssetLoadManager::register("ckeditor");
 						
 						$config = Configuration::load();
@@ -582,12 +582,12 @@ trait ModelSettings {
 					$vs_select_element = caHTMLSelect($vs_input_name, $va_type_opts, $va_attr, $va_opts);
 				} elseif (
 					($vs_rel_table = $va_properties['useRelationshipTypeList']) || 
-					($vb_locale_list = (bool)$va_properties['useLocaleList']) || 
-					($vs_list_code = $va_properties['useList']) || 
-					($vb_show_lists = ((bool)$va_properties['showLists'] || 
-					(bool)$va_properties['showVocabularies'])) || 
-					($vb_policy_list = (bool)$va_properties['useHistoryTrackingPolicyList']) ||
-					($vb_referring_policy_list = (bool)$va_properties['useHistoryTrackingReferringPolicyList'])
+					($vb_locale_list = ((bool)$va_properties['useLocaleList']) ?? false) || 
+					($vs_list_code = ($va_properties['useList']) ?? '') || 
+					($vb_show_lists = ((bool)$va_properties['showLists'] ?? false) || 
+					((bool)$va_properties['showVocabularies']) ?? false) || 
+					($vb_policy_list = ((bool)$va_properties['useHistoryTrackingPolicyList'] ?? null)) ||
+					($vb_referring_policy_list = ((bool)$va_properties['useHistoryTrackingReferringPolicyList']) ?? false)
 				) {
 					if ($vs_rel_table) {
 						$t_rel = new ca_relationship_types();

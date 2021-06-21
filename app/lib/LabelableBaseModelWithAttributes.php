@@ -846,7 +846,7 @@
 											$vs_op = strtolower($va_subfield_value[0]);
 											$vm_value = $va_subfield_value[1];
 									
-											if (!($vs_subfld = Attribute::getSortFieldForDatatype($vn_datatype))) { $vs_subfld = 'value_longtext1'; }
+											if (!($vs_subfld = MetadataAttribute::getSortFieldForDatatype($vn_datatype))) { $vs_subfld = 'value_longtext1'; }
 							
 											if (is_null($vm_value)) {
 												if ($vs_op !== '=') { $vs_op = 'IS'; }
@@ -887,7 +887,7 @@
 										}
 										break;
 									default:
-										if (!($vs_fld = Attribute::getSortFieldForDatatype($vn_datatype))) { $vs_fld = 'value_longtext1'; }
+										if (!($vs_fld = MetadataAttribute::getSortFieldForDatatype($vn_datatype))) { $vs_fld = 'value_longtext1'; }
 								
 										if ($vn_datatype == __CA_ATTRIBUTE_VALUE_LIST__) {
 											if ($t_element = ca_metadata_elements::getInstance($vs_field)) {
@@ -1166,7 +1166,7 @@
 			// does get refer to an attribute?
 			$va_tmp = explode('.', $ps_field);
 			
-			if (($va_tmp[1] == 'hierarchy') && (sizeof($va_tmp) == 2)) {
+			if ((sizeof($va_tmp) == 2) && ($va_tmp[1] == 'hierarchy')) {
 				$va_tmp[2] = 'preferred_labels';
 				$ps_field = join('.', $va_tmp);
 			}
@@ -1174,7 +1174,11 @@
 			$t_label = $this->getLabelTableInstance();
 			
 			$t_instance = $this;
-			if ((sizeof($va_tmp) >= 3 && ($va_tmp[2] == 'preferred_labels' && (!$va_tmp[3] || $t_label->hasField($va_tmp[3])))) || ($va_tmp[1] == 'hierarchy')) {
+			if (
+				(sizeof($va_tmp) >= 3) && 
+				($va_tmp[2] == 'preferred_labels') && 
+				((!$va_tmp[3] || $t_label->hasField($va_tmp[3])) || ($va_tmp[1] == 'hierarchy'))
+			) {
 				switch($va_tmp[1]) {
 					case 'parent':
 						if (($this->isHierarchical()) && ($vn_parent_id = $this->get($this->getProperty('HIERARCHY_PARENT_ID_FLD')))) {
@@ -1815,8 +1819,10 @@
 			}
  			
  			if (!is_array($pa_options)) { $pa_options = array(); }
- 			$vs_cache_key = caMakeCacheKeyFromOptions(array_merge($pa_options, array('table_name' => $this->tableName(), 'id' => $vn_id, 'mode' => (int)$pn_mode)));
- 			if (!$pb_dont_cache && is_array($va_tmp = LabelableBaseModelWithAttributes::$s_label_cache[$this->tableName()][$vn_id][$vs_cache_key])) {
+ 			
+ 			$table = $this->tableName();
+ 			$vs_cache_key = caMakeCacheKeyFromOptions(array_merge($pa_options, array('table_name' => $table, 'id' => $vn_id, 'mode' => (int)$pn_mode)));
+ 			if (!$pb_dont_cache && isset(LabelableBaseModelWithAttributes::$s_label_cache[$table][$vn_id][$vs_cache_key]) && is_array($va_tmp = LabelableBaseModelWithAttributes::$s_label_cache[$table][$vn_id][$vs_cache_key])) {
  				return $va_tmp;
  			}
 			if (!($t_label = Datamodel::getInstanceByTableName($this->getLabelTableName(), true))) { return null; }
@@ -1922,11 +1928,12 @@
  				$va_labels = $va_flattened_labels;
  			}
  			
- 			if (is_array(LabelableBaseModelWithAttributes::$s_label_cache[$this->tableName()]) && (sizeof(LabelableBaseModelWithAttributes::$s_label_cache[$this->tableName()]) > LabelableBaseModelWithAttributes::$s_label_cache_size)) {
- 				array_splice(LabelableBaseModelWithAttributes::$s_label_cache[$this->tableName()], 0, ceil(LabelableBaseModelWithAttributes::$s_label_cache_size/2));
+ 			$table = $this->tableName();
+ 			if (isset(LabelableBaseModelWithAttributes::$s_label_cache[$table]) && is_array(LabelableBaseModelWithAttributes::$s_label_cache[$table]) && (sizeof(LabelableBaseModelWithAttributes::$s_label_cache[$table]) > LabelableBaseModelWithAttributes::$s_label_cache_size)) {
+ 				array_splice(LabelableBaseModelWithAttributes::$s_label_cache[$table], 0, ceil(LabelableBaseModelWithAttributes::$s_label_cache_size/2));
  			}
  			
- 			LabelableBaseModelWithAttributes::$s_label_cache[$this->tableName()][$vn_id][$vs_cache_key] = $va_labels;
+ 			LabelableBaseModelWithAttributes::$s_label_cache[$table][$vn_id][$vs_cache_key] = $va_labels;
  			
  			return $va_labels;
  		}
@@ -2193,7 +2200,7 @@
 			$o_view->setVar('t_subject', $this);
 			$o_view->setVar('t_label', $t_label);
 			$o_view->setVar('add_label', isset($pa_bundle_settings['add_label'][$g_ui_locale]) ? $pa_bundle_settings['add_label'][$g_ui_locale] : null);
-			$o_view->setVar('graphicsPath', $pa_options['graphicsPath']);
+			$o_view->setVar('graphicsPath', $pa_options['graphicsPath'] ?? null);
 			
 			unset($pa_bundle_settings['label']);
 			$o_view->setVar('settings', $pa_bundle_settings);
@@ -2274,7 +2281,7 @@
 			$o_view->setVar('t_subject', $this);
 			$o_view->setVar('t_label', $t_label);
 			$o_view->setVar('add_label', isset($pa_bundle_settings['add_label'][$g_ui_locale]) ? $pa_bundle_settings['add_label'][$g_ui_locale] : null);
-			$o_view->setVar('graphicsPath', $pa_options['graphicsPath']);
+			$o_view->setVar('graphicsPath', $pa_options['graphicsPath'] ?? null);
 			
 			unset($pa_bundle_settings['label']);
 			$o_view->setVar('settings', $pa_bundle_settings);
@@ -2358,6 +2365,7 @@
 		 * @return array An array of preferred labels in the current locale indexed by row_id, unless returnAllLocales is set, in which case the array includes preferred labels in all available locales and is indexed by row_id and locale_id
 		 */
 		public function getPreferredDisplayLabelsForIDs($pa_ids, $pa_options=null) {
+			if(!is_array($pa_options)) { $pa_options = []; }
 			$va_ids = array();
 			foreach($pa_ids as $vn_id) {
 				if (intval($vn_id) > 0) { $va_ids[] = intval($vn_id); }
@@ -2367,7 +2375,12 @@
 			$vb_return_all_locales = caGetOption('returnAllLocales', $pa_options, false);
 			
 			$vs_cache_key = md5($this->tableName()."/".print_r($pa_ids, true).'/'.print_R($pa_options, true));
-			if (!isset($pa_options['noCache']) && !$pa_options['noCache'] && LabelableBaseModelWithAttributes::$s_labels_by_id_cache[$vs_cache_key]) {
+			if (
+				(!isset($pa_options['noCache']) || !$pa_options['noCache']) && 
+				!is_null($vs_cache_key) && 
+				isset(LabelableBaseModelWithAttributes::$s_labels_by_id_cache[$vs_cache_key]) && 
+				LabelableBaseModelWithAttributes::$s_labels_by_id_cache[$vs_cache_key]) 
+			{
 				return LabelableBaseModelWithAttributes::$s_labels_by_id_cache[$vs_cache_key];
 			}
 			
@@ -2469,7 +2482,7 @@
 			// make sure it's in same order the ids were passed in
 			$va_sorted_labels = array();
 			foreach($va_ids as $vn_id) {
-				$va_sorted_labels[$vn_id] = is_array($va_labels[$vn_id]) ? $va_labels[$vn_id] : [];
+				$va_sorted_labels[$vn_id] = (isset($va_labels[$vn_id]) && is_array($va_labels[$vn_id])) ? $va_labels[$vn_id] : [];
 			}
 			
 			if (sizeof(LabelableBaseModelWithAttributes::$s_labels_by_id_cache) > LabelableBaseModelWithAttributes::$s_labels_by_id_cache_size) {

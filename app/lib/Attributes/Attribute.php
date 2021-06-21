@@ -67,7 +67,7 @@ define("__CA_ATTRIBUTE_VALUE_MOVEMENTS__", 28);
 define("__CA_ATTRIBUTE_VALUE_OBJECTS__", 29);
 define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  
-	class Attribute {
+	class MetadataAttribute {
  		# ------------------------------------------------------------------
  		private $opa_values;
  		private $opn_attribute_id;
@@ -122,7 +122,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 * @param array $pa_row
  		 */
  		public function addValueFromRow($pa_row) {
- 			if ($t_value = Attribute::getValueInstance($pa_row['datatype'], $pa_row)) {
+ 			if ($t_value = MetadataAttribute::getValueInstance($pa_row['datatype'], $pa_row)) {
  				$this->opa_values[] = $t_value;
 				return true;
  			}
@@ -206,17 +206,17 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 * the values are the attribute names
  		 */
  		static public function getAttributeTypes() {
- 			if (Attribute::$s_attribute_types) { return Attribute::$s_attribute_types; }
+ 			if (MetadataAttribute::$s_attribute_types) { return MetadataAttribute::$s_attribute_types; }
 			
  			$o_attribute_types = Configuration::load(__CA_CONF_DIR__.'/attribute_types.conf');
- 			return Attribute::$s_attribute_types = $o_attribute_types->getList('types');
+ 			return MetadataAttribute::$s_attribute_types = $o_attribute_types->getList('types');
  		}
  		# ------------------------------------------------------------------
  		/**
  		 *
  		 */
  		static public function renderDataType($pa_element_info,$pa_options=null) {
- 			$vs_element = Attribute::getValueInstance($pa_element_info['datatype']);
+ 			$vs_element = MetadataAttribute::getValueInstance($pa_element_info['datatype']);
  			if(method_exists($vs_element,'renderDataType')) {
  				return $vs_element->renderDataType();
  			}
@@ -227,7 +227,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 *
  		 */
  		static public function getValueDefault($pa_element_info) {
- 			$vs_element = Attribute::getValueInstance($pa_element_info['datatype']);
+ 			$vs_element = MetadataAttribute::getValueInstance($pa_element_info['datatype']);
  			return ($vs_element) ? $vs_element->getDefaultValueSetting() : null;
  		}
  		# ------------------------------------------------------------------
@@ -235,13 +235,13 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 *
  		 */
  		static public function getValueInstance($pn_datatype, $pa_value_array=null, $pb_use_cache=false) {
- 			if ($pb_use_cache && Attribute::$s_instance_cache[$pn_datatype]) {
- 				$o_attr = Attribute::$s_instance_cache[$pn_datatype];
+ 			if ($pb_use_cache && MetadataAttribute::$s_instance_cache[$pn_datatype]) {
+ 				$o_attr = MetadataAttribute::$s_instance_cache[$pn_datatype];
  				if (is_array($pa_value_array)) { $o_attr->loadValueFromRow($pa_value_array); }
  				return $o_attr;
  			}
  			
- 			$va_types = Attribute::getAttributeTypes();
+ 			$va_types = MetadataAttribute::getAttributeTypes();
  			if (isset($va_types[$pn_datatype])) {
  				// we look for a class in lib/Attributes/Values with the datatype name + 'AttributeValue'
  				$vs_classname = $va_types[$pn_datatype].'AttributeValue';
@@ -250,7 +250,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  					if (!file_exists(__CA_LIB_DIR__.'/Attributes/Values/'.$vs_classname.'.php')) { return null; }
  					include_once(__CA_LIB_DIR__.'/Attributes/Values/'.$vs_classname.'.php');
  				}
- 				return Attribute::$s_instance_cache[$pn_datatype] = new $vs_classname($pa_value_array);
+ 				return MetadataAttribute::$s_instance_cache[$pn_datatype] = new $vs_classname($pa_value_array);
  			}
  			return null;
  		}
@@ -263,7 +263,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 * @return string The ca_attribute_values field to use for sorting
  		 */
  		static public function getSortFieldForDatatype($pn_datatype) {
- 			if ($t_instance = Attribute::getValueInstance($pn_datatype, null, true)) {
+ 			if ($t_instance = MetadataAttribute::getValueInstance($pn_datatype, null, true)) {
  				return $t_instance->sortField();
  			}
  			return null;
@@ -277,7 +277,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 * @return string The setting name, or null if default values are not supported for the data type
  		 */
  		static public function getValueDefaultSettingForDatatype($pn_datatype) {
- 			if ($t_instance = Attribute::getValueInstance($pn_datatype, null, true)) {
+ 			if ($t_instance = MetadataAttribute::getValueInstance($pn_datatype, null, true)) {
  				return $t_instance->getDefaultValueSetting();
  			}
  			return null;
@@ -287,7 +287,7 @@ define("__CA_ATTRIBUTE_VALUE_OBJECTLOTS__", 30);
  		 *
  		 */
  		static public function valueHTMLFormElement($pn_datatype, $pa_element_info, $pa_options=null) {
- 			if ($o_value = Attribute::getValueInstance($pn_datatype)) {
+ 			if ($o_value = MetadataAttribute::getValueInstance($pn_datatype)) {
  				return $o_value->htmlFormElement($pa_element_info, $pa_options);	
  			}
  			return null;

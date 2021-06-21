@@ -343,7 +343,7 @@ class SearchResult extends BaseObject {
 	 *
 	 */
 	protected function getRowIDsToPrefetch($pn_start, $pn_num_rows) {
-		if ($this->opa_row_ids_to_prefetch_cache[$pn_start.'/'.$pn_num_rows]) { return $this->opa_row_ids_to_prefetch_cache[$pn_start.'/'.$pn_num_rows]; }
+		if (isset($this->opa_row_ids_to_prefetch_cache[$pn_start.'/'.$pn_num_rows]) && $this->opa_row_ids_to_prefetch_cache[$pn_start.'/'.$pn_num_rows]) { return $this->opa_row_ids_to_prefetch_cache[$pn_start.'/'.$pn_num_rows]; }
 		$va_row_ids = array();
 		
 		$vn_cur_row_index = $this->opo_engine_result->currentRow();
@@ -670,7 +670,7 @@ class SearchResult extends BaseObject {
 		if (!($t_instance = SearchResult::$s_instance_cache[$this->ops_table_name])) {
 			$t_instance = SearchResult::$s_instance_cache[$this->ops_table_name] = Datamodel::getInstanceByTableName($this->ops_table_name, true);
 		}
-		if (!($t_rel_instance = SearchResult::$s_instance_cache[$ps_tablename])) {
+		if (!isset(SearchResult::$s_instance_cache[$ps_tablename]) || !($t_rel_instance = SearchResult::$s_instance_cache[$ps_tablename])) {
 			$t_rel_instance = SearchResult::$s_instance_cache[$ps_tablename] = Datamodel::getInstanceByTableName($ps_tablename, true);
 		}
 		if (!$t_instance || !$t_rel_instance) { return; }
@@ -1018,6 +1018,7 @@ class SearchResult extends BaseObject {
 	 * 	@return mixed String or array
 	 */
 	public function get($ps_field, $pa_options=null) {
+		if(!is_array($pa_options)) { $pa_options = []; }
 		$vb_return_as_count = isset($pa_options['returnAsCount']) ? (bool)$pa_options['returnAsCount'] : false;
 		$vb_return_as_array = isset($pa_options['returnAsArray']) ? (bool)$pa_options['returnAsArray'] : false;
 		$vb_return_with_structure = isset($pa_options['returnWithStructure']) ? (bool)$pa_options['returnWithStructure'] : false;
@@ -1032,7 +1033,7 @@ class SearchResult extends BaseObject {
 		
 		$config = Configuration::load();
 		
-		if($pa_options['filterTypes'] && !is_array($pa_options['filterTypes'])) { $pa_options['filterTypes'] = preg_split('![,;]+!',$pa_options['filterTypes']); }
+		if(isset($pa_options['filterTypes']) && $pa_options['filterTypes'] && !is_array($pa_options['filterTypes'])) { $pa_options['filterTypes'] = preg_split('![,;]+!',$pa_options['filterTypes']); }
 		
 		if ($vb_return_with_structure) { $pa_options['returnAsArray'] = $vb_return_as_array = true; } // returnWithStructure implies returnAsArray
 		
@@ -1056,7 +1057,7 @@ class SearchResult extends BaseObject {
 		}
 		
 		if(!is_array($pa_options)) { $pa_options = array(); }
-		$va_filters = is_array($pa_options['filters']) ? $pa_options['filters'] : array();
+		$va_filters = (isset($pa_options['filters']) && is_array($pa_options['filters'])) ? $pa_options['filters'] : [];
 		
 		// Add table name to field specs that lack it
 		if ((strpos($ps_field, '.') === false) && (!Datamodel::tableExists($ps_field))) {
@@ -1162,7 +1163,7 @@ class SearchResult extends BaseObject {
 			}
 		}
 		
-		if (!($t_instance = SearchResult::$s_instance_cache[$va_path_components['table_name']])) {
+		if (!isset(SearchResult::$s_instance_cache[$va_path_components['table_name']]) || !($t_instance = SearchResult::$s_instance_cache[$va_path_components['table_name']])) {
 			$t_instance = SearchResult::$s_instance_cache[$va_path_components['table_name']] = Datamodel::getInstanceByTableName($va_path_components['table_name'], true);
 		}
 		if (!$t_instance) { return null; }	// Bad table
@@ -2837,36 +2838,36 @@ class SearchResult extends BaseObject {
 						continue;
 					}
 					
-					if($pa_options['toUpper'] || $pa_options['toupper']) {
+					if(isset($pa_options['toUpper']) && ($pa_options['toUpper'] || $pa_options['toupper'])) {
 						$vs_val = mb_strtoupper($vs_val);
 					}
-					if($pa_options['toLower'] || $pa_options['tolower']) {
+					if(isset($pa_options['toLower']) && ($pa_options['toLower'] || $pa_options['tolower'])) {
 						$vs_val = mb_strtolower($vs_val);
 					}
-					if($pa_options['makeFirstUpper'] || $pa_options['makefirstupper']) {
+					if(isset($pa_options['makeFirstUpper']) && ($pa_options['makeFirstUpper'] || $pa_options['makefirstupper'])) {
 						$vs_val = ucfirst($vs_val);
 					}
-					if($pa_options['stripreturns'] || $pa_options['stripreturns']) {
+					if(isset($pa_options['stripreturns']) && ($pa_options['stripreturns'] || $pa_options['stripreturns'])) {
 						$vs_val = preg_replace("![\n\r]+!", " ", $vs_val);
 					}
-					if($pa_options['striptags'] || $pa_options['striptags']) {
+					if(isset($pa_options['striptags']) && ($pa_options['striptags'] || $pa_options['striptags'])) {
 						$vs_val = strip_tags($vs_val);
 					}
-					if ($pa_options['truncate'] && ($pa_options['truncate'] > 0)) { 
+					if (isset($pa_options['truncate']) && ($pa_options['truncate'] && ($pa_options['truncate'] > 0))) { 
 						$pa_options['start'] = 0;
 						$pa_options['length'] = (int)$pa_options['truncate'];
 					}
-					$vn_start = (strlen($pa_options['start']) && is_numeric($pa_options['start'])) ? (int)$pa_options['start'] : 0;
-					$vn_length = (strlen($pa_options['length']) && ($pa_options['length'] > 0)) ? (int)$pa_options['length'] : null;
+					$vn_start = isset($pa_options['start']) && (strlen($pa_options['start']) && is_numeric($pa_options['start'])) ? (int)$pa_options['start'] : 0;
+					$vn_length = isset($pa_options['length']) && (strlen($pa_options['length']) && ($pa_options['length'] > 0)) ? (int)$pa_options['length'] : null;
 					
 					$vb_needs_ellipsis = false;
 					if(($vn_start > 0) || (!is_null($vn_length))) {
-						if ($pa_options['ellipsis'] && (strlen($vs_val) > ($vn_start + $vn_length))) {
+						if (isset($pa_options['ellipsis']) && $pa_options['ellipsis'] && (strlen($vs_val) > ($vn_start + $vn_length))) {
 							$vb_needs_ellipsis = true; $vn_length -= 3;
 						}
 						$vs_val = mb_substr($vs_val, $vn_start, $vn_length);
 					} 
-					if($pa_options['trim']) {
+					if(isset($pa_options['trim']) && $pa_options['trim']) {
 						$vs_val = trim($vs_val);
 					}
 					

@@ -1021,7 +1021,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 			if (!$vn_type_id) { $vn_type_id = null; }
 			//$va_types = array();
 			$va_types = $vn_type_id ? caMakeTypeList($this->tableName(), [$vn_type_id]) : null;
-			$this->opo_idno_plugin_instance = IDNumbering::newIDNumberer($this->tableName(), $va_types, null, $o_db);
+			$this->opo_idno_plugin_instance = IDNumbering::newIDNumberer($this->tableName(), $va_types, null);
 		} else {
 			$this->opo_idno_plugin_instance = null;
 		}
@@ -1999,6 +1999,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 			# -------------------------------------------------
 		}
 
+		$vs_documentation_link = null;
 		if ($vs_documentation_url) {
 			// catch doc URL without protocol aka starting with letters but not http/https
 			if(preg_match("!^[a-z]!",$vs_documentation_url) && !preg_match("!^http[s]?://!",$vs_documentation_url)) {
@@ -2626,7 +2627,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 		
 		$va_bundles_present = array();
 		if (is_array($va_bundles)) {
-			
+			$vs_type_id_fld = $this->getProperty('ATTRIBUTE_TYPE_ID_FLD');
 			$va_definition_bundle_names = array();
 			foreach($va_bundles as $va_bundle) {
 				if ($va_bundle['bundle_name'] === $vs_type_id_fld) { continue; }	// skip type_id
@@ -3655,7 +3656,7 @@ class BundlableLabelableBaseModelWithAttributes extends LabelableBaseModelWithAt
 
 				$vn_element_id = $vs_element->getPrimaryKey();
 				$vs_element_datatype = $vs_element->get('datatype');
-				$vs_datatype = Attribute::getValueInstance($vs_element_datatype);
+				$vs_datatype = MetadataAttribute::getValueInstance($vs_element_datatype);
 				if(method_exists($vs_datatype,'saveElement')) {
 					$reserved_elements[] = $vs_element;
 					continue;
@@ -3915,7 +3916,7 @@ if (!$vb_batch) {
 			foreach($reserved_elements as $res_element) {
 				$res_element_id = $res_element->getPrimaryKey();
 				$res_element_datatype = $res_element->get('datatype');
-				$res_datatype = Attribute::getValueInstance($res_element_datatype);
+				$res_datatype = MetadataAttribute::getValueInstance($res_element_datatype);
 				$res_datatype->saveElement($this,$res_element,$vs_form_prefix,$po_request);
 			}
 		}
@@ -6805,6 +6806,7 @@ if (!$vb_batch) {
 			as $vs_key) {
 			if(!isset($pa_options[$vs_key])) { $pa_options[$vs_key] = null; }
 		}
+		$vs_errors = '';
 		
 		if (!$this->opo_idno_plugin_instance) {
 			$this->loadIDNoPlugInInstance($pa_options);
@@ -7968,7 +7970,10 @@ side. For many self-relations the direction determines the nature and display te
 	 	$limit_to_show_as_prompt = caGetOption('limitToShowAsPrompt', $options, false);
 	 	
 	 	$bundles_on_screen = null;
-	 	if (($screen_id = caGetOption('screen_id', $options, null)) || ($placement_id = caGetOption('placement_id', $options, null))) {
+	 	$screen_id = caGetOption('screen_id', $options, null);
+	 	$placement_id = caGetOption('placement_id', $options, null);
+	 	
+	 	if ($screen_id || $placement_id) {
 	 		$t_screen = Datamodel::getInstance('ca_editor_ui_screens', true);
 	 		if (is_array($screen_placements = $t_screen->getPlacements($placement_id ? ['placement_id' => $placement_id] : ['screen_id' => $screen_id]))) {
 	 			$bundles_on_screen = array_map(function($v) { return preg_replace("!^ca_attribute_!", "", $v['bundle_name']); }, $screen_placements);

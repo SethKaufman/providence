@@ -635,7 +635,7 @@ if (!$for_current_value_reindex) {
 			$vb_started_indexing = true;
 
 			foreach($va_fields_to_index as $vs_field => $va_data) {
-				if(is_array($va_data['BOOST'])) {
+				if(isset($va_data['BOOST']) && is_array($va_data['BOOST'])) {
 					if (isset($va_data['BOOST'][$vs_subject_type_code])) {
 						$va_data['BOOST'] = $va_data['BOOST'][$vs_subject_type_code];
 					} elseif(isset($va_data['BOOST']['*'])) {

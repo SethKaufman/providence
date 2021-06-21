@@ -496,7 +496,7 @@ require_once(__CA_LIB_DIR__."/Db.php");
 								
 								if ($t_user && !$t_user->getBundleAccessLevel($t_item->tableName(), $vs_element_code)) { continue; }	// does user have access to this bundle?
 							
-								if ($o_attr_val = Attribute::getValueInstance($t_element->get('datatype'))) {
+								if ($o_attr_val = MetadataAttribute::getValueInstance($t_element->get('datatype'))) {
 									$o_attr_val->loadValueFromRow($va_log_entry['snapshot']);
 									$vs_attr_val = $o_attr_val->getDisplayValue();
 								} else {
@@ -1335,7 +1335,7 @@ require_once(__CA_LIB_DIR__."/Db.php");
 								
 								if ($t_user && !$t_user->getBundleAccessLevel($t_logged->tableName(), $vs_element_code)) { continue; }	// does user have access to this bundle?
 							
-								if ($o_attr_val = Attribute::getValueInstance($t_element->get('datatype'))) {
+								if ($o_attr_val = MetadataAttribute::getValueInstance($t_element->get('datatype'))) {
 									$o_attr_val->loadValueFromRow($va_log_entry['snapshot']);
 									$vs_attr_val = $o_attr_val->getDisplayValue();
 								} else {

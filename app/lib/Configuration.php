@@ -254,6 +254,7 @@ class Configuration {
 			// Write mtimes to cache for each component file (local, theme, stock)
 			if (is_array($mtime_keys) && sizeof($mtime_keys)) {
 				foreach($mtime_keys as $k) {
+					if(!isset(self::$s_config_cache[$k])) { continue; }
 					ExternalCache::save($k, self::$s_config_cache[$k], 'ConfigurationCache', 3600 * 3600 * 30);
 				}
 			}
@@ -281,9 +282,9 @@ class Configuration {
 		$vs_key = $vs_scalar_value = $vs_assoc_key = "";
 		$vn_in_quote = $vn_state = 0;
 		$vb_escape_set = $vb_quoted_item_is_closed = false;
-		$va_assoc_pointer_stack = array();
+		$va_assoc_pointer_stack = [];
 
-		$va_token_history = array();
+		$va_token_history = [];
 		$vn_line_num = 0;
 		$vb_merge_mode = false;
 		while (!feof($r_file)) {
@@ -300,7 +301,7 @@ class Configuration {
 			$va_token_tmp = preg_split("/([={}\[\]\",\\\]){1}/", $vs_buffer, -1, PREG_SPLIT_DELIM_CAPTURE);
 
 			// eliminate blank tokens
-			$va_tokens = array();
+			$va_tokens = [];
 			$vn_tok_count = sizeof($va_token_tmp);
 			for($vn_i = 0; $vn_i < $vn_tok_count; $vn_i++) {
 				if (strlen($va_token_tmp[$vn_i])) {
@@ -318,7 +319,7 @@ class Configuration {
 					case -1:
 						$vs_key = $vs_assoc_key = $vs_scalar_value = "";
 						$vn_in_quote = 0;
-						$va_assoc_pointer_stack = array();
+						$va_assoc_pointer_stack = [];
 
 						$vn_state = 0;
 
@@ -339,14 +340,14 @@ class Configuration {
 					case 10:
 						switch($vs_token) {
 							case '[':
-								if(!is_array($this->ops_config_settings["lists"][$vs_key]) || !$vb_merge_mode) {
-									$this->ops_config_settings["lists"][$vs_key] = array();
+								if(isset($this->ops_config_settings["lists"][$vs_key]) && !is_array($this->ops_config_settings["lists"][$vs_key]) || !$vb_merge_mode) {
+									$this->ops_config_settings["lists"][$vs_key] = [];
 								}
 								$vn_state = 30;
 								break;
 							case '{':
-								if(!is_array($this->ops_config_settings["assoc"][$vs_key]) || !$vb_merge_mode) {
-									$this->ops_config_settings["assoc"][$vs_key] = array();
+								if(!isset($this->ops_config_settings["assoc"][$vs_key]) || !is_array($this->ops_config_settings["assoc"][$vs_key]) || !$vb_merge_mode) {
+									$this->ops_config_settings["assoc"][$vs_key] = [];
 								}
 								$va_assoc_pointer_stack[] =& $this->ops_config_settings["assoc"][$vs_key];
 								$vn_state = 40;
@@ -646,8 +647,8 @@ class Configuration {
 							case '{':
 								if (!$vn_in_quote && !$vb_escape_set) {
 									$i = sizeof($va_assoc_pointer_stack) - 1;
-									if (!is_array($va_assoc_pointer_stack[$i][$vs_assoc_key]) || !$vb_merge_mode) {
-										$va_assoc_pointer_stack[$i][$vs_assoc_key] = array();
+									if (!isset($va_assoc_pointer_stack[$i][$vs_assoc_key]) || !is_array($va_assoc_pointer_stack[$i][$vs_assoc_key]) || !$vb_merge_mode) {
+										$va_assoc_pointer_stack[$i][$vs_assoc_key] = [];
 									}
 									$va_assoc_pointer_stack[] =& $va_assoc_pointer_stack[$i][$vs_assoc_key];
 									
@@ -691,8 +692,13 @@ class Configuration {
 									$vs_scalar_value .= $vs_token;
 								} else {
 									$i = sizeof($va_assoc_pointer_stack) - 1;
-									if(!is_array($va_assoc_pointer_stack[sizeof($va_assoc_pointer_stack) - 1][$vs_assoc_key]) || !$vb_merge_mode) {
-										$va_assoc_pointer_stack[$i][$vs_assoc_key] = array();
+									if(
+										!isset($va_assoc_pointer_stack[sizeof($va_assoc_pointer_stack) - 1]) || 
+										!isset($va_assoc_pointer_stack[sizeof($va_assoc_pointer_stack) - 1][$vs_assoc_key]) || 
+										!is_array($va_assoc_pointer_stack[sizeof($va_assoc_pointer_stack) - 1][$vs_assoc_key]) || 
+										!$vb_merge_mode
+									) {
+										$va_assoc_pointer_stack[$i][$vs_assoc_key] = [];
 									}
 									$va_assoc_pointer_stack[] =& $va_assoc_pointer_stack[$i][$vs_assoc_key];
 									$vn_state = 60;
@@ -843,7 +849,7 @@ class Configuration {
 	}
 	/* ---------------------------------------- */
 	private function _formatTokenHistory($pa_token_history, $pa_options=null) {
-		if (!is_array($pa_options)) { $pa_options = array(); }
+		if (!is_array($pa_options)) { $pa_options = []; }
 		$vs_output = '';
 		if (isset($pa_options['outputAsHTML']) && $pa_options['outputAsHTML']) {
 			$vs_output = "<pre>";

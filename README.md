@@ -10,7 +10,7 @@ CollectiveAccess is freely available under the open source GNU Public License ve
 
 ### About CollectiveAccess 1.8
 
-Note that this version is not yet compatible with PHP version 8. Please use versions 7.2, 7.3 or 7.4.
+Note that this is the first version compatible with PHP version 8. Please use PHP versions 7.2, 7.3 or 7.4 with older versions of CollectiveAccess.
 
 
 ### Installation

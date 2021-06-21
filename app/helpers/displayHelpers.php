@@ -3391,7 +3391,7 @@ require_once(__CA_APP_DIR__.'/helpers/searchHelpers.php');
 	function caEditorBundleMetadataDictionary($po_request, $ps_id_prefix, $pa_settings) {
 		global $g_ui_locale;
 
-		$definition = caGetOption($g_ui_locale, $pa_settings['definition'], null);
+		$definition = (isset($pa_settings['definition']) && is_array($pa_settings['definition'])) ? caGetOption($g_ui_locale, $pa_settings['definition'], null) : null;
 		if(is_array($definition)) { $definition = join ("", $definition); }
 		if (!($vs_definition = trim($definition))) { return ''; }
 

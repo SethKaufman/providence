@@ -34,6 +34,24 @@ require_once(__CA_LIB_DIR__.'/Search/Common/Parsers/LuceneSyntaxParserContext.ph
 require_once(__CA_LIB_DIR__.'/Search/Common/Parsers/LuceneSyntaxLexer.php');
 require_once(__CA_LIB_DIR__.'/Search/Common/Parsers/QueryEntry/PhraseQueryEntry.php');
 require_once(__CA_LIB_DIR__.'/Search/Common/Parsers/QueryEntry/TermQueryEntry.php');
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/QueryToken.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/FSMAction.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Boolean.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Index/Term.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Index/TermsStream/Interface.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Interface.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene.php");
+
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Wildcard.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Term.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/MultiTerm.php");
+
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Boolean.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Empty.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Insignificant.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Phrase.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/Query/Range.php");
 
 class LuceneSyntaxParser extends Zend_Search_Lucene_FSM {
 

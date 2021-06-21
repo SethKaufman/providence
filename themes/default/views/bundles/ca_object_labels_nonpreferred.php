@@ -45,7 +45,7 @@
 		$vs_bundle_preview = $t_subject->getWithTemplate($va_settings['displayTemplate']);
 	}
 	if(!$vs_bundle_preview) {
-		$vs_bundle_preview = current($va_initial_values)['name'];
+		$vs_bundle_preview = (($l = current($va_initial_values)) && is_array($l)) ? $l['name'] : null;
 	}	
 	if ($vb_batch) {
 		print caBatchEditorNonPreferredLabelsModeControl($t_label, $vs_id_prefix);

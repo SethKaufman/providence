@@ -540,7 +540,7 @@ class ca_user_roles extends BaseModel {
 						unset($va_raw_actions[$vs_group]["actions"][$vs_action_key]);
 						continue;
 					}
-					if(is_array($va_action["expand_types"]) && strlen($va_action["expand_types"]["table"])>0){
+					if(isset($va_action["expand_types"]) && is_array($va_action["expand_types"]) && strlen($va_action["expand_types"]["table"])>0){
 						$t_instance = Datamodel::getInstanceByTableName($va_action["expand_types"]["table"], true);
 						if(method_exists($t_instance, "getTypeList")){
 							$va_type_list = $t_instance->getTypeList();

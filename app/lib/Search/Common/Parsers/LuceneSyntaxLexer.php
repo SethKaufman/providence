@@ -1,5 +1,7 @@
 <?php
 
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/FSM.php");
+require_once(__CA_LIB_DIR__."/Search/Lucene/Search/Lucene/Search/QueryEntry.php");
 
 class LuceneSyntaxLexer extends Zend_Search_Lucene_FSM
 {

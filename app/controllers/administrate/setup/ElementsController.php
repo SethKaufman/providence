@@ -48,7 +48,7 @@ class ElementsController extends BaseEditorController {
 	
 		$va_elements = ca_metadata_elements::getRootElementsAsList(null, null, true, true);
 		$this->view->setVar('element_list',$va_elements);
-		$this->view->setVar('attribute_types', Attribute::getAttributeTypes());
+		$this->view->setVar('attribute_types', MetadataAttribute::getAttributeTypes());
 		
 		$o_result_context = new ResultContext($this->request, $this->ops_table_name, 'basic_search');
 		$o_result_context->setResultList(array_keys($va_elements));
