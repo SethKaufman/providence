@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------
  *
  * Software by Whirl-i-Gig (http://www.whirl-i-gig.com)
- * Copyright 2009-2020 Whirl-i-Gig
+ * Copyright 2009-2021 Whirl-i-Gig
  *
  * For more information visit http://www.CollectiveAccess.org
  *
@@ -75,6 +75,14 @@
 			'width' => 1, 'height' => 1,
 			'label' => _t('Allow duplicate values?'),
 			'description' => _t('Check this option if you want to allow duplicate values to be set when element is not in a container and is repeating.')
+		),
+		'raiseErrorOnDuplicateValue' => array(
+			'formatType' => FT_NUMBER,
+			'displayType' => DT_CHECKBOXES,
+			'default' => 0,
+			'width' => 1, 'height' => 1,
+			'label' => _t('Show error message for duplicate values?'),
+			'description' => _t('Check this option to show an error message when value is duplicate and <em>allow duplicate values</em> is not set.')
 		),
 		'canBeUsedInSort' => array(
 			'formatType' => FT_NUMBER,
@@ -151,6 +159,7 @@
 				_t('Preservation Events') => 'cs:http://id.loc.gov/vocabulary/preservationEvents',
 				_t('Preservation Level Role') => 'cs:http://id.loc.gov/vocabulary/preservationLevelRole',
 				_t('Cryptographic Hash Functions') => 'cs:http://id.loc.gov/vocabulary/cryptographicHashFunctions',
+				_t('Controlled Vocabulary for Rare Materials Cataloging') => 'cs:http://id.loc.gov/vocabulary/rbmstr',
 				_t('MARC Relators') => 'cs:http://id.loc.gov/vocabulary/relators',
 				_t('MARC Countries') => 'cs:http://id.loc.gov/vocabulary/countries',
 				_t('MARC Geographic Areas') => 'cs:http://id.loc.gov/vocabulary/geographicAreas',

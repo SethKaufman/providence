@@ -35,7 +35,6 @@
   */
   
 require_once(__CA_LIB_DIR__."/Configuration.php");
-require_once(__CA_LIB_DIR__."/Datamodel.php");
 require_once(__CA_LIB_DIR__."/Db.php");
  
  class ApplicationChangeLog {
@@ -62,8 +61,9 @@ require_once(__CA_LIB_DIR__."/Db.php");
  	/**
  	 *
  	 */
-	public function getChangeLogForRowForDisplay($t_item, $ps_css_id=null, $pn_user_id=null) {
-		return $this->_getLogDisplayOutputForRow($this->getChangeLogForRow($t_item, array('user_id' => $pn_user_id)), array('id' => $ps_css_id));
+	public function getChangeLogForRowForDisplay($t_item, $ps_css_id=null, $pn_user_id=null, $options=null) {
+		if(!is_array($options)) { $options = []; }
+		return $this->_getLogDisplayOutputForRow($this->getChangeLogForRow($t_item, array_merge($options, ['user_id' => $pn_user_id])), ['id' => $ps_css_id]);
 	}
 	# ----------------------------------------
 	/**
@@ -274,7 +274,7 @@ require_once(__CA_LIB_DIR__."/Db.php");
 	private function _getChangeLogFromRawData($pa_data, $pn_table_num, $options=null) {
 		//print "<pre>".print_r($pa_data, true)."</pre>\n";	
 		$va_log_output = array();
-		$vs_blank_placeholder = caGetBlankLabelText();
+		$vs_blank_placeholder = caGetBlankLabelText($pn_table_num);
 		$o_tep = new TimeExpressionParser();
 		
 		if (!$options) { $options = []; }

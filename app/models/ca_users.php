@@ -1621,9 +1621,11 @@ class ca_users extends BaseModel {
 					$va_uis = $this->_getUIListByType($vn_table_num);
 					
 					$va_defaults = array();
-					foreach($va_uis as $vn_type_id => $va_editor_info) {
-						foreach($va_editor_info as $vn_ui_id => $va_editor_labels) {
-							$va_defaults[$vn_type_id] = $vn_ui_id;
+					if(is_array($va_uis)) {
+						foreach($va_uis as $vn_type_id => $va_editor_info) {
+							foreach($va_editor_info as $vn_ui_id => $va_editor_labels) {
+								$va_defaults[$vn_type_id] = $vn_ui_id;
+							}
 						}
 					}
 					return $va_defaults;
@@ -1975,7 +1977,7 @@ class ca_users extends BaseModel {
 							$va_locales = array();
 							if ($r_dir = opendir(__CA_APP_DIR__.'/locale/')) {
 								while (($vs_locale_dir = readdir($r_dir)) !== false) {
-									if ($vs_locale_dir{0} == '.') { continue; }
+									if ($vs_locale_dir[0] == '.') { continue; }
 									if (sizeof($va_tmp = explode('_', $vs_locale_dir)) == 2) {
 										$va_locales[$vs_locale_dir] = $va_tmp;
 									}
@@ -2014,7 +2016,7 @@ class ca_users extends BaseModel {
 							if ($r_dir = opendir($this->_CONFIG->get('themes_directory'))) {
 								$va_opts = array();
 								while (($vs_theme_dir = readdir($r_dir)) !== false) {
-									if ($vs_theme_dir{0} == '.') { continue; }
+									if ($vs_theme_dir[0] == '.') { continue; }
 										$o_theme_info = Configuration::load($this->_CONFIG->get('themes_directory').'/'.$vs_theme_dir.'/themeInfo.conf');
 										$va_opts[$o_theme_info->get('name')] = $vs_theme_dir;
 								}
@@ -2607,9 +2609,12 @@ class ca_users extends BaseModel {
 	 */
 	public function getSavedSearches($pm_table_name_or_num, $ps_type) {
 		if (!($vn_table_num = Datamodel::getTableNum($pm_table_name_or_num))) { return false; }
-		if(!is_array($va_searches = $this->getVar('saved_searches'))) { $va_searches = array(); }
+		if(!is_array($va_searches = $this->getVar('saved_searches'))) { $va_searches = []; }
 	
-		return is_array($va_searches[$vn_table_num][strtolower($ps_type)]) ? $va_searches[$vn_table_num][strtolower($ps_type)] : array();
+		return is_array($va_searches[$vn_table_num][strtolower($ps_type)]) ? array_map(function($v) { 
+			$v['label'] = html_entity_decode($v['label']);
+			return $v;
+		}, $va_searches[$vn_table_num][strtolower($ps_type)]) : array();
 	}
 	# ----------------------------------------
 	# Utils
@@ -3379,20 +3384,30 @@ class ca_users extends BaseModel {
 		
 		// is user administrator?
 		if ($this->getPrimaryKey() == $this->_CONFIG->get('administrator_user_id')) { return ca_users::$s_user_action_access_cache[$cache_key] = true; }	// access restrictions don't apply to user with user_id = admin id
-		
+	
 		// get user roles
 		$roles = $this->getUserRoles();
 		foreach($this->getGroupRoles() as $role_id => $role_info) {
 			$roles[$role_id] = $role_info;
 		}
-		
-		$actions = ca_user_roles::getActionsForRoleIDs(array_keys($roles));
-		if (in_array('is_administrator', $actions)) { return ca_users::$s_user_action_access_cache[$cache_key] = true; }		// access restrictions don't apply to users with is_administrator role
-		$r =  ca_users::$s_user_action_access_cache[$cache_key] = in_array($action, $actions);
-		if ($throw & !$r) {
-			throw new UserActionException(caGetOption('exceptionMessage', $options, _t('Access denied')));
+	
+		$va_actions = ca_user_roles::getActionsForRoleIDs(array_keys($va_roles));
+		if(in_array('is_administrator', $va_actions)) { return ca_users::$s_user_action_access_cache[$vs_cache_key] = true; }		// access restrictions don't apply to users with is_administrator role
+
+		if(in_array($ps_action, $va_actions)) {
+			return ca_users::$s_user_action_access_cache[$vs_cache_key] = in_array($ps_action, $va_actions);
 		}
-		return $r;
+		// is default set in user_action.conf?
+		$user_actions = Configuration::load(__CA_CONF_DIR__.'/user_actions.conf');
+		if($user_actions && is_array($actions = $user_actions->getAssoc('user_actions'))) {
+			foreach($actions as $categories) {
+				if(isset($categories['actions'][$ps_action]) && isset($categories['actions'][$ps_action]['default'])) {
+					return ca_users::$s_user_action_access_cache[$vs_cache_key] = (bool)$categories['actions'][$ps_action]['default'];
+				}
+			}
+		}
+		
+		return ca_users::$s_user_action_access_cache[$vs_cache_key] = false;
 	}
 	# ----------------------------------------
 	/**

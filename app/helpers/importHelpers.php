@@ -195,7 +195,14 @@
 					$va_attributes['preferred_labels']['name'] = $va_attributes['_preferred_labels'] = $vs_name;
 					break;
 				case 'ca_entities':
-					$vn_id = DataMigrationUtils::getEntityID($va_entity_label = DataMigrationUtils::splitEntityName($vs_name, array_merge($pa_options, ['doNotParse' => $pa_item['settings']["{$ps_refinery_name}_doNotParse"]])), $vs_type, $g_ui_locale_id, $va_attributes, $pa_options);
+					// Try to match on display name alone, then parsed name
+					$va_entity_label = DataMigrationUtils::splitEntityName($vs_name, array_merge($pa_options, ['doNotParse' => $pa_item['settings']["{$ps_refinery_name}_doNotParse"]]));
+					
+					foreach([['displayname' => $vs_name], $va_entity_label] as $e) {
+						if($vn_id = DataMigrationUtils::getEntityID($e, $vs_type, $g_ui_locale_id, $va_attributes, $pa_options)) {
+							break;
+						}
+					}
 					$va_attributes['preferred_labels'] = $va_entity_label;
 					$va_attributes['_preferred_labels'] = $vs_name;
 					break;
@@ -1146,41 +1153,42 @@
 							        $vs_name = pathinfo($vs_item, PATHINFO_FILENAME);
 							    }
 							    
-								if(!isset($va_val['preferred_labels']) || !strlen($va_val['preferred_labels'])) { $va_val['preferred_labels'] = $vs_name ? $vs_name : '['.caGetBlankLabelText().']'; }
+								if(!isset($va_val['preferred_labels']) || !strlen($va_val['preferred_labels'])) { $va_val['preferred_labels'] = $vs_name ? $vs_name : '['.caGetBlankLabelText('ca_object_representations').']'; }
 					
 								if ($va_val['media']['media'] || $vs_item) {
 									// Search for files in import directory (or subdirectory of import directory specified by mediaPrefix)
 									$vs_media_dir_prefix = isset($pa_item['settings']['objectRepresentationSplitter_mediaPrefix']) ? '/'.$pa_item['settings']['objectRepresentationSplitter_mediaPrefix'] : '';
 
 									foreach(caGetAvailableMediaUploadPaths() as $d) {
-										$va_files = caBatchFindMatchingMedia( $d
-										                                      . $vs_media_dir_prefix, $vs_item, [
-											'matchMode' => caGetOption( 'objectRepresentationSplitter_matchMode',
-												$pa_item['settings'], 'FILE_NAME' ),
-											'matchType' => caGetOption( 'objectRepresentationSplitter_matchType',
-												$pa_item['settings'], null ),
-											'log'       => $o_log
-										] );
+											$va_files = caBatchFindMatchingMedia( $d
+																				  . $vs_media_dir_prefix, $vs_item, [
+												'matchMode' => caGetOption( 'objectRepresentationSplitter_matchMode',
+													$pa_item['settings'], 'FILE_NAME' ),
+												'matchType' => caGetOption( 'objectRepresentationSplitter_matchType',
+													$pa_item['settings'], null ),
+												'log'       => $o_log
+											] );
 
-									$files_added = 0;
-									foreach($va_files as $vs_file) {
-										if (preg_match("!(SynoResource|SynoEA)!", $vs_file)) { continue; } // skip Synology res files
+										$files_added = 0;
+										foreach($va_files as $vs_file) {
+											if (preg_match("!(SynoResource|SynoEA)!", $vs_file)) { continue; } // skip Synology res files
 										
-									    $va_media_val = $va_val;
-							            if(!isset($va_media_val['idno'])) { $va_media_val['idno'] = pathinfo($vs_file, PATHINFO_FILENAME); }
-							            $va_media_val['media']['media'] = $vs_file;
-							            if ($pb_dont_create) { $va_media_val['_dontCreate'] = 1; }
-							            if (isset($pa_options['nonPreferredLabels']) && is_array($pa_options['nonPreferredLabels'])) {
-                                            $va_media_val['nonpreferred_labels'] = $pa_options['nonPreferredLabels'];
-                                        }
+											$va_media_val = $va_val;
+											if(!isset($va_media_val['idno'])) { $va_media_val['idno'] = pathinfo($vs_file, PATHINFO_FILENAME); }
+											$va_media_val['media']['media'] = $vs_file;
+											if ($pb_dont_create) { $va_media_val['_dontCreate'] = 1; }
+											if (isset($pa_options['nonPreferredLabels']) && is_array($pa_options['nonPreferredLabels'])) {
+												$va_media_val['nonpreferred_labels'] = $pa_options['nonPreferredLabels'];
+											}
 
-					                    $va_media_val['_matchOn'] = $va_match_on;
-							            $va_vals[] = $va_media_val;
-							            $files_added++;
-							        }
-							        if($files_added > 0) {	// if we found matching files we're done
-							        	continue(2);
-							        }
+											$va_media_val['_matchOn'] = $va_match_on;
+											$va_vals[] = $va_media_val;
+											$files_added++;
+										}
+										if($files_added > 0) {	// if we found matching files we're done
+											continue(2);
+										}
+									}
 								}
 								if (preg_match("!^http[s]{0,1}://!", strtolower($vs_item))) {
 									// Is the media import item a URL?
@@ -1190,7 +1198,7 @@
 									$va_val['media']['media'] = $vs_batch_media_directory.'/'.$vs_item;
 								}
 								
-								// Default idno for rperesentation is the file name
+								// Default idno for representation is the file name
 								if(!isset($va_val['idno'])) { $va_val['idno'] = pathinfo($vs_item, PATHINFO_FILENAME); }
 								break;
 							default:
@@ -1274,6 +1282,29 @@ function caProcessRefineryRelatedMultiple($po_refinery_instance, &$pa_item, $pa_
 	if (is_array($va_relationships = $pa_item['settings'][$vs_relationship_settings_key])) {
 		foreach ($va_relationships as $va_relationship_settings) {
 			if ($vs_table_name = caGetOption('relatedTable', $va_relationship_settings)) {
+				if($skip_if_all_empty = caGetOption('skipIfAllEmpty', $va_relationship_settings, null, [])) {
+					if(!is_array($skip_if_all_empty)) { $skip_if_all_empty = [$skip_if_all_empty]; }
+					$skip_if_all_empty = array_map(function($v) { return preg_replace('!^\^!', '', $v); }, $skip_if_all_empty);
+					$is_empty = true;
+					foreach($skip_if_all_empty as $source) {
+						if($o_reader->get($source)) {
+							$is_empty = false;
+							break;
+						}
+					}
+					if($is_empty) { continue; }
+				}
+				if($skip_if_any_empty = caGetOption('skipIfAnyEmpty', $va_relationship_settings, null)) {
+					$skip_if_any_empty = array_map(function($v) { return preg_replace('!^\^!', '', $v); }, $skip_if_any_empty);
+					$is_empty = false;
+					foreach($skip_if_any_empty as $source) {
+						if(!$o_reader->get($source)) {
+							$is_empty = true;
+							break;
+						}
+					}
+					if($is_empty) { continue; }
+				}
 				if (is_array($va_rels = caProcessRefineryRelated($po_refinery_instance, $vs_table_name, array($va_relationship_settings), $pa_source_data, $pa_item, $pn_value_index, array_merge($pa_options, ['dontCreate' => caGetOption('dontCreate', $va_relationship_settings, false), 'list_id' => caGetOption('list', $va_relationship_settings, null)])))) {
 					$va_rel_rels = $va_rels['_related_related'];
 					unset($va_rels['_related_related']);
@@ -1560,6 +1591,20 @@ function caProcessRefineryRelatedMultiple($po_refinery_instance, &$pa_item, $pa_
 	}
 	# ---------------------------------------------------------------------
 	/**
+	 * Return list of key values to try when looking for "preferred labels" option in splitter opts.
+	 */
+	function caGetPreferredLabelNameKeyList() { 
+		return ['preferredLabels','preferred_labels', 'name'];
+	}
+	# ---------------------------------------------------------------------
+	/**
+	 * Return list of key values to try when looking for "identifier" option in splitter opts.
+	 */
+	function caGetIdnoNameKeyList() { 
+		return ['idno','idno_stub'];
+	}
+	# ---------------------------------------------------------------------
+	/**
 	 *
 	 */
 	function caValidateGoogleSheetsUrl($url) {
@@ -1573,19 +1618,5 @@ function caProcessRefineryRelatedMultiple($po_refinery_instance, &$pa_item, $pa_
 			return null;
 		}
 		return $transformed_url;
-	}
-	# ---------------------------------------------------------------------
-	/**
-	 * Return list of key values to try when looking for "preferred labels" option in splitter opts.
-	 */
-	function caGetPreferredLabelNameKeyList() { 
-		return ['preferredLabels','preferred_labels', 'name'];
-	}
-	# ---------------------------------------------------------------------
-	/**
-	 * Return list of key values to try when looking for "identifier" option in splitter opts.
-	 */
-	function caGetIdnoNameKeyList() { 
-		return ['idno','idno_stub'];
 	}
 	# ---------------------------------------------------------------------
